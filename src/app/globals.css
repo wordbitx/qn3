@@ -1,0 +1,271 @@
+/* Fonts are loaded with next/font/google in layout.tsx (Lexend Deca,
+   Noto Sans, Amiri) — no Google Fonts @import here. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Preview tokens (PREVIEW-SPEC §1). */
+:root {
+  --navy: #00338c;
+  --navy-dark: #002257;
+  --navy-ink: #0d1b33;
+  --red: #d00000;
+  --red-dark: #a80000;
+  --red-bright: #ff3b30;
+  --cream: #fff7ec;
+  --cream-2: #fdeeda;
+  --ink: #22304a;
+  --muted: #5d6b82;
+  --line: #e9e2d6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white font-sans text-ink antialiased;
+  overflow-x: hidden;
+}
+
+/* Headings use Lexend Deca, body uses Noto Sans. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-lexend), "Lexend Deca", "Noto Sans", system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+  color: var(--navy-ink);
+}
+
+/* Arabic calligraphy (Amiri) — course sidebar glyphs. */
+.arabic {
+  font-family: var(--font-amiri), "Amiri", serif;
+}
+
+::selection {
+  background: var(--navy);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(0, 51, 140, 0.55);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Header trial button: white bold text on red, always — never let nav link
+   colours override it. */
+nav.main a.btn-trial,
+a.btn-trial,
+button.btn-trial {
+  color: #fff !important;
+  font-weight: 800;
+}
+
+/* Kicker / eyebrow label — 13.5px, weight 800, .22em tracking, uppercase,
+   red (white on hero, with a 38×3px red bar before it). */
+.kicker {
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.kicker::before {
+  content: "";
+  display: inline-block;
+  width: 38px;
+  height: 3px;
+  background: var(--red);
+  vertical-align: middle;
+  margin-right: 12px;
+  border-radius: 2px;
+}
+.kicker-centered::before {
+  display: none;
+}
+
+/* ---- Marquee ----
+   Seamless -50% loop: the track holds two copies of the same content and
+   slides exactly one copy's width, so the loop has no jump. Pauses on
+   hover; fully disabled when the user prefers reduced motion. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ---- Scroll reveal ----
+   .rv starts faded and shifted down; .is-visible eases into place.
+   Reveal.tsx force-reveals everything after 1200ms so content never
+   stays hidden. Reduced-motion users see everything immediately. */
+.rv {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+.rv.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.rv-d1 {
+  transition-delay: 0.08s;
+}
+.rv-d2 {
+  transition-delay: 0.16s;
+}
+.rv-d3 {
+  transition-delay: 0.24s;
+}
+.rv-d4 {
+  transition-delay: 0.32s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rv {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---- Red gradient accordion ----
+   Open item header: red→navy gradient with white text; chevron rotates
+   180°. Closed header: white. Answer expands with a 0.45s max-height
+   animation (FaqList sets the max-height inline). */
+.accordion-head {
+  background: #fff;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.accordion-head:hover {
+  background: #fff7ec;
+}
+.accordion-item[data-open="true"] .accordion-head,
+.accordion-head.is-open {
+  background: linear-gradient(135deg, #d00000 0%, #00338c 100%);
+  color: #fff;
+}
+.accordion-head .accordion-chevron {
+  transition: transform 0.25s ease;
+}
+.accordion-item[data-open="true"] .accordion-chevron,
+.accordion-head.is-open .accordion-chevron {
+  transform: rotate(180deg);
+}
+.accordion-panel {
+  overflow: hidden;
+  transition: max-height 0.45s ease;
+}
+
+/* ---- Pricing cards ----
+   Hover lifts −10px; popular card top border turns red. Tap bounce
+   (cardTap keyframes) plays when a card body is clicked — PricingCards
+   adds .tapped briefly. */
+@keyframes cardTap {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(0.985) translateY(2px);
+  }
+  70% {
+    transform: scale(1.005) translateY(-2px);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.pricing-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 50px rgba(13, 27, 51, 0.16);
+}
+.pricing-card.tapped {
+  animation: cardTap 0.45s ease;
+}
+
+/* ---- Video play button pulsing ring ---- */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.82);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+}
+.pulse-ring {
+  animation: pulse-ring 2.4s ease-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pulse-ring {
+    animation: none;
+  }
+}
+
+/* ---- Popup modal ----
+   Backdrop fade + panel pop-in. */
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes modal-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.modal-backdrop {
+  animation: modal-fade-in 0.2s ease;
+}
+.modal-panel {
+  animation: modal-pop-in 0.25s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .modal-backdrop,
+  .modal-panel {
+    animation: none;
+  }
+}
