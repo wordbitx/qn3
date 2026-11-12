@@ -20,11 +20,11 @@ export default function ContactPage({
   return (
     <>
       <PageBanner crumb="Contact" title="Contact Us" />
-      <section className="py-[88px] max-[640px]:py-[60px]">
+      <section className="py-[96px] max-[640px]:py-[64px]">
         <div className="mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-3xl text-center">
             <p className="kicker kicker-centered">Get In Touch</p>
-            <h2 className="mt-3 font-display text-3xl font-extrabold text-navyInk sm:text-4xl">
+            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
               Book Your 3-Day FREE Trial Classes
             </h2>
             <p className="mt-3 leading-relaxed text-muted">

@@ -76,19 +76,21 @@ button.btn-trial {
   font-weight: 800;
 }
 
-/* Kicker / eyebrow label — 13.5px, weight 800, .22em tracking, uppercase,
-   red (white on hero, with a 38×3px red bar before it). */
+/* Kicker / eyebrow label — 14px, weight 800, .18em tracking, uppercase,
+   red (white on hero, with a 44×3px red bar before it). Premium polish:
+   tighter tracking + slightly larger size than before (was 13.5px/.22em)
+   so the eyebrow reads intentional, like Minha's. */
 .kicker {
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 800;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--red);
 }
 .kicker::before {
   content: "";
   display: inline-block;
-  width: 38px;
+  width: 44px;
   height: 3px;
   background: var(--red);
   vertical-align: middle;
@@ -132,15 +134,28 @@ button.btn-trial {
 }
 
 /* ---- Scroll reveal ----
-   .rv starts faded and shifted down; .is-visible eases into place.
-   Reveal.tsx force-reveals everything after 1200ms so content never
-   stays hidden. Reduced-motion users see everything immediately. */
+   .rv starts faded and shifted (down by default, or sideways with
+   .rv-from-left / .rv-from-right); .is-visible eases into place with a
+   soft springy cubic-bezier (premium polish: was plain `ease`).
+   Reveal.tsx force-reveals everything after 8000ms so content never
+   stays hidden — long enough that real scroll animations still play
+   (the old 1200ms timer revealed below-fold content before the user
+   ever scrolled to it, so the animations never showed). Reduced-motion
+   users see everything immediately.
+   .rv.is-visible wins over the direction classes by specificity, and
+   translateY(0) resets both axes, so every direction ends at rest. */
 .rv {
   opacity: 0;
   transform: translateY(34px);
   transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.rv-from-left {
+  transform: translateX(-44px);
+}
+.rv-from-right {
+  transform: translateX(44px);
 }
 .rv.is-visible {
   opacity: 1;
@@ -163,6 +178,28 @@ button.btn-trial {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+/* ---- Burger button float ----
+   Very gentle 2.8s up/down drift so the mobile menu button feels alive;
+   the morph-to-X and press scale live in Header.tsx. Disabled entirely
+   for reduced-motion users. */
+@keyframes btn-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -2px;
+  }
+}
+.burger-float {
+  animation: btn-float 2.8s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .burger-float {
+    animation: none;
   }
 }
 
@@ -275,6 +312,219 @@ button.btn-trial {
 @media (prefers-reduced-motion: reduce) {
   .modal-backdrop,
   .modal-panel {
+    animation: none;
+  }
+}
+
+/* ---- Premium buttons (premium polish round) ----
+   One shared system so every button feels designed: 12px radius,
+   layered shadows, hover lift + deeper shadow, press scale, and a
+   soft sheen that sweeps across on hover. Same red/navy colours and
+   labels as before — only the feel changes. */
+.btn-primary,
+.btn-navy,
+.btn-outline-light {
+  position: relative;
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 14px 30px;
+  font-size: 16.5px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #fff;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+.btn-primary {
+  background: var(--red);
+  box-shadow:
+    0 10px 22px rgba(208, 0, 0, 0.3),
+    0 2px 6px rgba(208, 0, 0, 0.18);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: var(--red-dark);
+  box-shadow:
+    0 16px 32px rgba(208, 0, 0, 0.34),
+    0 4px 10px rgba(208, 0, 0, 0.2);
+}
+.btn-navy {
+  background: var(--navy);
+  box-shadow:
+    0 10px 22px rgba(0, 51, 140, 0.28),
+    0 2px 6px rgba(0, 51, 140, 0.16);
+}
+.btn-navy:hover {
+  transform: translateY(-2px);
+  background: var(--navy-dark);
+  box-shadow:
+    0 16px 32px rgba(0, 51, 140, 0.32),
+    0 4px 10px rgba(0, 51, 140, 0.18);
+}
+.btn-outline-light {
+  border: 2px solid #fff;
+  background: transparent;
+}
+.btn-outline-light:hover {
+  transform: translateY(-2px);
+  background: #fff;
+  color: var(--navy-ink);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+}
+/* Navy-outline button for light backgrounds (e.g. course detail):
+   same system, navy border + navy text, fills navy on hover. */
+.btn-outline-navy {
+  border: 2px solid var(--navy);
+  background: transparent;
+  color: var(--navy);
+}
+.btn-outline-navy:hover {
+  transform: translateY(-2px);
+  background: var(--navy);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(0, 51, 140, 0.28);
+}
+.btn-primary:active,
+.btn-navy:active,
+.btn-outline-light:active {
+  transform: translateY(0) scale(0.98);
+}
+/* Sheen sweep on the solid buttons. */
+.btn-primary::after,
+.btn-navy::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.3) 50%, transparent 60%);
+  transform: translateX(-130%);
+  transition: transform 0.65s ease;
+  pointer-events: none;
+}
+.btn-primary:hover::after,
+.btn-navy:hover::after {
+  transform: translateX(130%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary,
+  .btn-navy,
+  .btn-outline-light {
+    transition: none;
+  }
+  .btn-primary::after,
+  .btn-navy::after {
+    display: none;
+  }
+}
+
+/* ---- Experience badge (5+ Years) — rise-in + count-up + ring ----
+   Like Minha's "25+ years" badge: the circle rises up with a soft
+   overshoot, the number counts up (CountUp in ExperienceBadge), and a
+   faint ring pulses around it. .is-visible is set by the component's own
+   IntersectionObserver, so the animation plays exactly when the badge
+   scrolls into view (Reveal's 8000ms force timer would fire too early
+   for below-fold badges). */
+@keyframes badge-rise {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.82);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.badge-rise {
+  opacity: 0;
+  transform: translateY(30px) scale(0.82);
+}
+.badge-rise.is-visible {
+  animation: badge-rise 0.9s cubic-bezier(0.22, 1.4, 0.36, 1) 0.15s both;
+}
+@keyframes badge-ring-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.22);
+    opacity: 0;
+  }
+}
+.badge-ring {
+  animation: badge-ring-pulse 2.6s ease-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .badge-rise {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .badge-ring {
+    animation: none;
+  }
+}
+
+/* ---- Hero entrance (plays on load) ----
+   The hero is above the fold, so Reveal (scroll-triggered) never
+   applies — these mount animations give it the same premium motion:
+   kicker → headline → text → buttons → proof row, staggered, plus a
+   slow settle-zoom on the hero photo. */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.anim-rise {
+  opacity: 0;
+  animation: hero-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.anim-d1 {
+  animation-delay: 0.05s;
+}
+.anim-d2 {
+  animation-delay: 0.15s;
+}
+.anim-d3 {
+  animation-delay: 0.25s;
+}
+.anim-d4 {
+  animation-delay: 0.35s;
+}
+.anim-d5 {
+  animation-delay: 0.45s;
+}
+.anim-d6 {
+  animation-delay: 0.55s;
+}
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.07);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.hero-zoom {
+  animation: hero-zoom 2.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .anim-rise,
+  .hero-zoom {
+    opacity: 1;
+    transform: none;
     animation: none;
   }
 }

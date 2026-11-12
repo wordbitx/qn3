@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/Reveal";
+
 /**
  * Trust marquee (PREVIEW-SPEC §3.2): centred heading + auto-scrolling
  * line of 7 items, each with a red icon + navy bold text, separated by a
@@ -34,9 +36,11 @@ function TrackChunk({ hidden = false }: { hidden?: boolean }) {
 export default function TrustBand() {
   return (
     <section className="py-12" aria-label="Trusted by families worldwide">
-      <h2 className="text-center font-display text-xl font-bold text-navyInk">
-        One-to-One Quran Learning — Trusted by Families Worldwide
-      </h2>
+      <Reveal>
+        <h2 className="text-center font-display text-xl font-bold text-navyInk">
+          One-to-One Quran Learning — Trusted by Families Worldwide
+        </h2>
+      </Reveal>
       <div className="marquee mt-6">
         <div className="marquee-track">
           <TrackChunk />

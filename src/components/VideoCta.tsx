@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import Link from "next/link";
+import { Reveal } from "@/components/Reveal";
 import { VIDEO_POSTER } from "@/lib/site";
 
 /**
@@ -57,16 +58,21 @@ export default function VideoCta() {
         className="object-cover"
       />
       <div className="absolute inset-0 bg-[rgba(0,14,40,0.78)]" aria-hidden="true" />
-      <div className="relative mx-auto max-w-7xl px-4 py-[88px] text-center max-[640px]:py-[60px]">
-        <h2 className="mx-auto max-w-[720px] font-display text-3xl font-extrabold leading-tight text-white sm:text-4xl">
-          Preparation for The Future Begins with Online Quran
-        </h2>
-        <p className="mx-auto mt-4 max-w-[600px] leading-relaxed text-white/85">
-          Tap the screen for a quiet moment with the Holy Quran — then start with 3 absolutely
-          FREE trial classes. Experience a live one-to-one lesson, meet the teacher, and then
-          decide — with no obligation at all.
-        </p>
+      <div className="relative mx-auto max-w-7xl px-4 py-[96px] text-center max-[640px]:py-[64px]">
+        <Reveal>
+          <h2 className="mx-auto max-w-[720px] font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-white sm:text-[44px]">
+            Preparation for The Future Begins with Online Quran
+          </h2>
+        </Reveal>
+        <Reveal delay={1}>
+          <p className="mx-auto mt-4 max-w-[600px] leading-relaxed text-white/85">
+            Tap the screen for a quiet moment with the Holy Quran — then start with 3 absolutely
+            FREE trial classes. Experience a live one-to-one lesson, meet the teacher, and then
+            decide — with no obligation at all.
+          </p>
+        </Reveal>
 
+        <Reveal delay={2}>
         <div
           className="group relative mx-auto mt-10 max-w-[600px] cursor-pointer overflow-hidden rounded-[18px] border-4 border-white shadow-cardLg"
           role="button"
@@ -102,13 +108,16 @@ export default function VideoCta() {
             </span>
           </span>
         </div>
+        </Reveal>
 
-        <Link
-          href="/contact"
-          className="mt-10 inline-flex min-h-[50px] items-center rounded-[9px] bg-brandRed px-[30px] py-[14px] text-[16.5px] font-extrabold text-white shadow-[0_12px_24px_rgba(208,0,0,0.28)] transition hover:-translate-y-0.5 hover:bg-redDark"
-        >
-          Discover More
-        </Link>
+        <Reveal delay={3}>
+          <Link
+            href="/contact"
+            className="mt-10 btn-primary"
+          >
+            Discover More
+          </Link>
+        </Reveal>
       </div>
 
       {mounted && open

@@ -66,24 +66,28 @@ export default function HomePage() {
       <TrustBand />
 
       {/* About preview */}
-      <section className="py-[88px] max-[640px]:py-[60px]">
+      <section className="py-[96px] max-[640px]:py-[64px]">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-2">
           <Reveal>
             <div className="relative">
               {/* Stylish 3-image collage (photo round 2): tall girl-reading
                   photo left, dua + teacher-with-girl stacked right. Same copy,
-                  same "14 Online Courses" overlay card as before. */}
-              <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
-                <div className="relative col-span-2 h-[320px] overflow-hidden rounded-[20px] shadow-card lg:col-span-3 lg:row-span-2 lg:h-[490px]">
+                  same "14 Online Courses" overlay card as before.
+                  Mobile-fix round: on phones the 3-image grid cut the Quran
+                  in half at the bottom, so mobile shows ONE strong image
+                  (taller, face + Quran in frame); the two small photos
+                  appear only on desktop. */}
+              <div className="grid gap-4 lg:grid-cols-5">
+                <div className="relative h-[420px] overflow-hidden rounded-[20px] shadow-card lg:col-span-3 lg:row-span-2 lg:h-[490px]">
                   <Image
                     src={COLLAGE_GIRL_PHOTO}
                     alt="A young girl in a rust-orange hijab reading the Holy Quran in a mosque in Türkiye"
                     fill
                     sizes="(max-width: 1080px) 100vw, 50vw"
-                    className="object-cover object-[center_60%] transition duration-500 hover:scale-[1.04]"
+                    className="object-cover object-[center_45%] transition duration-500 hover:scale-[1.04]"
                   />
                 </div>
-                <div className="relative h-[180px] overflow-hidden rounded-[20px] shadow-card lg:col-span-2 lg:h-[237px]">
+                <div className="relative hidden overflow-hidden rounded-[20px] shadow-card lg:col-span-2 lg:block lg:h-[237px]">
                   <Image
                     src={COLLAGE_DUA_PHOTO}
                     alt="A young girl with hands raised in dua, holding a tasbih beside an open Quran"
@@ -92,7 +96,7 @@ export default function HomePage() {
                     className="object-cover object-[center_40%]"
                   />
                 </div>
-                <div className="relative h-[180px] overflow-hidden rounded-[20px] shadow-card lg:col-span-2 lg:h-[237px]">
+                <div className="relative hidden overflow-hidden rounded-[20px] shadow-card lg:col-span-2 lg:block lg:h-[237px]">
                   <Image
                     src={COLLAGE_WOMAN_PHOTO}
                     alt="A female teacher guiding a young girl reading the Holy Quran in a mosque"
@@ -102,8 +106,8 @@ export default function HomePage() {
                   />
                 </div>
               </div>
-              <div className="absolute bottom-6 left-6 max-w-[252px] rounded-2xl bg-navyDark p-5 text-white shadow-cardLg max-[640px]:max-w-[200px]">
-                <p className="font-display text-[25px] font-bold leading-tight">
+              <div className="absolute bottom-6 left-6 max-w-[252px] rounded-2xl bg-navyDark p-5 text-white shadow-cardLg max-[640px]:max-w-[190px] max-[640px]:p-4">
+                <p className="font-display text-[25px] font-bold leading-tight max-[640px]:text-[21px]">
                   14 <span className="text-redBright">Online</span> Courses
                 </p>
                 <p className="mt-1.5 text-sm leading-relaxed text-white/85">
@@ -116,7 +120,7 @@ export default function HomePage() {
           <Reveal>
             <div>
               <p className="kicker">About Us</p>
-              <h2 className="mt-3 font-display text-3xl font-extrabold leading-tight text-navyInk sm:text-4xl">
+              <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
                 Quality Islamic &amp; Quranic Education for Everyone
               </h2>
               <p className="mt-4 leading-relaxed text-muted">
@@ -135,7 +139,7 @@ export default function HomePage() {
               </ul>
               <Link
                 href="/about"
-                className="mt-8 inline-flex min-h-[50px] items-center rounded-[9px] bg-brandRed px-[30px] py-[14px] text-[16.5px] font-extrabold text-white shadow-[0_12px_24px_rgba(208,0,0,0.28)] transition hover:-translate-y-0.5 hover:bg-redDark"
+                className="mt-8 btn-primary"
               >
                 Discover More
               </Link>
@@ -149,13 +153,13 @@ export default function HomePage() {
       <Banner />
 
       {/* Featured courses — first 6 only */}
-      <section className="py-[88px] max-[640px]:py-[60px]">
+      <section className="py-[96px] max-[640px]:py-[64px]">
         <div className="mx-auto max-w-7xl px-4">
           <Reveal>
             <div className="grid items-end gap-6 lg:grid-cols-2">
               <div>
                 <p className="kicker">Featured Quran Courses</p>
-                <h2 className="mt-3 font-display text-3xl font-extrabold leading-tight text-navyInk sm:text-4xl">
+                <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
                   Find Quran Courses for
                   <br />
                   Personal Growth
@@ -168,7 +172,7 @@ export default function HomePage() {
                 </p>
                 <Link
                   href="/courses"
-                  className="mt-5 inline-flex min-h-[50px] items-center rounded-[9px] bg-brandRed px-[30px] py-[14px] text-[16.5px] font-extrabold text-white shadow-[0_12px_24px_rgba(208,0,0,0.28)] transition hover:-translate-y-0.5 hover:bg-redDark"
+                  className="mt-5 btn-primary"
                 >
                   View All Course
                 </Link>
@@ -176,8 +180,15 @@ export default function HomePage() {
             </div>
           </Reveal>
           <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
-            {COURSES.slice(0, 6).map((c) => (
-              <CourseCard key={c.slug} course={c} />
+            {COURSES.slice(0, 6).map((c, i) => (
+              <Reveal
+                key={c.slug}
+                from={i % 2 === 0 ? "left" : "right"}
+                delay={(i % 3) as 0 | 1 | 2}
+                className="h-full"
+              >
+                <CourseCard course={c} />
+              </Reveal>
             ))}
           </div>
         </div>
@@ -188,11 +199,11 @@ export default function HomePage() {
       <Steps />
 
       {/* Pricing preview */}
-      <section className="py-[88px] max-[640px]:py-[60px]">
+      <section className="py-[96px] max-[640px]:py-[64px]">
         <div className="mx-auto max-w-7xl px-4">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="kicker kicker-centered">Pricing Plans</p>
-            <h2 className="mt-3 font-display text-3xl font-extrabold text-navyInk sm:text-4xl">
+            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
               Upgrade Your Skills and Knowledge
             </h2>
             <p className="mt-3 leading-relaxed text-muted">
@@ -210,11 +221,12 @@ export default function HomePage() {
       <VideoCta />
 
       {/* FAQ preview — first 5 */}
-      <section className="py-[88px] max-[640px]:py-[60px]">
+      <section className="py-[96px] max-[640px]:py-[64px]">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-[0.85fr_1.4fr]">
-          <div className="lg:sticky lg:top-28 lg:self-start">
+          <Reveal from="left" className="lg:sticky lg:top-28 lg:self-start">
+            <div>
             <p className="kicker">FAQ&apos;s</p>
-            <h2 className="mt-3 font-display text-[32px] font-extrabold leading-tight text-navyInk">
+            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk">
               Still Have Questions?
             </h2>
             <p className="mt-3 leading-relaxed text-muted">
@@ -227,18 +239,21 @@ export default function HomePage() {
             >
               Contact Us →
             </Link>
-          </div>
-          <FaqList faqs={FAQS.slice(0, 5)} />
+            </div>
+          </Reveal>
+          <Reveal delay={1}>
+            <FaqList faqs={FAQS.slice(0, 5)} />
+          </Reveal>
         </div>
       </section>
 
       {/* Testimonials — honest placeholder. The 6 SAMPLE testimonials from
           the preview are NOT presented as real reviews. */}
-      <section className="bg-cream py-[88px] max-[640px]:py-[60px]">
+      <section className="bg-cream py-[96px] max-[640px]:py-[64px]">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <Reveal>
             <p className="kicker kicker-centered">Testimonials</p>
-            <h2 className="mt-3 font-display text-3xl font-extrabold text-navyInk sm:text-4xl">
+            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
               What Our Students &amp; Parents Say
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-muted">
@@ -252,7 +267,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/contact"
-              className="mt-8 inline-flex min-h-[50px] items-center rounded-[9px] bg-brandRed px-[30px] py-[14px] text-[16.5px] font-extrabold text-white shadow-[0_12px_24px_rgba(208,0,0,0.28)] transition hover:-translate-y-0.5 hover:bg-redDark"
+              className="mt-8 btn-primary"
             >
               Book Free Trial
             </Link>
@@ -261,12 +276,13 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="px-4 py-[88px] max-[640px]:py-[60px]">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[22px] bg-navy px-12 py-14">
+      <section className="px-4 py-[96px] max-[640px]:py-[64px]">
+        <Reveal>
+          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[22px] bg-navy px-12 py-14">
           <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full border border-white/10" aria-hidden="true" />
           <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <h2 className="font-display text-3xl font-extrabold text-white sm:text-4xl">
+              <h2 className="font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-white sm:text-[44px]">
                 Start Your Quran Journey Today
               </h2>
               <p className="mt-3 max-w-xl leading-relaxed text-white/85">
@@ -279,19 +295,20 @@ export default function HomePage() {
                 href={whatsappUrl(TRIAL_MESSAGE)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-[50px] items-center rounded-[9px] bg-brandRed px-[30px] py-[14px] text-[16.5px] font-extrabold text-white shadow-[0_12px_24px_rgba(208,0,0,0.28)] transition hover:-translate-y-0.5 hover:bg-redDark"
+                className="btn-primary"
               >
                 Book Free Trial
               </a>
               <Link
                 href="/courses"
-                className="inline-flex min-h-[50px] items-center rounded-[9px] border-2 border-white bg-transparent px-[30px] py-[14px] text-[16.5px] font-extrabold text-white transition hover:bg-white hover:text-navyInk"
+                className="btn-outline-light"
               >
                 Explore Courses
               </Link>
             </div>
           </div>
         </div>
+        </Reveal>
       </section>
     </>
   );

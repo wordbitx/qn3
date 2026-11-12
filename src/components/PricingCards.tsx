@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { Reveal } from "@/components/Reveal";
 import { PRICING_PLANS } from "@/lib/data";
 import { feeMessageForPlan, whatsappUrl } from "@/lib/site";
 
@@ -14,8 +15,15 @@ import { feeMessageForPlan, whatsappUrl } from "@/lib/site";
 export default function PricingCards() {
   return (
     <div className="grid gap-6 md:grid-cols-3">
-      {PRICING_PLANS.map((plan) => (
-        <PricingCard key={plan.id} plan={plan} />
+      {PRICING_PLANS.map((plan, i) => (
+        <Reveal
+          key={plan.id}
+          from={i === 0 ? "left" : i === 1 ? "up" : "right"}
+          delay={i as 0 | 1 | 2}
+          className="h-full"
+        >
+          <PricingCard plan={plan} />
+        </Reveal>
       ))}
     </div>
   );
@@ -48,10 +56,10 @@ function PricingCard({ plan }: { plan: (typeof PRICING_PLANS)[number] }) {
           btnRef.current?.focus();
         }
       }}
-      className={`pricing-card relative flex flex-col rounded-2xl border p-7 shadow-card ${
+      className={`pricing-card relative flex h-full flex-col rounded-2xl border p-7 shadow-card ${
         popular
           ? "border-line bg-[linear-gradient(180deg,#ffffff,#fdeeee)] [border-top:3px_solid_#D00000]"
-          : "border-line bg-white hover:border-navy"
+          : "border-line bg-[#fff8f6] hover:border-navy"
       }`}
     >
       <h3 className="font-display text-[27px] font-bold leading-tight text-navyInk">
@@ -85,9 +93,7 @@ function PricingCard({ plan }: { plan: (typeof PRICING_PLANS)[number] }) {
         href={whatsappUrl(feeMessageForPlan(plan.name))}
         target="_blank"
         rel="noopener noreferrer"
-        className={`mt-6 block rounded-[9px] px-6 py-3.5 text-center text-[16.5px] font-extrabold text-white shadow-card transition hover:-translate-y-0.5 ${
-          popular ? "bg-brandRed hover:bg-redDark" : "bg-navy hover:bg-navyDark"
-        }`}
+        className={`mt-6 w-full text-center ${popular ? "btn-primary" : "btn-navy"}`}
       >
         Confirm Fee on WhatsApp
       </a>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Reveal } from "@/components/Reveal";
 import { BANNER_PHOTO } from "@/lib/site";
 
 /** Banner (PREVIEW-SPEC §3.5): full-width image band, photo 29183999 +
@@ -19,20 +20,26 @@ export default function Banner() {
         aria-hidden="true"
       />
       <div className="relative mx-auto max-w-7xl px-4 py-[110px] max-[640px]:py-[70px]">
-        <h2 className="max-w-[560px] font-display text-3xl font-extrabold leading-tight text-white sm:text-4xl">
-          Building a Bright Future Through Quranic Education
-        </h2>
-        <p className="mt-4 max-w-[520px] leading-relaxed text-white/90">
-          At Quran Light Institute, we provide structured Quranic learning to build strong
-          knowledge and values. Our programs focus on developing understanding, discipline,
-          and confidence through quality education.
-        </p>
-        <Link
-          href="/courses"
-          className="mt-7 inline-flex min-h-[50px] items-center rounded-[9px] bg-brandRed px-[30px] py-[14px] text-[16.5px] font-extrabold text-white shadow-[0_12px_24px_rgba(208,0,0,0.28)] transition hover:-translate-y-0.5 hover:bg-redDark"
-        >
-          Explore Course
-        </Link>
+        <Reveal from="left">
+          <h2 className="max-w-[560px] font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-white sm:text-[44px]">
+            Building a Bright Future Through Quranic Education
+          </h2>
+        </Reveal>
+        <Reveal from="left" delay={1}>
+          <p className="mt-4 max-w-[520px] leading-relaxed text-white/90">
+            At Quran Light Institute, we provide structured Quranic learning to build strong
+            knowledge and values. Our programs focus on developing understanding, discipline,
+            and confidence through quality education.
+          </p>
+        </Reveal>
+        <Reveal from="left" delay={2}>
+          <Link
+            href="/courses"
+            className="mt-7 btn-primary"
+          >
+            Explore Course
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

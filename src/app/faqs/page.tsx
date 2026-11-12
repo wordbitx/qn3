@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
 import FaqList from "@/components/FaqList";
+import { Reveal } from "@/components/Reveal";
 import { FAQS } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -15,11 +16,12 @@ export default function FaqsPage() {
   return (
     <>
       <PageBanner crumb="FAQs" title="FAQs" />
-      <section className="py-[88px] max-[640px]:py-[60px]">
+      <section className="py-[96px] max-[640px]:py-[64px]">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-[0.85fr_1.4fr]">
-          <div className="lg:sticky lg:top-28 lg:self-start">
+          <Reveal from="left" className="lg:sticky lg:top-28 lg:self-start">
+          <div>
             <p className="kicker">FAQ&apos;s</p>
-            <h2 className="mt-3 font-display text-[32px] font-extrabold leading-tight text-navyInk">
+            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk">
               Frequently Asked Questions
             </h2>
             <p className="mt-3 leading-relaxed text-muted">
@@ -32,7 +34,10 @@ export default function FaqsPage() {
               Contact Us →
             </Link>
           </div>
+          </Reveal>
+          <Reveal delay={1}>
           <FaqList faqs={FAQS} />
+          </Reveal>
         </div>
       </section>
     </>

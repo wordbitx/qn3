@@ -3,17 +3,20 @@ import Link from "next/link";
 import type { Course } from "@/lib/data";
 
 /**
- * Course card (PREVIEW-SPEC §6.2): full-bleed photo card, min-height
- * 480px, dark gradient, red uppercase chip + red 62px circular arrow
- * top-right (hover: white circle, red arrow, rotate 45°), uppercase white
- * name, tag line, footer "Read More" + outlined pill "3-Day FREE Trial".
+ * Course card (PREVIEW-SPEC §6.2), premium polish round: the card sits
+ * on a very light red/cream tint (#fff8f6) with a warm blush ring
+ * (#fbe9e4) — no flat white card — plus a whisper of warm blush wash
+ * over the top of the photo. Full-bleed photo card, min-height 480px,
+ * dark gradient, red uppercase chip + red 62px circular arrow top-right
+ * (hover: white circle, red arrow, rotate 45°), uppercase white name,
+ * tag line, footer "Read More" + outlined pill "3-Day FREE Trial".
  * Whole card links to /courses/<slug>; hover lift −8px + photo zoom.
  */
 export default function CourseCard({ course }: { course: Course }) {
   return (
     <Link
       href={`/courses/${course.slug}`}
-      className="group relative flex min-h-[480px] flex-col justify-end overflow-hidden rounded-[14px] text-white shadow-card transition duration-300 hover:-translate-y-2 hover:shadow-cardLg focus-visible:outline-none max-[640px]:min-h-[440px]"
+      className="group relative flex h-full min-h-[480px] flex-col justify-end overflow-hidden rounded-[18px] bg-[#fff8f6] text-white shadow-card ring-1 ring-[#fbe9e4] transition duration-300 hover:-translate-y-2 hover:shadow-cardLg focus-visible:outline-none max-[640px]:min-h-[440px]"
     >
       <Image
         src={course.image}
@@ -25,6 +28,11 @@ export default function CourseCard({ course }: { course: Course }) {
       />
       <div
         className="absolute inset-0 bg-gradient-to-b from-[rgba(0,20,55,0.18)] via-[rgba(0,20,55,0.25)] to-[rgba(0,16,44,0.88)]"
+        aria-hidden="true"
+      />
+      {/* Warm blush wash over the top of the photo — the card tint. */}
+      <div
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,245,243,0.16)_0%,rgba(255,245,243,0.05)_28%,transparent_45%)]"
         aria-hidden="true"
       />
       <div className="absolute inset-x-0 top-0 flex items-start justify-between p-5">
@@ -41,13 +49,13 @@ export default function CourseCard({ course }: { course: Course }) {
         </span>
       </div>
       <div className="relative p-6">
-        <h3 className="font-display text-2xl font-bold uppercase leading-snug text-white">
+        <h3 className="font-display text-[26px] font-bold uppercase leading-snug tracking-[-0.01em] text-white">
           {course.name}
         </h3>
         <p className="mt-2 line-clamp-3 text-[15px] leading-relaxed text-white/85">{course.tag}</p>
         <div className="mt-4 flex items-center justify-between border-t border-white/25 pt-4">
           <span className="text-[15px] font-bold text-white">Read More</span>
-          <span className="rounded-lg border-[1.5px] border-white/65 px-3 py-1 text-[15px] font-semibold text-white">
+          <span className="rounded-lg border-[1.5px] border-[#fdeeda]/80 bg-white/10 px-3 py-1 text-[15px] font-semibold text-white backdrop-blur-sm">
             3-Day FREE Trial
           </span>
         </div>

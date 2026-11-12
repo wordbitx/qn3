@@ -17,8 +17,8 @@ export const COURSES: Course[] = [
   {
     slug: "noorani-qaida",
     chip: "Beginners",
-    image: "https://images.pexels.com/photos/11842681/pexels-photo-11842681.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    position: "center 25%",
+    image: "https://images.pexels.com/photos/8164734/pexels-photo-8164734.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    position: "center 20%",
     name: "Noorani Qaida",
     tag: "The perfect first step — the foundation of reading the Holy Quran.",
     desc: ["Noorani Qaida is the foundation course for every beginner. Before a child can read the Holy Quran, they must first recognise the Arabic letters, pronounce them correctly from their proper articulation points (Makharij), and learn how letters join together to form words.", "In live one-to-one lessons, the teacher takes the student step by step through the Qaida — slowly, patiently and with lots of encouragement — until reading Arabic becomes easy and natural. It is the same trusted starting point used by Quran students all over the world."],
@@ -29,7 +29,7 @@ export const COURSES: Course[] = [
   {
     slug: "quran-reading-nazra",
     chip: "Reading",
-    image: "https://images.pexels.com/photos/20784497/pexels-photo-20784497.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/20784497/pexels-photo-20784497.jpeg?auto=compress&cs=tinysrgb&w=1600",
     position: "center",
     name: "Quran Reading (Nazra)",
     tag: "Read the Holy Quran fluently, directly from the Mushaf.",
@@ -41,7 +41,7 @@ export const COURSES: Course[] = [
   {
     slug: "tajweed",
     chip: "Recitation",
-    image: "https://images.pexels.com/photos/7654914/pexels-photo-7654914.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/7654914/pexels-photo-7654914.jpeg?auto=compress&cs=tinysrgb&w=1600",
     position: "center",
     name: "Tajweed",
     tag: "Recite the Holy Quran beautifully, the way it was revealed.",
@@ -53,7 +53,7 @@ export const COURSES: Course[] = [
   {
     slug: "hifz-ul-quran",
     chip: "Memorization",
-    image: "https://images.pexels.com/photos/8164735/pexels-photo-8164735.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/8164735/pexels-photo-8164735.jpeg?auto=compress&cs=tinysrgb&w=1600",
     position: "center",
     name: "Hifz-ul-Quran",
     tag: "Memorize the Holy Quran with proper guidance, step by step.",
@@ -65,7 +65,7 @@ export const COURSES: Course[] = [
   {
     slug: "quran-translation",
     chip: "Understanding",
-    image: "https://images.pexels.com/photos/36521599/pexels-photo-36521599.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/36521599/pexels-photo-36521599.jpeg?auto=compress&cs=tinysrgb&w=1600",
     position: "center",
     name: "Quran Translation",
     tag: "Understand the meaning of the words you recite.",
@@ -77,7 +77,7 @@ export const COURSES: Course[] = [
   {
     slug: "quran-tafseer",
     chip: "Advanced",
-    image: "https://images.pexels.com/photos/20784664/pexels-photo-20784664.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/20784664/pexels-photo-20784664.jpeg?auto=compress&cs=tinysrgb&w=1600",
     position: "center",
     name: "Quran Tafseer",
     tag: "Go deeper — the meanings and lessons behind the verses.",
@@ -89,7 +89,7 @@ export const COURSES: Course[] = [
   {
     slug: "masnoon-duas",
     chip: "Daily Life",
-    image: "https://images.pexels.com/photos/7249316/pexels-photo-7249316.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/7249316/pexels-photo-7249316.jpeg?auto=compress&cs=tinysrgb&w=1600",
     position: "center 60%",
     name: "Masnoon Duas",
     tag: "The everyday supplications of the Prophet Muhammad ﷺ.",
@@ -101,7 +101,7 @@ export const COURSES: Course[] = [
   {
     slug: "salah-namaz",
     chip: "Worship",
-    image: "https://images.pexels.com/photos/20784662/pexels-photo-20784662.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/20784662/pexels-photo-20784662.jpeg?auto=compress&cs=tinysrgb&w=1600",
     position: "center 70%",
     name: "Salah (Namaz)",
     tag: "Learn to pray Salah correctly, step by step.",
@@ -113,7 +113,7 @@ export const COURSES: Course[] = [
   {
     slug: "islamic-studies",
     chip: "Knowledge",
-    image: "https://images.pexels.com/photos/16848960/pexels-photo-16848960.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/16848960/pexels-photo-16848960.jpeg?auto=compress&cs=tinysrgb&w=1600",
     position: "center",
     name: "Islamic Studies",
     tag: "The essential knowledge every Muslim should know.",
@@ -125,7 +125,7 @@ export const COURSES: Course[] = [
   {
     slug: "selected-surah-memorization",
     chip: "Memorization",
-    image: "https://images.pexels.com/photos/8164735/pexels-photo-8164735.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/8164735/pexels-photo-8164735.jpeg?auto=compress&cs=tinysrgb&w=1600",
     position: "center 30%",
     name: "Selected Surah Memorization",
     tag: "Memorize important Surahs of the Holy Quran with proper guidance.",
@@ -137,7 +137,7 @@ export const COURSES: Course[] = [
   {
     slug: "six-kalimas",
     chip: "Foundation",
-    image: "https://images.pexels.com/photos/7249316/pexels-photo-7249316.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/7249316/pexels-photo-7249316.jpeg?auto=compress&cs=tinysrgb&w=1600",
     position: "center 30%",
     name: "Six Kalimas",
     tag: "Learn all six Kalimas with correct pronunciation and easy explanations.",
@@ -149,7 +149,7 @@ export const COURSES: Course[] = [
   {
     slug: "basic-arabic-learning",
     chip: "Language",
-    image: "https://images.pexels.com/photos/29183999/pexels-photo-29183999.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/29183999/pexels-photo-29183999.jpeg?auto=compress&cs=tinysrgb&w=1600",
     position: "center 60%",
     name: "Basic Arabic Learning",
     tag: "Develop basic Arabic reading skills, vocabulary, and understanding.",
@@ -161,7 +161,7 @@ export const COURSES: Course[] = [
   {
     slug: "seerah",
     chip: "Seerah",
-    image: "https://images.pexels.com/photos/20558196/pexels-photo-20558196.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/20558196/pexels-photo-20558196.jpeg?auto=compress&cs=tinysrgb&w=1600",
     position: "center",
     name: "Seerah of Prophet Muhammad ﷺ",
     tag: "Learn about the beautiful life, teachings, and Sunnah of Prophet Muhammad ﷺ.",
@@ -173,7 +173,7 @@ export const COURSES: Course[] = [
   {
     slug: "islamic-manners-ethics",
     chip: "Character",
-    image: "https://images.pexels.com/photos/20785119/pexels-photo-20785119.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/20785119/pexels-photo-20785119.jpeg?auto=compress&cs=tinysrgb&w=1600",
     position: "center 25%",
     name: "Islamic Manners & Ethics",
     tag: "Learn Islamic manners, good character, Sunnah, and everyday Islamic practices.",

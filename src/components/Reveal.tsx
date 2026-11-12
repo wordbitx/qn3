@@ -3,26 +3,37 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 /**
- * Reveal — fade-up on scroll (IntersectionObserver). Safety fallback:
- * after 1200ms everything is force-revealed so content never stays
- * hidden (PREVIEW-SPEC §15).
+ * Reveal — fade (and slide) on scroll (IntersectionObserver). Safety fallback:
+ * after 8000ms everything is force-revealed so content never stays
+ * hidden. The timer is deliberately long: the old 1200ms timer fired
+ * before the user ever scrolled to below-fold sections, so their
+ * scroll animations never played (they were already visible).
+ * `from` picks the entry direction:
+ * "up" (default, fade-up), "left" (slide in from the left),
+ * "right" (slide in from the right). Stagger with `delay` (0–4).
  */
 export function Reveal({
   children,
   className = "",
   delay = 0,
+  from = "up",
+  as = "div",
 }: {
   children: ReactNode;
   className?: string;
   delay?: 0 | 1 | 2 | 3 | 4;
+  from?: "up" | "left" | "right";
+  /* "li" keeps <ol> valid when a Reveal wraps a list item (Steps). */
+  as?: "div" | "li";
 }) {
-  const ref = useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const ref = useRef<any>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const force = setTimeout(() => setVisible(true), 1200);
+    const force = setTimeout(() => setVisible(true), 8000);
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -40,14 +51,17 @@ export function Reveal({
   }, []);
 
   const delayCls = delay > 0 ? `rv-d${delay}` : "";
+  const fromCls = from === "left" ? "rv-from-left" : from === "right" ? "rv-from-right" : "";
+  const Tag = as;
   return (
-    <div ref={ref} className={`rv ${visible ? "is-visible" : ""} ${delayCls} ${className}`}>
+    <Tag ref={ref} className={`rv ${visible ? "is-visible" : ""} ${delayCls} ${fromCls} ${className}`}>
       {children}
-    </div>
+    </Tag>
   );
 }
 
-/** Animated count-up number, 0 → value over 1100ms when scrolled into view (once). */
+/** Animated count-up number, 0 → value over 1100ms when scrolled into view (once).
+ * Reduced-motion users see the final value immediately — no animation. */
 export function CountUp({ value, suffix = "" }: { value: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const [n, setN] = useState(0);
@@ -56,6 +70,10 @@ export function CountUp({ value, suffix = "" }: { value: number; suffix?: string
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setN(value);
+      return;
+    }
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {

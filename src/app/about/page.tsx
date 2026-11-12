@@ -6,6 +6,7 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import StatsRow from "@/components/StatsRow";
 import Specialities from "@/components/Specialities";
 import Steps from "@/components/Steps";
+import { Reveal } from "@/components/Reveal";
 import { HERO_PHOTO, VIDEO_POSTER } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -28,8 +29,9 @@ export default function AboutPage() {
       <PageBanner crumb="About" title="About Us" />
 
       {/* Who We Are */}
-      <section className="py-[88px] max-[640px]:py-[60px]">
+      <section className="py-[96px] max-[640px]:py-[64px]">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-2">
+          <Reveal from="left">
           <div className="grid grid-cols-2 gap-4">
             <div className="relative row-span-2 min-h-[480px] overflow-hidden rounded-2xl shadow-card">
               <Image
@@ -63,9 +65,11 @@ export default function AboutPage() {
               />
             </div>
           </div>
+          </Reveal>
+          <Reveal from="right">
           <div>
             <p className="kicker">Who We Are</p>
-            <h2 className="mt-3 font-display text-3xl font-extrabold leading-tight text-navyInk sm:text-4xl">
+            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
               Help Your Child Learn the Holy Quran from Home
             </h2>
             <p className="mt-4 leading-relaxed text-muted">
@@ -91,11 +95,12 @@ export default function AboutPage() {
             </ul>
             <Link
               href="/contact"
-              className="mt-8 inline-flex min-h-[50px] items-center rounded-[9px] bg-brandRed px-[30px] py-[14px] text-[16.5px] font-extrabold text-white shadow-[0_12px_24px_rgba(208,0,0,0.28)] transition hover:-translate-y-0.5 hover:bg-redDark"
+              className="mt-8 btn-primary"
             >
               Book Free Trial
             </Link>
           </div>
+          </Reveal>
         </div>
       </section>
 

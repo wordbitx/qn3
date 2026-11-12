@@ -146,7 +146,7 @@ export default function TrialForm({
 
       <button
         type="submit"
-        className="mt-5 w-full rounded-[9px] bg-navy px-6 py-3.5 text-[16.5px] font-extrabold text-white shadow-card transition hover:-translate-y-0.5 hover:bg-navyDark"
+        className="mt-5 w-full btn-navy"
       >
         Send Message
       </button>

@@ -32,10 +32,10 @@ export default function PageBanner({
         aria-hidden="true"
       />
       <div className="relative mx-auto max-w-7xl px-4 pb-[70px] pt-[74px] text-center">
-        <h1 className="font-display text-[clamp(34px,5vw,52px)] font-bold leading-tight text-white">
+        <h1 className="anim-rise anim-d1 font-display text-[clamp(36px,5vw,56px)] font-extrabold leading-[1.1] text-white">
           {title}
         </h1>
-        <p className="mt-4 text-[15px] font-bold text-white/80">
+        <p className="anim-rise anim-d2 mt-4 text-[15px] font-bold text-white/80">
           <Link href="/" className="hover:text-white">
             Home
           </Link>

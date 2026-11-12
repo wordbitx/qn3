@@ -1,82 +1,94 @@
 import Image from "next/image";
+import { Reveal } from "@/components/Reveal";
 
-/** Our Process (PREVIEW-SPEC §3.8): 4 full-photo cards, min-height 410px,
- * cards 2 and 4 offset 34px down on desktop, STEP 01–04 in #ff3b30.
- * Photos are the 4 step Pexels IDs in order. */
+/**
+ * Our Process (PREVIEW-SPEC §3.8), premium polish round: Minha-style
+ * ROWS on mobile AND desktop — square photo left, red "01." number,
+ * bold title, gray text, on a very light blush section background
+ * (#fff8f6, distinct warmth from the cream Why Choose Us section above
+ * it). Rows are white cards with a warm blush ring + soft shadow and a
+ * hover lift; single column on phones/tablets, 2×2 grid on desktop.
+ * Same copy, same photos as the mobile-fix round.
+ */
 const STEPS = [
   {
     n: "STEP 01",
+    num: "01",
     title: "Browse Our Courses",
     text: "Explore the 14 courses and pick the one that fits your child — or ask us on WhatsApp and we will guide you.",
-    src: "https://images.pexels.com/photos/8122079/pexels-photo-8122079.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    src: "https://images.pexels.com/photos/8122079/pexels-photo-8122079.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "A young woman in a hijab working on a laptop",
   },
   {
     n: "STEP 02",
+    num: "02",
     title: "Book Your Free Trial",
     text: "Fill the trial form or message us on WhatsApp. Your 3-day trial classes are absolutely free.",
-    src: "https://images.pexels.com/photos/7582576/pexels-photo-7582576.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    src: "https://images.pexels.com/photos/7582576/pexels-photo-7582576.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "A woman in a hijab studying on a laptop with a book",
   },
   {
     n: "STEP 03",
+    num: "03",
     title: "Meet Your Teacher",
     text: "The teacher assesses the student's level in the trial and recommends the right starting point.",
-    src: "https://images.pexels.com/photos/8164744/pexels-photo-8164744.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    src: "https://images.pexels.com/photos/8164744/pexels-photo-8164744.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "Teachers guiding girls reading the Holy Quran in a mosque",
   },
   {
     n: "STEP 04",
+    num: "04",
     title: "Learn & Track Progress",
     text: "Live one-to-one classes begin, with regular progress assessments shared with parents.",
-    src: "https://images.pexels.com/photos/8164747/pexels-photo-8164747.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    src: "https://images.pexels.com/photos/8164747/pexels-photo-8164747.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "A young girl in a hijab reading the Holy Quran by a mosque window",
   },
 ];
 
 export default function Steps() {
   return (
-    <section className="bg-cream pb-[88px] pt-[10px] max-[640px]:pb-[60px]">
+    <section className="bg-[#fff8f6] pb-[96px] pt-[10px] max-[640px]:pb-[64px]">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="mx-auto max-w-3xl text-center">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <p className="kicker kicker-centered">Our Process</p>
-          <h2 className="mt-3 font-display text-3xl font-extrabold text-navyInk sm:text-4xl">
+          <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
             How Learning Happens Step By Step
           </h2>
           <p className="mt-3 leading-relaxed text-muted">
             From your first free trial class to steady, monitored progress — the journey is
             simple and clear.
           </p>
-        </div>
-        <ol className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        </Reveal>
+        <ol className="mt-12 grid gap-5 lg:grid-cols-2">
           {STEPS.map((s, i) => (
-            <li
+            <Reveal
               key={s.n}
-              className={`group relative min-h-[410px] overflow-hidden rounded-[14px] shadow-card transition duration-300 hover:-translate-y-[7px] hover:shadow-cardLg ${
-                i % 2 === 1 ? "lg:mt-[34px]" : ""
-              }`}
+              as="li"
+              from={i % 2 === 0 ? "left" : "right"}
+              delay={(i % 2) as 0 | 1}
+              className="h-full"
             >
-              <Image
-                src={s.src}
-                alt={s.alt}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1080px) 50vw, 25vw"
-                className="object-cover transition duration-700 ease-out group-hover:scale-[1.08]"
-              />
-              <div
-                className="absolute inset-0 bg-gradient-to-t from-[rgba(0,16,44,0.92)] via-[rgba(0,16,44,0.45)] to-transparent"
-                aria-hidden="true"
-              />
-              <div className="relative flex h-full min-h-[410px] flex-col justify-end p-5">
-                <span className="text-[14.5px] font-extrabold uppercase tracking-[0.16em] text-redBright">
-                  {s.n}
-                </span>
-                <h3 className="mt-2 font-display text-[21px] font-bold leading-snug text-white">
-                  {s.title}
-                </h3>
-                <p className="mt-2 text-[0.95rem] leading-relaxed text-white/85">{s.text}</p>
+              <div className="group flex h-full items-center gap-5 rounded-[18px] bg-white p-4 shadow-card ring-1 ring-[#fbe9e4] transition duration-300 hover:-translate-y-1.5 hover:shadow-cardLg sm:gap-6 sm:p-5">
+                <div className="relative h-[104px] w-[104px] shrink-0 overflow-hidden rounded-[14px] sm:h-[120px] sm:w-[120px]">
+                  <Image
+                    src={s.src}
+                    alt={s.alt}
+                    fill
+                    sizes="(max-width: 640px) 120px, 160px"
+                    className="object-cover transition duration-500 group-hover:scale-[1.07]"
+                  />
+                </div>
+                <div className="min-w-0">
+                  <span className="font-display text-[20px] font-extrabold leading-none text-brandRed">
+                    {s.num}.
+                  </span>
+                  <h3 className="mt-1.5 font-display text-[20px] font-bold leading-snug text-navyInk transition group-hover:text-brandRed sm:text-[22px]">
+                    {s.title}
+                  </h3>
+                  <p className="mt-1.5 text-[0.95rem] leading-relaxed text-muted">{s.text}</p>
+                </div>
               </div>
-            </li>
+            </Reveal>
           ))}
         </ol>
       </div>

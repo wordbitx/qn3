@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
+import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Testimonials — Quran Light Institute",
@@ -23,7 +24,8 @@ export default function TestimonialsPage() {
 
       <section className="py-16">
         <div className="mx-auto max-w-3xl px-4 text-center">
-          <h2 className="font-display text-3xl font-extrabold text-navyInk">
+          <Reveal>
+          <h2 className="font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
             What Our Students Say
           </h2>
           <p className="mt-4 text-lg font-sans leading-relaxed text-muted">
@@ -40,10 +42,11 @@ export default function TestimonialsPage() {
           </p>
           <Link
             href="/contact"
-            className="btn-trial mt-8 inline-flex items-center gap-2 rounded-full bg-brandRed px-7 py-3.5 font-extrabold text-white shadow-card transition hover:brightness-90"
+            className="btn-primary mt-8"
           >
             Book your 3-day FREE trial and share your experience →
           </Link>
+          </Reveal>
         </div>
       </section>
     </>

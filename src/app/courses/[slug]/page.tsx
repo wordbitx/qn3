@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageBanner from "@/components/PageBanner";
 import CourseCard from "@/components/CourseCard";
+import { Reveal } from "@/components/Reveal";
 import { COURSES, COURSE_MAP } from "@/lib/data";
 import { PHONE_DISPLAY, PHONE_TEL, trialMessageForCourse, whatsappUrl } from "@/lib/site";
 
@@ -57,9 +58,10 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
 
       <section className="py-14">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-[1.5fr_0.9fr]">
+          <Reveal from="left">
           <div className="min-w-0">
             <p className="kicker">About This Course</p>
-            <h2 className="mt-3 font-display text-[34px] font-extrabold leading-tight text-navyInk">
+            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-tight text-navyInk">
               {course.tag}
             </h2>
             <div className="mt-5 space-y-4 leading-relaxed text-muted">
@@ -68,7 +70,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
               ))}
             </div>
 
-            <h2 className="mt-10 font-display text-[30px] font-extrabold text-navyInk">
+            <h2 className="mt-10 font-display text-[32px] font-extrabold text-navyInk">
               What You&apos;ll Learn
             </h2>
             <ul className="mt-4 space-y-3">
@@ -82,14 +84,16 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
               ))}
             </ul>
 
-            <h2 className="mt-10 font-display text-[30px] font-extrabold text-navyInk">
+            <h2 className="mt-10 font-display text-[32px] font-extrabold text-navyInk">
               Who Is It For?
             </h2>
             <p className="mt-3 leading-relaxed text-muted">{course.who}</p>
           </div>
+          </Reveal>
 
           <aside>
-            <div className="sticky top-[130px] rounded-2xl bg-cream p-[32px_28px] shadow-card">
+            <Reveal from="right" delay={1} className="sticky top-[130px]">
+            <div className="rounded-2xl bg-cream p-[32px_28px] shadow-card">
               <span className="flex h-[74px] w-[74px] items-center justify-center rounded-2xl bg-brandRed">
                 <SidebarGlyph slug={course.slug} />
               </span>
@@ -104,13 +108,13 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                 href={whatsappUrl(trialMessageForCourse(course.name))}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 block w-full rounded-[9px] bg-brandRed px-6 py-3.5 text-center text-[16.5px] font-extrabold text-white shadow-card transition hover:-translate-y-0.5 hover:bg-redDark"
+                className="btn-primary mt-6 w-full"
               >
                 Book Free Trial on WhatsApp
               </a>
               <Link
                 href={`/contact?course=${course.slug}`}
-                className="mt-3 block w-full rounded-[9px] border-2 border-navy bg-transparent px-6 py-3.5 text-center text-[16.5px] font-extrabold text-navy transition hover:bg-navy hover:text-white"
+                className="btn-outline-navy mt-3 w-full"
               >
                 Use the Trial Form
               </Link>
@@ -121,19 +125,29 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                 </a>
               </p>
             </div>
+            </Reveal>
           </aside>
         </div>
       </section>
 
       <section className="pb-[88px] pt-[70px] max-[640px]:pb-[60px]">
         <div className="mx-auto max-w-7xl px-4">
+          <Reveal>
           <p className="kicker">Keep Exploring</p>
-          <h2 className="mt-3 font-display text-[32px] font-extrabold text-navyInk">
+          <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk">
             More Courses You May Like
           </h2>
+          </Reveal>
           <div className="mt-8 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
-            {more.map((c) => (
-              <CourseCard key={c.slug} course={c} />
+            {more.map((c, i) => (
+              <Reveal
+                key={c.slug}
+                from={i % 2 === 0 ? "left" : "right"}
+                delay={i as 0 | 1 | 2}
+                className="h-full"
+              >
+                <CourseCard course={c} />
+              </Reveal>
             ))}
           </div>
         </div>

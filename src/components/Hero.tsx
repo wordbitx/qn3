@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import TrialForm from "@/components/TrialForm";
-import { HERO_PHOTO } from "@/lib/site";
+import { HERO_PHOTO, HERO_PHOTO_MOBILE } from "@/lib/site";
 
 /** Hero proof avatars — reuse of other photos (PREVIEW-SPEC §3.1).
  * 34407214 was replaced by 20784507 (Turkish mosque photo) everywhere. */
@@ -33,13 +33,30 @@ export default function Hero() {
   return (
     <section className="px-3.5 py-3.5">
       <div className="relative overflow-hidden rounded-[22px] bg-navyDark">
+        {/*
+          Mobile-fix round: the landscape hero stretched over a ~390×1300px
+          portrait phone container upscaled its visible slice ~4x (DPR 2–3)
+          — torn pixels. Mobile (≤lg, stacked layout) now gets a
+          right-anchored portrait crop of the SAME photo; desktop keeps the
+          landscape at w=2400. Two <Image>s, shown/hidden by breakpoint.
+        */}
         <Image
           src={HERO_PHOTO}
           alt="A woman in a hijab reading the Holy Quran on a wooden rehal in a sunlit mosque"
           fill
           sizes="100vw"
-          className="object-cover"
+          quality={85}
+          className="hero-zoom hidden object-cover lg:block"
           priority
+        />
+        <Image
+          src={HERO_PHOTO_MOBILE}
+          alt="A woman in a hijab reading the Holy Quran on a wooden rehal in a sunlit mosque"
+          fill
+          sizes="100vw"
+          quality={85}
+          className="hero-zoom object-cover lg:hidden"
+          loading="eager"
         />
         <div
           className="absolute inset-0 bg-gradient-to-r from-[rgba(0,18,48,0.88)] via-[rgba(0,20,54,0.55)] to-[rgba(0,24,64,0.18)]"
@@ -52,34 +69,34 @@ export default function Hero() {
 
         <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-14 lg:grid-cols-[1.12fr_0.88fr] lg:p-14">
           <div className="min-w-0 self-center">
-            <p className="flex items-center gap-3 text-[13.5px] font-extrabold uppercase tracking-[0.22em] text-white">
+            <p className="anim-rise anim-d1 flex items-center gap-3 text-[14px] font-extrabold uppercase tracking-[0.18em] text-white">
               <span className="h-[3px] w-[38px] rounded-full bg-brandRed" aria-hidden="true" />
               Welcome to Quran Light Institute
             </p>
-            <h1 className="mt-5 font-display text-[clamp(38px,4.5vw,60px)] font-bold leading-[1.12] text-white">
+            <h1 className="anim-rise anim-d2 mt-5 font-display text-[clamp(40px,4.6vw,64px)] font-extrabold leading-[1.08] text-white">
               Empowering Minds Through Quranic Learning —{" "}
               <span className="text-redBright">One-to-One Online</span>
             </h1>
-            <p className="mt-5 max-w-[520px] text-[18.5px] leading-relaxed text-white/90">
+            <p className="anim-rise anim-d3 mt-5 max-w-[520px] text-[18.5px] leading-relaxed text-white/90">
               Practical and structured learning designed to build strong Quranic understanding,
               confidence, and meaningful spiritual growth — live from home, with qualified male
               and female teachers.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="anim-rise anim-d4 mt-8 flex flex-wrap items-center gap-4">
               <Link
                 href="/courses"
-                className="inline-flex min-h-[50px] items-center rounded-[9px] bg-brandRed px-[30px] py-[14px] text-[16.5px] font-extrabold text-white shadow-[0_12px_24px_rgba(208,0,0,0.28)] transition hover:-translate-y-0.5 hover:bg-redDark"
+                className="btn-primary"
               >
                 Explore Course
               </Link>
               <Link
                 href="/about"
-                className="inline-flex min-h-[50px] items-center rounded-[9px] border-2 border-white bg-transparent px-[30px] py-[14px] text-[16.5px] font-extrabold text-white transition hover:bg-white hover:text-navyInk"
+                className="btn-outline-light"
               >
                 Discover More
               </Link>
             </div>
-            <div className="mt-9 flex items-center gap-4">
+            <div className="anim-rise anim-d5 mt-9 flex items-center gap-4">
               <div className="flex shrink-0">
                 {AVATARS.map((a, i) => (
                   <Image
@@ -105,7 +122,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="w-full max-w-[472px] justify-self-center self-center lg:justify-self-end">
+          <div className="anim-rise anim-d6 w-full max-w-[472px] justify-self-center self-center lg:justify-self-end">
             <TrialForm variant="hero" />
           </div>
         </div>
