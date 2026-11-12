@@ -5,7 +5,17 @@ import { TEACHERS_PHOTO } from "@/lib/site";
 
 /** Why Choose Us (PREVIEW-SPEC §3.7): cream section, photo left with
  * the animated circular "5+ Years Experience" badge (rises in +
- * counts up, like Minha's 25+ badge), 4 features 2×2 on the right. */
+ * counts up, like Minha's 25+ badge), 4 features 2×2 on the right.
+ * Feedback round 5 (Minha shot3): the photo was too TALL (560px) —
+ * now moderate (360px mobile / 460px desktop), ~16px rounded
+ * corners, badge overlapping the TOP-LEFT corner like Minha's 25+.
+ * Also the ROOT CAUSE of the floating-WhatsApp bug: this text
+ * column's Reveal (from="right", +56px) CONTAINED the feature-item
+ * Reveals (also left/right, ±56px) — the shifts compounded to
+ * +112px and expanded the mobile layout viewport to 486px. The
+ * feature items now rise VERTICALLY (no horizontal shift), so no
+ * compounding; html/body overflow-x: clip (globals.css) is the
+ * belt-and-braces guard for every other sideways Reveal. */
 const FEATURES = [
   {
     title: "Qualified Teachers",
@@ -48,7 +58,7 @@ export default function WhyChooseUs() {
             </p>
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
               {FEATURES.map((f, i) => (
-                <Reveal key={f.title} from={i % 2 === 0 ? "left" : "right"} delay={(i % 2) as 0 | 1}>
+                <Reveal key={f.title} delay={(i % 2) as 0 | 1}>
                   <div className="flex gap-4">
                     <span className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-2xl bg-brandRed text-white shadow-card">
                       <svg viewBox="0 0 24 24" fill="currentColor" className="h-7 w-7" aria-hidden="true">
@@ -79,7 +89,7 @@ export default function WhyChooseUs() {
                 height={1600}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 quality={85}
-                className="h-[560px] w-full object-cover"
+                className="h-[360px] w-full object-cover lg:h-[460px]"
               />
             </div>
             <ExperienceBadge />

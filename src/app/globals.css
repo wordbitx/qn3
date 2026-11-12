@@ -29,13 +29,30 @@
   --line: #e9e2d6;
 }
 
+/* Feedback round 5 (12 Nov 2026) — FLOATING WHATSAPP ROOT CAUSE:
+   the layout viewport on mobile was EXPANDING to 486px (measured:
+   innerWidth 486 at load on a 390px screen), so the fixed right:18px
+   WhatsApp button rendered at x=410–468 — completely off-screen.
+   The expander was the .rv scroll-reveal transforms: pre-reveal
+   elements sit shifted ±56px, and the WhyChooseUs text column
+   (.rv-from-right, +56px) CONTAINS feature-item Reveals (also
+   ±56px) — the shifts compound to +112px (374px content edge + 112
+   = 486px). `overflow-x: hidden` on body ALONE does not stop the
+   root layout viewport from expanding (the html element / initial
+   containing block can still grow); `overflow-x: clip` on BOTH html
+   and body does — it clips overflow without creating a scroll
+   container, so `position: sticky` keeps working and transformed
+   .rv elements are simply clipped at the viewport edge while they
+   animate in. Proof: with reduced motion (transforms off) the
+   viewport stayed 390px and the button was fully visible. */
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   @apply bg-white font-sans text-ink antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Headings use Lexend Deca, body uses Noto Sans. */

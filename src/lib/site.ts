@@ -54,14 +54,39 @@ export function feeMessageForPlan(planName: string): string {
    in frame). Desktop is w=2400. FLAG: same Zeynep Sude Emek model as
    the Teachers photo (20785854) — same woman, same dress, different
    pose/setting; unavoidable for a premium Turkish hero (see the photos
-   README, round-4 flags). */
+   README, round-4 flags).
+   Feedback round 5 (12 Nov 2026): the round-4 PRAYING hero 20785238
+   is REPLACED — the user wants a READING image like Minha's "Begin
+   Your Learning Journey" banner (shot1: a girl in a WHITE hijab
+   reading an open Quran). FLAG 1: Minha's shot1 girl looks YOUNG
+   (~12–16) — the no-child rule forbids using her. FLAG 2: NO adult
+   woman in a white hijab reading an open Quran exists on Pexels —
+   every white-hijab reading photo is the Alena Darmel child
+   (8164726 / 8164735 / 8164734); the other adult women reading are
+   20784507 (same Zeynep model, subject LEFT — sits under the
+   headline), 18268161 (FURKAN GUNES, reader tiny in a wide mosque
+   shot), 7249316 (older woman, pink hijab, face blurred) and
+   29106154 (the OLD hero, user-rejected as hospital-like). New hero
+   is Pexels 20784759 (Zeynep Sude Emek, Sancaklar Mosque): an ADULT
+   woman in a dark maroon hijab + beige dress, sitting cross-legged
+   and reading an OPEN Quran in her lap, face visible looking down —
+   subject CENTERED against a dark stone wall, so the headline sits
+   over the dark wall on the left and the trial form over the dark
+   wall on the right. Dark background suits the navy overlay.
+   Verified HTTP 200 + JPEG + visually inspected at w=2400
+   (2400×1600) and the CENTER-anchored portrait mobile crop
+   (1200×1800 — full figure in frame, open Quran clearly visible,
+   white tasbih on the floor). Desktop is w=2400. FLAG 3: same
+   Zeynep model as the Teachers photo (20785854) — the user has
+   accepted the same-model reuse in rounds 2 and 4; the hero and
+   Teachers are the two prominent spots. */
 export const HERO_PHOTO =
-  "https://images.pexels.com/photos/20785238/pexels-photo-20785238.jpeg?auto=compress&cs=tinysrgb&w=2400";
-/* Mobile hero: same photo 20785238, right-anchored portrait crop
-   (the praying woman, full figure, wooden screens behind her).
+  "https://images.pexels.com/photos/20784759/pexels-photo-20784759.jpeg?auto=compress&cs=tinysrgb&w=2400";
+/* Mobile hero: same photo 20784759, CENTER-anchored portrait crop
+   (the reading woman is centered, so the crop keeps her full figure).
    Verified HTTP 200 + JPEG 1200×1800, visually inspected. */
 export const HERO_PHOTO_MOBILE =
-  "https://images.pexels.com/photos/20785238/pexels-photo-20785238.jpeg?auto=compress&cs=tinysrgb&fit=crop&crop=right&w=1200&h=1800";
+  "https://images.pexels.com/photos/20784759/pexels-photo-20784759.jpeg?auto=compress&cs=tinysrgb&fit=crop&crop=center&w=1200&h=1800";
 /* About collage — stylish 3-image composition (round 2):
    dua = South Asian girl, hands raised in dua with tasbih + Quran on rehal;
    girl = young Turkish girl in a rust-orange hijab reading the Quran in a
@@ -78,13 +103,37 @@ export const HERO_PHOTO_MOBILE =
    the crop was simulated and visually inspected — both hands + tasbih
    survive. Bottom-row photo = 20558488 (same SERHAT TUĞ shoot, same
    woman in a rust hijab, side profile, hands raised in dua with a
-   white tasbih in a sunlit mosque). */
+   white tasbih in a sunlit mosque).
+   Feedback round 5 (12 Nov 2026): the collage is restructured to
+   Minha's shot4 EXACTLY. (a) The navy "14 Online Courses" card is
+   REMOVED from the collage (the "14" fact stays in StatsRow).
+   (b) Big image = 30890559 (Emre Ateşoğlu, Türkiye): an OPEN PALM
+   CUPPED holding a WHITE tasbih (white beads with black dots) over a
+   red patterned prayer carpet, warm light — the closest Pexels match
+   to Minha's shot4 big photo (CUPPED hands + white tasbih + open
+   Quran + patterned carpet). FLAG: only ONE hand is visible and NO
+   open Quran is in frame — no Pexels photo has cupped hands + tasbih
+   + Quran together (7249180 = hand RESTING on a Quran, DARK tasbih;
+   20785794 = hands FOLDED holding a wooden tasbih, no Quran;
+   8164599 = man's hands, RED tasbih; 16197226 = dark tasbih
+   hanging; 11514335 = open Quran + WHITE tasbih + patterned carpet
+   + warm light but NO hands — the backup). The palm + white beads
+   are central, so the landscape crop (object-position 45%) keeps
+   them. (c) Bottom row = [OQC box UNCHANGED | male photo].
+   Male photo = 7129612 (Michael Burrows): a YOUNG man in a white
+   thobe, face visible looking down, reading a Quran indoors — the
+   closest Pexels match to Minha's shot4 young man (light-blue shirt,
+   by a window, warm light). FLAG: not by a window (plain white
+   wall) and the Quran is a small red book; backup is 8164585 (Alena
+   Darmel, man in a grey suit at a LARGE ornate Quran on a rehal,
+   portrait-native, unmistakable Quran — older man, corporate look).
+   Rejected male candidates: 20597768 (hands only, no person),
+   29894263 (too dark, face hidden by the book), 16066399
+   (over-shoulder, no face), 34496696 (back of head only). */
 export const COLLAGE_DUA_PHOTO =
-  "https://images.pexels.com/photos/20558487/pexels-photo-20558487.jpeg?auto=compress&cs=tinysrgb&w=1600";
-export const COLLAGE_WOMAN_DUA_PHOTO =
-  "https://images.pexels.com/photos/20558488/pexels-photo-20558488.jpeg?auto=compress&cs=tinysrgb&w=1600";
-export const COLLAGE_WOMAN_PHOTO =
-  "https://images.pexels.com/photos/8164752/pexels-photo-8164752.jpeg?auto=compress&cs=tinysrgb&w=1600";
+  "https://images.pexels.com/photos/30890559/pexels-photo-30890559.jpeg?auto=compress&cs=tinysrgb&w=1600";
+export const COLLAGE_MAN_PHOTO =
+  "https://images.pexels.com/photos/7129612/pexels-photo-7129612.jpeg?auto=compress&cs=tinysrgb&w=1600";
 export const TEACHERS_PHOTO =
   "https://images.pexels.com/photos/20785854/pexels-photo-20785854.jpeg?auto=compress&cs=tinysrgb&w=2400";
 /* Banner band + Basic Arabic card: open Quran with a wooden tasbih —

@@ -2,8 +2,18 @@ import { Reveal } from "@/components/Reveal";
 
 /**
  * Trust marquee (PREVIEW-SPEC §3.2): centred heading + auto-scrolling
- * line of 7 items, each with a red icon + navy bold text, separated by a
+ * line of 7 items, each with a red icon + navy text, separated by a
  * 7px red dot. Track duplicated for the seamless loop; 30s linear.
+ * Feedback round 5 (user, side-by-side vs Minha shot6): (a) the
+ * marquee items MUST NOT be bold — the user: "iska text bhi tumne
+ * bold kiya hua hai... at least iska to na bold karo" — so items
+ * are font-medium now; the fade mask at both edges (globals.css)
+ * makes the cut items read as an intentional marquee, not a broken
+ * scroll. (b) The heading looked oversized/bold and ran edge-to-edge
+ * (no wrapper) — now 19px semibold inside a padded max-w-7xl
+ * container, like Minha's partners heading. (c) The gap to the
+ * About kicker was ~112px — the section bottom padding is cut from
+ * 48px to 24px (About's mobile top cut to 40px too: 64px total).
  */
 const ITEMS: { label: string; icon: string }[] = [
   { label: "One-to-One Quran Learning", icon: "M12 3 1 8.5l11 5.5 9-4.5V15h2V8.5L12 3zM5 12.6V16c0 1.66 3.13 3 7 3s7-1.34 7-3v-3.4l-7 3.5-7-3.5z" },
@@ -24,7 +34,7 @@ function TrackChunk({ hidden = false }: { hidden?: boolean }) {
             <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 shrink-0 text-brandRed" aria-hidden="true">
               <path d={item.icon} />
             </svg>
-            <span className="font-display text-[17.5px] font-bold text-navyInk">{item.label}</span>
+            <span className="font-display text-[17.5px] font-medium text-navyInk">{item.label}</span>
           </span>
           <span className="h-[7px] w-[7px] shrink-0 rounded-full bg-brandRed" aria-hidden="true" />
         </span>
@@ -35,12 +45,14 @@ function TrackChunk({ hidden = false }: { hidden?: boolean }) {
 
 export default function TrustBand() {
   return (
-    <section className="py-12" aria-label="Trusted by families worldwide">
-      <Reveal>
-        <h2 className="text-center font-display text-[21px] font-semibold leading-[1.35] tracking-[0] text-navyInk">
-          One-to-One Quran Learning — Trusted by Families Worldwide
-        </h2>
-      </Reveal>
+    <section className="pb-6 pt-12" aria-label="Trusted by families worldwide">
+      <div className="mx-auto max-w-7xl px-6">
+        <Reveal>
+          <h2 className="text-center font-display text-[19px] font-semibold leading-[1.35] tracking-[0] text-navyInk">
+            One-to-One Quran Learning — Trusted by Families Worldwide
+          </h2>
+        </Reveal>
+      </div>
       <div className="marquee mt-6">
         <div className="marquee-track">
           <TrackChunk />
