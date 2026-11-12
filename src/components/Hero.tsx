@@ -39,10 +39,12 @@ export default function Hero() {
           — torn pixels. Mobile (≤lg, stacked layout) now gets a
           right-anchored portrait crop of the SAME photo; desktop keeps the
           landscape at w=2400. Two <Image>s, shown/hidden by breakpoint.
+          Feedback round 4: the photo is now 20785238 (a woman standing
+          in prayer in a mosque, subject right) — same two-image technique.
         */}
         <Image
           src={HERO_PHOTO}
-          alt="A woman in a hijab reading the Holy Quran on a wooden rehal in a sunlit mosque"
+          alt="A woman in a hijab standing in prayer in a mosque, hands folded in devotion"
           fill
           sizes="100vw"
           quality={85}
@@ -51,7 +53,7 @@ export default function Hero() {
         />
         <Image
           src={HERO_PHOTO_MOBILE}
-          alt="A woman in a hijab reading the Holy Quran on a wooden rehal in a sunlit mosque"
+          alt="A woman in a hijab standing in prayer in a mosque, hands folded in devotion"
           fill
           sizes="100vw"
           quality={85}
@@ -69,7 +71,7 @@ export default function Hero() {
 
         <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-14 lg:grid-cols-[1.12fr_0.88fr] lg:p-14">
           <div className="min-w-0 self-center">
-            <p className="anim-rise anim-d1 flex items-center gap-3 text-[14px] font-extrabold uppercase tracking-[0.18em] text-white">
+            <p className="anim-rise anim-d1 flex items-center gap-3 text-[13px] font-bold uppercase tracking-[0.22em] text-white">
               <span className="h-[3px] w-[38px] rounded-full bg-brandRed" aria-hidden="true" />
               Welcome to Quran Light Institute
             </p>
@@ -82,16 +84,23 @@ export default function Hero() {
               confidence, and meaningful spiritual growth — live from home, with qualified male
               and female teachers.
             </p>
-            <div className="anim-rise anim-d4 mt-8 flex flex-wrap items-center gap-4">
+            {/*
+              Feedback round 3 — Minha's hero buttons (video frame f1):
+              STACKED, FULL-WIDTH, generous height (~56px) on mobile;
+              in a row at Minha's proportions on desktop. Solid red
+              "Explore Course", transparent with a red border
+              "Discover More". Same labels as before.
+            */}
+            <div className="anim-rise anim-d4 mt-8 flex flex-col gap-4 lg:flex-row lg:items-center">
               <Link
                 href="/courses"
-                className="btn-primary"
+                className="btn-primary btn-hero w-full lg:w-auto lg:min-w-[210px]"
               >
                 Explore Course
               </Link>
               <Link
                 href="/about"
-                className="btn-outline-light"
+                className="btn-outline-red btn-hero w-full lg:w-auto lg:min-w-[210px]"
               >
                 Discover More
               </Link>
@@ -112,7 +121,7 @@ export default function Hero() {
                 ))}
               </div>
               <p className="leading-tight">
-                <span className="block font-display text-[26px] font-extrabold text-white">
+                <span className="block font-display text-[26px] font-bold text-white">
                   5+ Years
                 </span>
                 <span className="text-sm text-white/85">

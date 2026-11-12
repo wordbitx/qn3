@@ -21,7 +21,7 @@ export default function FaqsPage() {
           <Reveal from="left" className="lg:sticky lg:top-28 lg:self-start">
           <div>
             <p className="kicker">FAQ&apos;s</p>
-            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk">
+            <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk">
               Frequently Asked Questions
             </h2>
             <p className="mt-3 leading-relaxed text-muted">
@@ -29,7 +29,7 @@ export default function FaqsPage() {
             </p>
             <Link
               href="/contact"
-              className="mt-4 inline-block border-b-2 border-brandRed font-bold text-navyInk transition hover:text-brandRed"
+              className="mt-4 inline-block border-b-2 border-brandRed font-medium text-navyInk transition hover:text-brandRed"
             >
               Contact Us →
             </Link>

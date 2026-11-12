@@ -27,26 +27,12 @@ export default function TeachersPage() {
 
       <section className="py-[96px] max-[640px]:py-[64px]">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-2">
-          <Reveal from="left">
-          <div className="relative">
-            <div className="overflow-hidden rounded-2xl shadow-card">
-              <Image
-                src={TEACHERS_PHOTO}
-                alt="A woman in a hijab reading the Holy Quran on a rehal in a mosque"
-                width={2400}
-                height={1600}
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                quality={85}
-                className="h-[560px] w-full object-cover"
-              />
-            </div>
-            <ExperienceBadge />
-          </div>
-          </Reveal>
-          <Reveal from="right">
+          {/* Feedback round 4: DESKTOP images first (original), MOBILE
+              text first — one DOM, responsive order classes. */}
+          <Reveal from="right" className="order-1 lg:order-2">
           <div>
             <p className="kicker">Our Teachers</p>
-            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
+            <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
               Qualified Male &amp; Female Teachers
             </h2>
             <p className="mt-4 leading-relaxed text-muted">
@@ -56,7 +42,7 @@ export default function TeachersPage() {
             </p>
             <ul className="mt-6 space-y-3">
               {POINTS.map((p) => (
-                <li key={p} className="flex items-start gap-2.5 font-bold text-navyInk">
+                <li key={p} className="flex items-start gap-2.5 font-medium text-navyInk">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 h-5 w-5 shrink-0 text-brandRed" aria-hidden="true">
                     <path d="M20 6 9 17l-5-5" />
                   </svg>
@@ -72,6 +58,22 @@ export default function TeachersPage() {
             >
               Meet a Teacher — Free Trial
             </a>
+          </div>
+          </Reveal>
+          <Reveal from="left" className="order-2 lg:order-1">
+          <div className="relative">
+            <div className="overflow-hidden rounded-2xl shadow-card">
+              <Image
+                src={TEACHERS_PHOTO}
+                alt="A woman in a hijab reading the Holy Quran on a rehal in a mosque"
+                width={2400}
+                height={1600}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={85}
+                className="h-[560px] w-full object-cover"
+              />
+            </div>
+            <ExperienceBadge />
           </div>
           </Reveal>
         </div>

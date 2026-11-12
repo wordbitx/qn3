@@ -38,7 +38,7 @@ export default function PricingPage() {
           <Reveal>
           <div className="mx-auto max-w-3xl text-center">
             <p className="kicker kicker-centered">Pricing Plans</p>
-            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
+            <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
               Upgrade Your Skills and Knowledge
             </h2>
             <p className="mt-3 leading-relaxed text-muted">
@@ -59,7 +59,7 @@ export default function PricingPage() {
           <Reveal>
           <div className="mx-auto max-w-3xl text-center">
             <p className="kicker kicker-centered">How Payment Works</p>
-            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
+            <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
               Trial First. Payment Later.
             </h2>
             <p className="mt-3 leading-relaxed text-muted">
@@ -78,7 +78,7 @@ export default function PricingPage() {
               <div
                 className="h-full rounded-[14px] border border-line bg-white p-8 text-center shadow-[0_3px_12px_rgba(13,27,51,0.05)] transition duration-300 hover:-translate-y-[5px] hover:shadow-card"
               >
-                <p className="font-display text-[40px] font-extrabold leading-none text-brandRed">
+                <p className="font-display text-[40px] font-bold leading-none text-brandRed">
                   {s.n}
                 </p>
                 <h3 className="mt-4 font-display text-xl font-bold text-navyInk">{s.title}</h3>

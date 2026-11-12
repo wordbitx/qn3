@@ -50,7 +50,7 @@ export default function Footer() {
                   <span className="text-navy">Quran</span>{" "}
                   <span className="text-brandRed">Light</span>
                 </p>
-                <p className="mt-2 text-[11.5px] font-extrabold uppercase tracking-[0.14em] text-muted">
+                <p className="mt-2 text-[11.5px] font-medium uppercase tracking-[0.14em] text-muted">
                   Institute — Learn Quran Online
                 </p>
               </div>
@@ -127,8 +127,8 @@ export default function Footer() {
                   <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z" />
                 </svg>
                 <span>
-                  <span className="block text-muted">Phone / WhatsApp</span>
-                  <a href={PHONE_TEL} className="font-bold text-navyInk hover:underline">
+                  <span className="block font-bold text-navyInk">Phone / WhatsApp</span>
+                  <a href={PHONE_TEL} className="font-medium text-navyInk hover:underline">
                     {PHONE_DISPLAY}
                   </a>
                 </span>
@@ -138,8 +138,8 @@ export default function Footer() {
                   <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
                 </svg>
                 <span>
-                  <span className="block text-muted">Email</span>
-                  <a href={`mailto:${EMAIL}`} className="break-all font-bold text-navyInk hover:underline">
+                  <span className="block font-bold text-navyInk">Email</span>
+                  <a href={`mailto:${EMAIL}`} className="break-all font-medium text-navyInk hover:underline">
                     {EMAIL}
                   </a>
                 </span>
@@ -149,20 +149,67 @@ export default function Footer() {
                   <path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" />
                 </svg>
                 <span>
-                  <span className="block font-bold text-navyInk">Online Classes — Worldwide</span>
+                  <span className="block font-medium text-navyInk">Online Classes — Worldwide</span>
                   <span className="text-muted">Learn from home, anywhere</span>
                 </span>
               </li>
             </ul>
           </div>
         </div>
+        {/*
+          Feedback round 4 — policy links OUT of the old black box and
+          into the FOOTER BODY as a small regular links row (the three
+          policy pages themselves stay — they are real pages now).
+          The bottom of the footer is now ONE single line (below),
+          directly on the light gradient — no box at all.
+        */}
+        <nav
+          aria-label="Legal"
+          className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 pb-10 text-[14.5px]"
+        >
+          <Link href="/terms-of-use" className="text-navyInk/70 transition hover:text-brandRed">
+            Terms of Use
+          </Link>
+          <span className="text-navyInk/30" aria-hidden="true">
+            |
+          </span>
+          <Link href="/privacy-policy" className="text-navyInk/70 transition hover:text-brandRed">
+            Privacy Policy
+          </Link>
+          <span className="text-navyInk/30" aria-hidden="true">
+            |
+          </span>
+          <Link href="/cookie-policy" className="text-navyInk/70 transition hover:text-brandRed">
+            Cookie Policy
+          </Link>
+        </nav>
       </div>
-      {/* Black copyright strip, like Minha's — dark bar under the light
-          gradient footer. */}
-      <div className="bg-navyDark">
-        <p className="mx-auto max-w-7xl px-4 py-5 text-center text-[14.5px] text-white/65">
-          © 2026 Quran Light Institute — Learn Quran Online with Tajweed. All rights reserved.
-        </p>
+      {/* Footer bottom — feedback round 4 (user: "wo box hata do, single
+          line chahiye"): the black rounded box is GONE. One single line
+          of subtle regular text, sitting directly on the light gradient
+          footer background (hairline above it, no dark/blue block):
+          copyright + the WordbitX developer credit ("Developed by
+          WordbitX" linking to https://wordbitx.com, followed link
+          (no nofollow) so it counts as a backlink). Wraps gracefully
+          on narrow phones, reads as a single line on desktop. */}
+      <div className="border-t border-navy/10">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-5 text-center text-[14.5px] leading-relaxed text-navyInk/70">
+          <span>Copyright © 2026 Quran Light Institute. All rights reserved.</span>
+          <span aria-hidden="true" className="text-navyInk/40">
+            ·
+          </span>
+          <span>
+            Developed by{" "}
+            <a
+              href="https://wordbitx.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-navyInk underline decoration-navyInk/30 underline-offset-2 transition hover:text-brandRed"
+            >
+              WordbitX
+            </a>
+          </span>
+        </div>
       </div>
     </footer>
   );

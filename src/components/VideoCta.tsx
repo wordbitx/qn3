@@ -60,7 +60,7 @@ export default function VideoCta() {
       <div className="absolute inset-0 bg-[rgba(0,14,40,0.78)]" aria-hidden="true" />
       <div className="relative mx-auto max-w-7xl px-4 py-[96px] text-center max-[640px]:py-[64px]">
         <Reveal>
-          <h2 className="mx-auto max-w-[720px] font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-white sm:text-[44px]">
+          <h2 className="mx-auto max-w-[720px] font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-white sm:text-[44px]">
             Preparation for The Future Begins with Online Quran
           </h2>
         </Reveal>

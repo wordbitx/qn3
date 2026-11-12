@@ -61,7 +61,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
           <Reveal from="left">
           <div className="min-w-0">
             <p className="kicker">About This Course</p>
-            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-tight text-navyInk">
+            <h2 className="mt-3 font-display text-[36px] font-bold leading-tight text-navyInk">
               {course.tag}
             </h2>
             <div className="mt-5 space-y-4 leading-relaxed text-muted">
@@ -70,12 +70,12 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
               ))}
             </div>
 
-            <h2 className="mt-10 font-display text-[32px] font-extrabold text-navyInk">
+            <h2 className="mt-10 font-display text-[32px] font-bold text-navyInk">
               What You&apos;ll Learn
             </h2>
             <ul className="mt-4 space-y-3">
               {course.learn.map((item) => (
-                <li key={item} className="flex items-start gap-3 font-semibold text-navyInk">
+                <li key={item} className="flex items-start gap-3 font-medium text-navyInk">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 h-5 w-5 shrink-0 text-brandRed" aria-hidden="true">
                     <path d="M20 6 9 17l-5-5" />
                   </svg>
@@ -84,7 +84,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
               ))}
             </ul>
 
-            <h2 className="mt-10 font-display text-[32px] font-extrabold text-navyInk">
+            <h2 className="mt-10 font-display text-[32px] font-bold text-navyInk">
               Who Is It For?
             </h2>
             <p className="mt-3 leading-relaxed text-muted">{course.who}</p>
@@ -120,7 +120,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
               </Link>
               <p className="mt-5 text-center text-[0.95rem] text-muted">
                 Or call us:{" "}
-                <a href={PHONE_TEL} className="font-bold text-navy hover:underline">
+                <a href={PHONE_TEL} className="font-medium text-navy hover:underline">
                   {PHONE_DISPLAY}
                 </a>
               </p>
@@ -134,7 +134,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
         <div className="mx-auto max-w-7xl px-4">
           <Reveal>
           <p className="kicker">Keep Exploring</p>
-          <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk">
+          <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk">
             More Courses You May Like
           </h2>
           </Reveal>

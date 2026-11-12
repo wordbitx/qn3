@@ -22,7 +22,7 @@ export default function CoursesPage() {
           <div className="grid items-end gap-6 lg:grid-cols-2">
             <div>
               <p className="kicker">Featured Quran Courses</p>
-              <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
+              <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
                 Find Quran Courses for
                 <br />
                 Personal Growth
