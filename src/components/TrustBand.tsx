@@ -37,7 +37,7 @@ export default function TrustBand() {
   return (
     <section className="py-12" aria-label="Trusted by families worldwide">
       <Reveal>
-        <h2 className="text-center font-display text-xl font-bold text-navyInk">
+        <h2 className="text-center font-display text-[21px] font-semibold leading-[1.35] tracking-[0] text-navyInk">
           One-to-One Quran Learning — Trusted by Families Worldwide
         </h2>
       </Reveal>

@@ -76,14 +76,14 @@ button.btn-trial {
   font-weight: 800;
 }
 
-/* Kicker / eyebrow label — 14px, weight 800, .18em tracking, uppercase,
-   red (white on hero, with a 44×3px red bar before it). Premium polish:
-   tighter tracking + slightly larger size than before (was 13.5px/.22em)
-   so the eyebrow reads intentional, like Minha's. */
+/* Kicker / eyebrow label — 13px, weight 700, .22em tracking, uppercase,
+   red (white on hero, with a 44×3px red bar before it). Feedback round 3:
+   Minha's kicker is small, light and wide-tracked — premium, not heavy
+   (was 14px/800/.18em). */
 .kicker {
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--red);
 }
@@ -136,42 +136,44 @@ button.btn-trial {
 /* ---- Scroll reveal ----
    .rv starts faded and shifted (down by default, or sideways with
    .rv-from-left / .rv-from-right); .is-visible eases into place with a
-   soft springy cubic-bezier (premium polish: was plain `ease`).
-   Reveal.tsx force-reveals everything after 8000ms so content never
-   stays hidden — long enough that real scroll animations still play
-   (the old 1200ms timer revealed below-fold content before the user
-   ever scrolled to it, so the animations never showed). Reduced-motion
-   users see everything immediately.
+   soft springy cubic-bezier. Feedback round 3: SLOWER — the user said
+   the old 0.9s entrance was so fast you could not feel it. Now 1.3s
+   with a longer travel (44px / 56px sideways) and wider stagger gaps
+   (0.18s steps) so boxes arrive one after another, visibly, as you
+   scroll — left, right, left, right. Hero entrance is NOT touched
+   (it is fine as it is). Reveal.tsx force-reveals everything after
+   8000ms so content never stays hidden. Reduced-motion users see
+   everything immediately.
    .rv.is-visible wins over the direction classes by specificity, and
    translateY(0) resets both axes, so every direction ends at rest. */
 .rv {
   opacity: 0;
-  transform: translateY(34px);
+  transform: translateY(44px);
   transition:
-    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 1.3s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .rv-from-left {
-  transform: translateX(-44px);
+  transform: translateX(-56px);
 }
 .rv-from-right {
-  transform: translateX(44px);
+  transform: translateX(56px);
 }
 .rv.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 .rv-d1 {
-  transition-delay: 0.08s;
+  transition-delay: 0.18s;
 }
 .rv-d2 {
-  transition-delay: 0.16s;
+  transition-delay: 0.36s;
 }
 .rv-d3 {
-  transition-delay: 0.24s;
+  transition-delay: 0.54s;
 }
 .rv-d4 {
-  transition-delay: 0.32s;
+  transition-delay: 0.72s;
 }
 @media (prefers-reduced-motion: reduce) {
   .rv {
@@ -391,6 +393,30 @@ button.btn-trial {
   background: var(--navy);
   color: #fff;
   box-shadow: 0 12px 26px rgba(0, 51, 140, 0.28);
+}
+/* Hero buttons (feedback round 3 — Minha's proportions): taller
+   (56px) and wider than the standard buttons, so the hero CTAs read
+   like Minha's full-width stacked buttons on mobile. */
+.btn-hero {
+  min-height: 56px;
+  padding: 16px 32px;
+  font-size: 17px;
+}
+/* Red-outline button for the dark hero (Minha's "Discover More" is an
+   outlined button on the dark photo): bright-red border so it stays
+   visible on the dark navy photo, transparent bg, white text; hover
+   fills red. */
+.btn-outline-red {
+  border: 2px solid var(--red-bright);
+  background: transparent;
+  color: #fff;
+}
+.btn-outline-red:hover {
+  transform: translateY(-2px);
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(208, 0, 0, 0.35);
 }
 .btn-primary:active,
 .btn-navy:active,

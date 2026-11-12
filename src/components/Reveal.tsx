@@ -60,8 +60,10 @@ export function Reveal({
   );
 }
 
-/** Animated count-up number, 0 → value over 1100ms when scrolled into view (once).
- * Reduced-motion users see the final value immediately — no animation. */
+/** Animated count-up number, 0 → value over 1600ms when scrolled into view (once).
+ * Feedback round 3: slower (was 1100ms) — the user said the count-up
+ * was so fast you could not feel it. Reduced-motion users see the final
+ * value immediately — no animation. */
 export function CountUp({ value, suffix = "" }: { value: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const [n, setN] = useState(0);
@@ -80,7 +82,7 @@ export function CountUp({ value, suffix = "" }: { value: number; suffix?: string
           started.current = true;
           const t0 = performance.now();
           const tick = (t: number) => {
-            const p = Math.min(1, (t - t0) / 1100);
+            const p = Math.min(1, (t - t0) / 1600);
             setN(Math.round(value * (1 - Math.pow(1 - p, 3))));
             if (p < 1) requestAnimationFrame(tick);
           };

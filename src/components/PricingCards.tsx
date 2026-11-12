@@ -65,16 +65,16 @@ function PricingCard({ plan }: { plan: (typeof PRICING_PLANS)[number] }) {
       <h3 className="font-display text-[27px] font-bold leading-tight text-navyInk">
         {plan.name}
         {popular ? (
-          <span className="ml-2 inline-block -translate-y-0.5 rounded-full bg-brandRed px-3 py-1 align-middle text-xs font-extrabold uppercase tracking-wider text-white">
+          <span className="ml-2 inline-block -translate-y-0.5 rounded-full bg-brandRed px-3 py-1 align-middle text-xs font-bold uppercase tracking-wider text-white">
             Popular
           </span>
         ) : null}
       </h3>
       <p className="mt-2 leading-relaxed text-muted">{plan.desc}</p>
-      <p className="mt-5 font-bold text-navyInk">Features:</p>
+      <p className="mt-5 font-medium text-navyInk">Features:</p>
       <ul className="mt-3 flex-1 space-y-3">
         {plan.features.map((f) => (
-          <li key={f} className="flex items-start gap-2.5 text-[0.95rem] font-semibold text-navyInk">
+          <li key={f} className="flex items-start gap-2.5 text-[0.95rem] font-medium text-navyInk">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 h-5 w-5 shrink-0 text-brandRed" aria-hidden="true">
               <path d="M20 6 9 17l-5-5" />
             </svg>

@@ -36,7 +36,7 @@ export default function CourseCard({ course }: { course: Course }) {
         aria-hidden="true"
       />
       <div className="absolute inset-x-0 top-0 flex items-start justify-between p-5">
-        <span className="rounded-md bg-brandRed px-3 py-1.5 text-[11.5px] font-extrabold uppercase tracking-[0.1em] text-white">
+        <span className="rounded-md bg-brandRed px-3 py-1.5 text-[11.5px] font-semibold uppercase tracking-[0.1em] text-white">
           {course.chip}
         </span>
         <span
@@ -54,7 +54,7 @@ export default function CourseCard({ course }: { course: Course }) {
         </h3>
         <p className="mt-2 line-clamp-3 text-[15px] leading-relaxed text-white/85">{course.tag}</p>
         <div className="mt-4 flex items-center justify-between border-t border-white/25 pt-4">
-          <span className="text-[15px] font-bold text-white">Read More</span>
+          <span className="text-[15px] font-medium text-white">Read More</span>
           <span className="rounded-lg border-[1.5px] border-[#fdeeda]/80 bg-white/10 px-3 py-1 text-[15px] font-semibold text-white backdrop-blur-sm">
             3-Day FREE Trial
           </span>

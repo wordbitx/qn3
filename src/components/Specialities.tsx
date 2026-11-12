@@ -10,7 +10,7 @@ export default function Specialities() {
         <Reveal>
         <div className="mx-auto max-w-3xl text-center">
           <p className="kicker kicker-centered">What We Offer</p>
-          <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
+          <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
             Our 12 Additional Specialities
           </h2>
           <p className="mt-3 leading-relaxed text-muted">
@@ -30,7 +30,7 @@ export default function Specialities() {
             <article
               className="h-full rounded-[14px] border border-line bg-white p-[28px_26px] shadow-[0_3px_12px_rgba(13,27,51,0.05)] transition duration-300 hover:-translate-y-[5px] hover:shadow-card"
             >
-              <p className="text-[15px] font-extrabold uppercase tracking-[0.08em] text-brandRed">
+              <p className="text-[15px] font-semibold uppercase tracking-[0.08em] text-brandRed">
                 Speciality {i + 1}
               </p>
               <h3 className="mt-2 font-display text-[19.5px] font-bold leading-snug text-navyInk">

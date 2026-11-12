@@ -32,6 +32,41 @@ export default function AboutPage() {
       <section className="py-[96px] max-[640px]:py-[64px]">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-2">
           <Reveal from="left">
+          <div>
+            <p className="kicker">Who We Are</p>
+            <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
+              Help Your Child Learn the Holy Quran from Home
+            </h2>
+            <p className="mt-4 leading-relaxed text-muted">
+              Quran Light Institute is an online Quran academy with 5+ years of experience,
+              teaching kids and adults through live one-to-one classes. Every lesson is
+              personal: the teacher listens to the student&apos;s recitation, corrects gently,
+              and follows a clear plan suited to the student&apos;s age and level.
+            </p>
+            <p className="mt-3 leading-relaxed text-muted">
+              Our mission is simple — to make authentic Quranic education reachable from any
+              home in the world, with qualified male and female teachers, flexible timings that
+              respect family routines, and honest progress monitoring for parents.
+            </p>
+            <ul className="mt-6 space-y-3">
+              {POINTS.map((p) => (
+                <li key={p} className="flex items-start gap-2.5 font-medium text-navyInk">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 h-5 w-5 shrink-0 text-brandRed" aria-hidden="true">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                  {p}
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/contact"
+              className="mt-8 btn-primary"
+            >
+              Book Free Trial
+            </Link>
+          </div>
+          </Reveal>
+          <Reveal from="right">
           <div className="grid grid-cols-2 gap-4">
             <div className="relative row-span-2 min-h-[480px] overflow-hidden rounded-2xl shadow-card">
               <Image
@@ -58,47 +93,12 @@ export default function AboutPage() {
             <div className="relative min-h-[220px] overflow-hidden rounded-[16px_16px_90px_16px] shadow-card">
               <Image
                 src={HERO_PHOTO}
-                alt="A woman in a hijab reading the Holy Quran on a wooden rehal in a sunlit mosque"
+                alt="An open Holy Quran in warm light"
                 fill
                 sizes="(max-width: 1080px) 50vw, 25vw"
                 className="object-cover"
               />
             </div>
-          </div>
-          </Reveal>
-          <Reveal from="right">
-          <div>
-            <p className="kicker">Who We Are</p>
-            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
-              Help Your Child Learn the Holy Quran from Home
-            </h2>
-            <p className="mt-4 leading-relaxed text-muted">
-              Quran Light Institute is an online Quran academy with 5+ years of experience,
-              teaching kids and adults through live one-to-one classes. Every lesson is
-              personal: the teacher listens to the student&apos;s recitation, corrects gently,
-              and follows a clear plan suited to the student&apos;s age and level.
-            </p>
-            <p className="mt-3 leading-relaxed text-muted">
-              Our mission is simple — to make authentic Quranic education reachable from any
-              home in the world, with qualified male and female teachers, flexible timings that
-              respect family routines, and honest progress monitoring for parents.
-            </p>
-            <ul className="mt-6 space-y-3">
-              {POINTS.map((p) => (
-                <li key={p} className="flex items-start gap-2.5 font-bold text-navyInk">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 h-5 w-5 shrink-0 text-brandRed" aria-hidden="true">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
-                  {p}
-                </li>
-              ))}
-            </ul>
-            <Link
-              href="/contact"
-              className="mt-8 btn-primary"
-            >
-              Book Free Trial
-            </Link>
           </div>
           </Reveal>
         </div>

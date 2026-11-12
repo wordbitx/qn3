@@ -16,10 +16,10 @@ export default function StatsRow() {
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 text-center lg:grid-cols-4">
         {STATS.map((s, i) => (
           <Reveal key={s.label} delay={(i % 4) as 0 | 1 | 2 | 3}>
-            <p className="font-display text-[52px] font-extrabold leading-none text-brandRed">
+            <p className="font-display text-[40px] font-bold leading-none text-brandRed">
               <CountUp value={s.value} suffix={s.suffix} />
             </p>
-            <p className="mt-2 font-bold text-navyInk">{s.label}</p>
+            <p className="mt-2 font-medium text-navyInk">{s.label}</p>
           </Reveal>
         ))}
       </div>

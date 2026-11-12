@@ -29,19 +29,24 @@ export function feeMessageForPlan(planName: string): string {
    Turkish / Arab / South Asian subjects, each HTTP 200 + JPEG + visually
    inspected. 20784507 (Turkish woman, Sancaklar Mosque) survives only as
    one tiny 52px hero proof avatar.
-   Mobile-fix round (12 Nov 2026): the landscape hero stretched over a
-   ~390×1300px portrait container on phones upscaled the visible slice
-   ~4x (DPR 2–3) — hence the torn pixels. Mobile now gets a
-   right-anchored portrait crop of the SAME photo (1200×1800, verified);
-   desktop hero is bumped to w=2400. Teachers + collage + banner bumped
-   so their 2x/3x-DPR slices stay near 1:1. */
+   Feedback round 3 (12 Nov 2026): the hero female 29106154 is replaced —
+   the user said she looks like a hospital nurse (white shirt, no Quranic
+   meaning at first glance). New hero is an OBJECT photo: an open Holy
+   Quran in near-darkness with a warm shaft of light across the pages
+   (Surah Al-Kahf header visible) — no person at all, so zero nurse /
+   subject risk, and it matches Minha's dark moody open-Quran hero.
+   Left side is dark (perfect for the white headline), right side is
+   warm-lit (behind the translucent red trial form). Verified HTTP 200 +
+   JPEG + visually inspected at w=1200, w=2400 (2400×1600) and the
+   right-anchored portrait mobile crop (1200×1800, lit pages top, dark
+   bottom). Desktop is w=2400. */
 export const HERO_PHOTO =
-  "https://images.pexels.com/photos/29106154/pexels-photo-29106154.jpeg?auto=compress&cs=tinysrgb&w=2400";
-/* Mobile hero: same photo 29106154, right-anchored portrait crop
-   (woman + hands + Quran on rehal + light pools, face already out of
-   frame in the original). Verified HTTP 200 + JPEG 1200×1800. */
+  "https://images.pexels.com/photos/6873767/pexels-photo-6873767.jpeg?auto=compress&cs=tinysrgb&w=2400";
+/* Mobile hero: same photo 6873767, right-anchored portrait crop
+   (lit Quran pages top, dark bottom — headline over the lit pages,
+   trial form over the dark). Verified HTTP 200 + JPEG 1200×1800. */
 export const HERO_PHOTO_MOBILE =
-  "https://images.pexels.com/photos/29106154/pexels-photo-29106154.jpeg?auto=compress&cs=tinysrgb&fit=crop&crop=right&w=1200&h=1800";
+  "https://images.pexels.com/photos/6873767/pexels-photo-6873767.jpeg?auto=compress&cs=tinysrgb&fit=crop&crop=right&w=1200&h=1800";
 /* About collage — stylish 3-image composition (round 2):
    dua = South Asian girl, hands raised in dua with tasbih + Quran on rehal;
    girl = young Turkish girl in a rust-orange hijab reading the Quran in a

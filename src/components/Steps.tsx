@@ -51,7 +51,7 @@ export default function Steps() {
       <div className="mx-auto max-w-7xl px-4">
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="kicker kicker-centered">Our Process</p>
-          <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
+          <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
             How Learning Happens Step By Step
           </h2>
           <p className="mt-3 leading-relaxed text-muted">
@@ -79,7 +79,7 @@ export default function Steps() {
                   />
                 </div>
                 <div className="min-w-0">
-                  <span className="font-display text-[20px] font-extrabold leading-none text-brandRed">
+                  <span className="font-display text-[20px] font-bold leading-none text-brandRed">
                     {s.num}.
                   </span>
                   <h3 className="mt-1.5 font-display text-[20px] font-bold leading-snug text-navyInk transition group-hover:text-brandRed sm:text-[22px]">

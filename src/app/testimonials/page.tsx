@@ -25,7 +25,7 @@ export default function TestimonialsPage() {
       <section className="py-16">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <Reveal>
-          <h2 className="font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
+          <h2 className="font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
             What Our Students Say
           </h2>
           <p className="mt-4 text-lg font-sans leading-relaxed text-muted">

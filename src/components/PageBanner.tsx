@@ -35,7 +35,7 @@ export default function PageBanner({
         <h1 className="anim-rise anim-d1 font-display text-[clamp(36px,5vw,56px)] font-extrabold leading-[1.1] text-white">
           {title}
         </h1>
-        <p className="anim-rise anim-d2 mt-4 text-[15px] font-bold text-white/80">
+        <p className="anim-rise anim-d2 mt-4 text-[15px] font-medium text-white/80">
           <Link href="/" className="hover:text-white">
             Home
           </Link>

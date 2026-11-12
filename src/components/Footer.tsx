@@ -50,7 +50,7 @@ export default function Footer() {
                   <span className="text-navy">Quran</span>{" "}
                   <span className="text-brandRed">Light</span>
                 </p>
-                <p className="mt-2 text-[11.5px] font-extrabold uppercase tracking-[0.14em] text-muted">
+                <p className="mt-2 text-[11.5px] font-medium uppercase tracking-[0.14em] text-muted">
                   Institute — Learn Quran Online
                 </p>
               </div>
@@ -127,8 +127,8 @@ export default function Footer() {
                   <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z" />
                 </svg>
                 <span>
-                  <span className="block text-muted">Phone / WhatsApp</span>
-                  <a href={PHONE_TEL} className="font-bold text-navyInk hover:underline">
+                  <span className="block font-bold text-navyInk">Phone / WhatsApp</span>
+                  <a href={PHONE_TEL} className="font-medium text-navyInk hover:underline">
                     {PHONE_DISPLAY}
                   </a>
                 </span>
@@ -138,8 +138,8 @@ export default function Footer() {
                   <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
                 </svg>
                 <span>
-                  <span className="block text-muted">Email</span>
-                  <a href={`mailto:${EMAIL}`} className="break-all font-bold text-navyInk hover:underline">
+                  <span className="block font-bold text-navyInk">Email</span>
+                  <a href={`mailto:${EMAIL}`} className="break-all font-medium text-navyInk hover:underline">
                     {EMAIL}
                   </a>
                 </span>
@@ -149,7 +149,7 @@ export default function Footer() {
                   <path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" />
                 </svg>
                 <span>
-                  <span className="block font-bold text-navyInk">Online Classes — Worldwide</span>
+                  <span className="block font-medium text-navyInk">Online Classes — Worldwide</span>
                   <span className="text-muted">Learn from home, anywhere</span>
                 </span>
               </li>
@@ -157,12 +157,50 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      {/* Black copyright strip, like Minha's — dark bar under the light
-          gradient footer. */}
-      <div className="bg-navyDark">
-        <p className="mx-auto max-w-7xl px-4 py-5 text-center text-[14.5px] text-white/65">
-          © 2026 Quran Light Institute — Learn Quran Online with Tajweed. All rights reserved.
-        </p>
+      {/* Copyright box — Minha's exact treatment (screenshot
+          WhatsApp_Image_2026-11-12_at_3.47.22_PM.jpeg): a BLACK
+          rounded-rectangle box with clear side margins at the bottom of
+          the gradient footer — NOT a full-width strip — white REGULAR
+          text inside, left aligned. Order inside the box: copyright
+          line, policy-links row ("Terms of Use | Privacy Policy |
+          Cookie Policy", real pages now created — round-3 finish
+          items), then the WordbitX developer credit ("Developed by
+          WordbitX" linking to https://wordbitx.com, followed link
+          (no nofollow) so it counts as a backlink). */}
+      <div className="mx-auto max-w-7xl px-4 pb-6">
+        <div className="rounded-[16px] bg-black px-6 py-5">
+          <p className="text-[14.5px] leading-relaxed text-white">
+            Copyright © 2026 Quran Light Institute. All rights reserved.
+          </p>
+          <p className="mt-1.5 text-[14.5px] leading-relaxed text-white">
+            <Link href="/terms-of-use" className="text-white transition hover:text-white/80">
+              Terms of Use
+            </Link>
+            <span className="mx-2 text-white/50" aria-hidden="true">
+              |
+            </span>
+            <Link href="/privacy-policy" className="text-white transition hover:text-white/80">
+              Privacy Policy
+            </Link>
+            <span className="mx-2 text-white/50" aria-hidden="true">
+              |
+            </span>
+            <Link href="/cookie-policy" className="text-white transition hover:text-white/80">
+              Cookie Policy
+            </Link>
+          </p>
+          <p className="mt-1.5 text-[14.5px] leading-relaxed text-white">
+            Developed by{" "}
+            <a
+              href="https://wordbitx.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white underline decoration-white/50 underline-offset-2 transition hover:text-white/80"
+            >
+              WordbitX
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );

@@ -21,7 +21,7 @@ export default function Banner() {
       />
       <div className="relative mx-auto max-w-7xl px-4 py-[110px] max-[640px]:py-[70px]">
         <Reveal from="left">
-          <h2 className="max-w-[560px] font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-white sm:text-[44px]">
+          <h2 className="max-w-[560px] font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-white sm:text-[44px]">
             Building a Bright Future Through Quranic Education
           </h2>
         </Reveal>

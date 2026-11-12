@@ -33,8 +33,8 @@ export default function TrialForm({
     ? "w-full rounded-lg border border-white/50 bg-white/95 px-4 py-2.5 text-[16px] text-ink outline-none placeholder:text-muted/70 focus:border-white focus:ring-2 focus:ring-white/40"
     : "w-full rounded-lg border-[1.5px] border-line bg-[#fffdf9] px-4 py-2.5 text-[16px] text-ink outline-none placeholder:text-muted/70 focus:border-navy focus:ring-2 focus:ring-navy/20";
   const labelCls = hero
-    ? "mb-1 block text-sm font-bold text-white"
-    : "mb-1 block text-sm font-bold text-navyDark";
+    ? "mb-1 block text-sm font-medium text-white"
+    : "mb-1 block text-sm font-medium text-navyDark";
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -75,14 +75,14 @@ export default function TrialForm({
       }
     >
       <h2
-        className={`font-display text-[26px] font-extrabold leading-tight ${
+        className={`font-display text-[26px] font-bold leading-tight ${
           hero ? "text-center text-white" : "text-left text-navyInk"
         }`}
       >
         3 Free Trial Classes
       </h2>
       <p
-        className={`mt-1.5 text-[12.5px] font-extrabold uppercase tracking-[0.14em] ${
+        className={`mt-1.5 text-[12.5px] font-semibold uppercase tracking-[0.14em] ${
           hero ? "text-center text-white/90" : "text-left text-brandRed"
         }`}
       >
@@ -125,7 +125,7 @@ export default function TrialForm({
 
       {error ? (
         <p
-          className={`mt-4 rounded-xl px-4 py-3 text-sm font-bold ${
+          className={`mt-4 rounded-xl px-4 py-3 text-sm font-medium ${
             hero ? "bg-white text-brandRed" : "bg-cream text-brandRed"
           }`}
           role="alert"
@@ -135,7 +135,7 @@ export default function TrialForm({
       ) : null}
       {done ? (
         <p
-          className={`mt-4 rounded-xl px-4 py-3 text-sm font-bold ${
+          className={`mt-4 rounded-xl px-4 py-3 text-sm font-medium ${
             hero ? "bg-white text-navyInk" : "bg-cream text-navyInk"
           }`}
           role="status"

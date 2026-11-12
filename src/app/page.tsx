@@ -13,7 +13,7 @@ import VideoCta from "@/components/VideoCta";
 import FaqList from "@/components/FaqList";
 import { Reveal } from "@/components/Reveal";
 import { COURSES, FAQS } from "@/lib/data";
-import { COLLAGE_DUA_PHOTO, COLLAGE_GIRL_PHOTO, COLLAGE_WOMAN_PHOTO, TRIAL_MESSAGE, whatsappUrl } from "@/lib/site";
+import { COLLAGE_DUA_PHOTO, COLLAGE_GIRL_PHOTO, TRIAL_MESSAGE, whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Quran Light Institute — Learn Quran Online with Tajweed",
@@ -65,62 +65,15 @@ export default function HomePage() {
 
       <TrustBand />
 
-      {/* About preview */}
+      {/* About preview — text FIRST (mobile + desktop), images AFTER,
+          like Minha: the heading, body, checklist and Discover More come
+          first; the collage follows below them. */}
       <section className="py-[96px] max-[640px]:py-[64px]">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-2">
           <Reveal>
-            <div className="relative">
-              {/* Stylish 3-image collage (photo round 2): tall girl-reading
-                  photo left, dua + teacher-with-girl stacked right. Same copy,
-                  same "14 Online Courses" overlay card as before.
-                  Mobile-fix round: on phones the 3-image grid cut the Quran
-                  in half at the bottom, so mobile shows ONE strong image
-                  (taller, face + Quran in frame); the two small photos
-                  appear only on desktop. */}
-              <div className="grid gap-4 lg:grid-cols-5">
-                <div className="relative h-[420px] overflow-hidden rounded-[20px] shadow-card lg:col-span-3 lg:row-span-2 lg:h-[490px]">
-                  <Image
-                    src={COLLAGE_GIRL_PHOTO}
-                    alt="A young girl in a rust-orange hijab reading the Holy Quran in a mosque in Türkiye"
-                    fill
-                    sizes="(max-width: 1080px) 100vw, 50vw"
-                    className="object-cover object-[center_45%] transition duration-500 hover:scale-[1.04]"
-                  />
-                </div>
-                <div className="relative hidden overflow-hidden rounded-[20px] shadow-card lg:col-span-2 lg:block lg:h-[237px]">
-                  <Image
-                    src={COLLAGE_DUA_PHOTO}
-                    alt="A young girl with hands raised in dua, holding a tasbih beside an open Quran"
-                    fill
-                    sizes="(max-width: 1080px) 50vw, 25vw"
-                    className="object-cover object-[center_40%]"
-                  />
-                </div>
-                <div className="relative hidden overflow-hidden rounded-[20px] shadow-card lg:col-span-2 lg:block lg:h-[237px]">
-                  <Image
-                    src={COLLAGE_WOMAN_PHOTO}
-                    alt="A female teacher guiding a young girl reading the Holy Quran in a mosque"
-                    fill
-                    sizes="(max-width: 1080px) 50vw, 25vw"
-                    className="object-cover object-[center_60%]"
-                  />
-                </div>
-              </div>
-              <div className="absolute bottom-6 left-6 max-w-[252px] rounded-2xl bg-navyDark p-5 text-white shadow-cardLg max-[640px]:max-w-[190px] max-[640px]:p-4">
-                <p className="font-display text-[25px] font-bold leading-tight max-[640px]:text-[21px]">
-                  14 <span className="text-redBright">Online</span> Courses
-                </p>
-                <p className="mt-1.5 text-sm leading-relaxed text-white/85">
-                  Live one-to-one classes for kids &amp; adults — from home, anywhere in the
-                  world.
-                </p>
-              </div>
-            </div>
-          </Reveal>
-          <Reveal>
             <div>
               <p className="kicker">About Us</p>
-              <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
+              <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
                 Quality Islamic &amp; Quranic Education for Everyone
               </h2>
               <p className="mt-4 leading-relaxed text-muted">
@@ -131,7 +84,7 @@ export default function HomePage() {
               </p>
               <ul className="mt-6 space-y-3">
                 {ABOUT_POINTS.map((p) => (
-                  <li key={p} className="flex items-start gap-2.5 font-bold text-navyInk">
+                  <li key={p} className="flex items-start gap-2.5 font-medium text-navyInk">
                     {CHECK_ICON}
                     {p}
                   </li>
@@ -145,6 +98,64 @@ export default function HomePage() {
               </Link>
             </div>
           </Reveal>
+          <div>
+            {/* Minha's collage, finish items (round 3): 1 BIG premium
+                image on top, standing ALONE; bottom row = 3 items — navy
+                "14 Online Courses" card + light "Online Quran Courses"
+                card + girl photo. Desktop 3 columns, mobile stacked.
+                Each bottom item animates in on scroll (slower Reveal). */}
+            <Reveal from="right" delay={1}>
+              <div className="relative overflow-hidden rounded-[20px] shadow-card">
+                <Image
+                  src={COLLAGE_DUA_PHOTO}
+                  alt="A young girl with hands raised in dua, holding a tasbih beside an open Quran"
+                  width={1600}
+                  height={1000}
+                  sizes="(max-width: 1080px) 100vw, 50vw"
+                  className="h-[340px] w-full object-cover object-[center_35%] transition duration-500 hover:scale-[1.04] lg:h-[400px]"
+                />
+              </div>
+            </Reveal>
+            <div className="mt-4 grid gap-4 sm:grid-cols-3">
+              <Reveal from="left" delay={0} className="h-full">
+                <div className="flex h-full min-h-[240px] flex-col justify-center rounded-[20px] bg-navyDark p-6 text-white shadow-card lg:min-h-[260px]">
+                  <p className="font-display text-[25px] font-bold leading-tight">
+                    14 <span className="text-redBright">Online</span> Courses
+                  </p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-white/85">
+                    Live one-to-one classes for kids &amp; adults — from home, anywhere in the
+                    world.
+                  </p>
+                </div>
+              </Reveal>
+              <Reveal delay={1} className="h-full">
+                <div className="flex h-full min-h-[240px] flex-col items-center justify-center rounded-[20px] bg-[#fff8f6] p-6 text-center shadow-card ring-1 ring-[#fbe9e4] lg:min-h-[260px]">
+                  <span className="flex h-[62px] w-[62px] items-center justify-center rounded-2xl bg-brandRed text-white">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="h-9 w-9" aria-hidden="true">
+                      <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z" />
+                    </svg>
+                  </span>
+                  <h3 className="mt-4 font-display text-[20px] font-bold leading-snug tracking-[0.06em] text-navyInk lg:text-[22px]">
+                    Online Quran Courses
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    Our courses are designed for effective Quran learning and understanding
+                  </p>
+                </div>
+              </Reveal>
+              <Reveal from="right" delay={2} className="h-full">
+                <div className="relative h-full min-h-[240px] overflow-hidden rounded-[20px] shadow-card lg:min-h-[260px]">
+                  <Image
+                    src={COLLAGE_GIRL_PHOTO}
+                    alt="A young girl in a rust-orange hijab reading the Holy Quran in a mosque in Türkiye"
+                    fill
+                    sizes="(max-width: 1080px) 33vw, 25vw"
+                    className="object-cover object-[center_45%] transition duration-500 hover:scale-[1.04]"
+                  />
+                </div>
+              </Reveal>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -159,7 +170,7 @@ export default function HomePage() {
             <div className="grid items-end gap-6 lg:grid-cols-2">
               <div>
                 <p className="kicker">Featured Quran Courses</p>
-                <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
+                <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
                   Find Quran Courses for
                   <br />
                   Personal Growth
@@ -203,7 +214,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="kicker kicker-centered">Pricing Plans</p>
-            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
+            <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
               Upgrade Your Skills and Knowledge
             </h2>
             <p className="mt-3 leading-relaxed text-muted">
@@ -226,7 +237,7 @@ export default function HomePage() {
           <Reveal from="left" className="lg:sticky lg:top-28 lg:self-start">
             <div>
             <p className="kicker">FAQ&apos;s</p>
-            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk">
+            <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk">
               Still Have Questions?
             </h2>
             <p className="mt-3 leading-relaxed text-muted">
@@ -235,7 +246,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/contact"
-              className="mt-4 inline-block border-b-2 border-brandRed font-bold text-navyInk transition hover:text-brandRed"
+              className="mt-4 inline-block border-b-2 border-brandRed font-medium text-navyInk transition hover:text-brandRed"
             >
               Contact Us →
             </Link>
@@ -253,7 +264,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-3xl px-4 text-center">
           <Reveal>
             <p className="kicker kicker-centered">Testimonials</p>
-            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
+            <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
               What Our Students &amp; Parents Say
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-muted">
@@ -282,7 +293,7 @@ export default function HomePage() {
           <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full border border-white/10" aria-hidden="true" />
           <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <h2 className="font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-white sm:text-[44px]">
+              <h2 className="font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-white sm:text-[44px]">
                 Start Your Quran Journey Today
               </h2>
               <p className="mt-3 max-w-xl leading-relaxed text-white/85">

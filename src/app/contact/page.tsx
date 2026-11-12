@@ -24,7 +24,7 @@ export default function ContactPage({
         <div className="mx-auto max-w-7xl px-4">
           <div className="mx-auto max-w-3xl text-center">
             <p className="kicker kicker-centered">Get In Touch</p>
-            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
+            <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
               Book Your 3-Day FREE Trial Classes
             </h2>
             <p className="mt-3 leading-relaxed text-muted">
@@ -41,7 +41,7 @@ export default function ContactPage({
                 </svg>
               </span>
               <h3 className="mt-4 font-display text-xl font-bold text-navyInk">Call Us</h3>
-              <a href={PHONE_TEL} className="mt-2 block font-bold text-navy hover:underline">
+              <a href={PHONE_TEL} className="mt-2 block font-medium text-navy hover:underline">
                 {PHONE_DISPLAY}
               </a>
             </div>
@@ -56,7 +56,7 @@ export default function ContactPage({
                 href={whatsappUrl(TRIAL_MESSAGE)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 block font-bold text-navy hover:underline"
+                className="mt-2 block font-medium text-navy hover:underline"
               >
                 Chat &amp; book your free trial
               </a>
@@ -68,7 +68,7 @@ export default function ContactPage({
                 </svg>
               </span>
               <h3 className="mt-4 font-display text-xl font-bold text-navyInk">Email Us</h3>
-              <a href={`mailto:${EMAIL}`} className="mt-2 block break-all font-bold text-navy hover:underline">
+              <a href={`mailto:${EMAIL}`} className="mt-2 block break-all font-medium text-navy hover:underline">
                 {EMAIL}
               </a>
             </div>

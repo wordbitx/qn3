@@ -33,26 +33,13 @@ export default function WhyChooseUs() {
   return (
     <section className="bg-cream py-[96px] max-[640px]:py-[64px]">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-[0.92fr_1.08fr]">
+        {/* Feedback round 3 — text FIRST (mobile + desktop), photo AFTER,
+            like Minha: heading + features first, the photo with the 5+
+            badge follows below them. */}
         <Reveal from="left">
-          <div className="relative">
-            <div className="overflow-hidden rounded-2xl shadow-card">
-              <Image
-                src={TEACHERS_PHOTO}
-                alt="A woman in a hijab reading the Holy Quran on a rehal in a mosque"
-                width={2400}
-                height={1600}
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                quality={85}
-                className="h-[560px] w-full object-cover"
-              />
-            </div>
-            <ExperienceBadge />
-          </div>
-        </Reveal>
-        <Reveal from="right">
           <div>
             <p className="kicker">Why Choose Us</p>
-            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
+            <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
               Empowering Skills for a Successful Future Ahead
             </h2>
             <p className="mt-4 leading-relaxed text-muted">
@@ -80,6 +67,22 @@ export default function WhyChooseUs() {
                 </Reveal>
               ))}
             </div>
+          </div>
+        </Reveal>
+        <Reveal from="right">
+          <div className="relative">
+            <div className="overflow-hidden rounded-2xl shadow-card">
+              <Image
+                src={TEACHERS_PHOTO}
+                alt="A woman in a hijab reading the Holy Quran on a rehal in a mosque"
+                width={2400}
+                height={1600}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={85}
+                className="h-[560px] w-full object-cover"
+              />
+            </div>
+            <ExperienceBadge />
           </div>
         </Reveal>
       </div>

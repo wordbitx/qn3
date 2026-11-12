@@ -55,7 +55,7 @@ export default function Header() {
               <span className="text-navy">Quran</span>{" "}
               <span className="text-brandRed">Light</span>
             </span>
-            <span className="mt-1.5 block whitespace-nowrap text-[11.5px] font-extrabold uppercase tracking-[0.14em] text-muted max-[640px]:text-[9px] max-[640px]:tracking-[0.08em]">
+            <span className="mt-1.5 block whitespace-nowrap text-[11.5px] font-medium uppercase tracking-[0.14em] text-muted max-[640px]:text-[9px] max-[640px]:tracking-[0.08em]">
               Institute — Learn Quran Online
             </span>
           </span>
@@ -93,7 +93,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`px-3 py-2 text-[16.5px] font-extrabold transition ${
+              className={`px-3 py-2 text-[16.5px] font-medium transition ${
                 isActive(item.href) ? "text-brandRed" : "text-navyInk hover:text-brandRed"
               }`}
             >
@@ -131,7 +131,7 @@ export default function Header() {
                 tabIndex={open ? 0 : -1}
                 onClick={() => setOpen(false)}
                 style={{ transitionDelay: open ? `${90 + i * 55}ms` : "0ms" }}
-                className={`flex h-12 items-center border-b border-line px-2 text-[16.5px] font-extrabold transition-all duration-500 ease-out last:border-b-0 ${
+                className={`flex h-12 items-center border-b border-line px-2 text-[16.5px] font-medium transition-all duration-500 ease-out last:border-b-0 ${
                   open ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
                 } ${isActive(item.href) ? "text-brandRed" : "text-navyInk"}`}
               >
