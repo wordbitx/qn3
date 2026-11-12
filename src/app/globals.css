@@ -1,5 +1,14 @@
-/* Fonts are loaded with next/font/google in layout.tsx (Lexend Deca,
-   Noto Sans, Amiri) — no Google Fonts @import here. */
+/* Fonts are bundled with @fontsource (see layout.tsx) — no
+   next/font/google, no Google Fonts @import here. The variables below
+   point at the @fontsource family names so every existing
+   var(--font-*) reference keeps working unchanged. */
+
+/* Font family variables (point at @fontsource families). */
+:root {
+  --font-lexend: "Lexend Deca", "Noto Sans", system-ui, sans-serif;
+  --font-noto: "Noto Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-amiri: "Amiri", serif;
+}
 
 @tailwind base;
 @tailwind components;

@@ -1,30 +1,22 @@
 import type { Metadata } from "next";
-import { Amiri, Lexend_Deca, Noto_Sans } from "next/font/google";
+/* Fonts are bundled via @fontsource (installed from npm) — NOT
+   next/font/google. Vercel's build could not fetch Google Fonts at
+   build time (next/font loader crashed), so the fonts now ship with
+   the app and no build-time Google request happens. */
+import "@fontsource/lexend-deca/500.css";
+import "@fontsource/lexend-deca/600.css";
+import "@fontsource/lexend-deca/700.css";
+import "@fontsource/lexend-deca/800.css";
+import "@fontsource/noto-sans/400.css";
+import "@fontsource/noto-sans/600.css";
+import "@fontsource/noto-sans/700.css";
+import "@fontsource/noto-sans/800.css";
+import "@fontsource/amiri/400.css";
+import "@fontsource/amiri/700.css";
 import "./globals.css";
 import TopBar from "@/components/TopBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
-const lexend = Lexend_Deca({
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-  variable: "--font-lexend",
-  display: "swap",
-});
-
-const noto = Noto_Sans({
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
-  variable: "--font-noto",
-  display: "swap",
-});
-
-const amiri = Amiri({
-  subsets: ["arabic", "latin"],
-  weight: ["400", "700"],
-  variable: "--font-amiri",
-  display: "swap",
-});
 
 const SITE_DESCRIPTION =
   "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 3-day absolutely FREE trial classes.";
@@ -57,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${lexend.variable} ${noto.variable} ${amiri.variable}`}>
+    <html lang="en">
       <body>
         <TopBar />
         <Header />
