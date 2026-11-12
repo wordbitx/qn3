@@ -35,7 +35,7 @@ export default function Hero() {
       <div className="relative overflow-hidden rounded-[22px] bg-navyDark">
         <Image
           src={HERO_PHOTO}
-          alt="An open Holy Quran on a wooden rehal"
+          alt="A woman in a hijab reading the Holy Quran on a wooden rehal in a sunlit mosque"
           fill
           sizes="100vw"
           className="object-cover"

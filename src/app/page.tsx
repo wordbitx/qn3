@@ -13,7 +13,7 @@ import VideoCta from "@/components/VideoCta";
 import FaqList from "@/components/FaqList";
 import { Reveal } from "@/components/Reveal";
 import { COURSES, FAQS } from "@/lib/data";
-import { COLLAGE_INSET_PHOTO, COLLAGE_MAIN_PHOTO, TRIAL_MESSAGE, whatsappUrl } from "@/lib/site";
+import { COLLAGE_DUA_PHOTO, COLLAGE_GIRL_PHOTO, COLLAGE_WOMAN_PHOTO, TRIAL_MESSAGE, whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Quran Light Institute — Learn Quran Online with Tajweed",
@@ -70,23 +70,37 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-2">
           <Reveal>
             <div className="relative">
-              <div className="relative h-[490px] overflow-hidden rounded-[20px] shadow-card">
-                <Image
-                  src={COLLAGE_MAIN_PHOTO}
-                  alt="A woman reading the Holy Quran in Sancaklar Mosque, Turkey"
-                  fill
-                  sizes="(max-width: 1080px) 100vw, 50vw"
-                  className="object-cover transition duration-500 hover:scale-[1.04]"
-                />
-              </div>
-              <div className="absolute bottom-6 right-6 h-[218px] w-[47%] overflow-hidden rounded-[20px] border-[6px] border-white shadow-cardLg max-[640px]:w-[42%]">
-                <Image
-                  src={COLLAGE_INSET_PHOTO}
-                  alt="A wooden tasbih draped across an open Holy Quran"
-                  fill
-                  sizes="40vw"
-                  className="object-cover"
-                />
+              {/* Stylish 3-image collage (photo round 2): tall girl-reading
+                  photo left, dua + teacher-with-girl stacked right. Same copy,
+                  same "14 Online Courses" overlay card as before. */}
+              <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
+                <div className="relative col-span-2 h-[320px] overflow-hidden rounded-[20px] shadow-card lg:col-span-3 lg:row-span-2 lg:h-[490px]">
+                  <Image
+                    src={COLLAGE_GIRL_PHOTO}
+                    alt="A young girl in a rust-orange hijab reading the Holy Quran in a mosque in Türkiye"
+                    fill
+                    sizes="(max-width: 1080px) 100vw, 50vw"
+                    className="object-cover object-[center_60%] transition duration-500 hover:scale-[1.04]"
+                  />
+                </div>
+                <div className="relative h-[180px] overflow-hidden rounded-[20px] shadow-card lg:col-span-2 lg:h-[237px]">
+                  <Image
+                    src={COLLAGE_DUA_PHOTO}
+                    alt="A young girl with hands raised in dua, holding a tasbih beside an open Quran"
+                    fill
+                    sizes="(max-width: 1080px) 50vw, 25vw"
+                    className="object-cover object-[center_40%]"
+                  />
+                </div>
+                <div className="relative h-[180px] overflow-hidden rounded-[20px] shadow-card lg:col-span-2 lg:h-[237px]">
+                  <Image
+                    src={COLLAGE_WOMAN_PHOTO}
+                    alt="A female teacher guiding a young girl reading the Holy Quran in a mosque"
+                    fill
+                    sizes="(max-width: 1080px) 50vw, 25vw"
+                    className="object-cover object-[center_60%]"
+                  />
+                </div>
               </div>
               <div className="absolute bottom-6 left-6 max-w-[252px] rounded-2xl bg-navyDark p-5 text-white shadow-cardLg max-[640px]:max-w-[200px]">
                 <p className="font-display text-[25px] font-bold leading-tight">

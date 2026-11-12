@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { COLLAGE_INSET_PHOTO } from "@/lib/site";
+import { BANNER_PHOTO } from "@/lib/site";
 
 /** Banner (PREVIEW-SPEC §3.5): full-width image band, photo 29183999 +
  * dark navy→red gradient overlay. */
@@ -8,7 +8,7 @@ export default function Banner() {
   return (
     <section className="relative overflow-hidden">
       <Image
-        src={COLLAGE_INSET_PHOTO}
+        src={BANNER_PHOTO}
         alt="An open Holy Quran with a wooden tasbih draped across the pages"
         fill
         sizes="100vw"

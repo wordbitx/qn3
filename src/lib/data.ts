@@ -17,8 +17,8 @@ export const COURSES: Course[] = [
   {
     slug: "noorani-qaida",
     chip: "Beginners",
-    image: "https://images.pexels.com/photos/20784507/pexels-photo-20784507.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    position: "center",
+    image: "https://images.pexels.com/photos/11842681/pexels-photo-11842681.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    position: "center 25%",
     name: "Noorani Qaida",
     tag: "The perfect first step — the foundation of reading the Holy Quran.",
     desc: ["Noorani Qaida is the foundation course for every beginner. Before a child can read the Holy Quran, they must first recognise the Arabic letters, pronounce them correctly from their proper articulation points (Makharij), and learn how letters join together to form words.", "In live one-to-one lessons, the teacher takes the student step by step through the Qaida — slowly, patiently and with lots of encouragement — until reading Arabic becomes easy and natural. It is the same trusted starting point used by Quran students all over the world."],
@@ -29,7 +29,7 @@ export const COURSES: Course[] = [
   {
     slug: "quran-reading-nazra",
     chip: "Reading",
-    image: "https://images.pexels.com/photos/34481773/pexels-photo-34481773.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/20784497/pexels-photo-20784497.jpeg?auto=compress&cs=tinysrgb&w=1200",
     position: "center",
     name: "Quran Reading (Nazra)",
     tag: "Read the Holy Quran fluently, directly from the Mushaf.",
@@ -65,7 +65,7 @@ export const COURSES: Course[] = [
   {
     slug: "quran-translation",
     chip: "Understanding",
-    image: "https://images.pexels.com/photos/7249219/pexels-photo-7249219.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    image: "https://images.pexels.com/photos/36521599/pexels-photo-36521599.jpeg?auto=compress&cs=tinysrgb&w=1200",
     position: "center",
     name: "Quran Translation",
     tag: "Understand the meaning of the words you recite.",
@@ -77,8 +77,8 @@ export const COURSES: Course[] = [
   {
     slug: "quran-tafseer",
     chip: "Advanced",
-    image: "https://images.pexels.com/photos/20784507/pexels-photo-20784507.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    position: "center 20%",
+    image: "https://images.pexels.com/photos/20784664/pexels-photo-20784664.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    position: "center",
     name: "Quran Tafseer",
     tag: "Go deeper — the meanings and lessons behind the verses.",
     desc: ["Tafseer is the detailed explanation of the Holy Quran. In this course, students go beyond translation to understand the background, meanings and lessons of Quranic verses through simple explanations.", "Every lesson opens a new door: why a verse was revealed, what it teaches us, and how its guidance applies to our lives today."],
@@ -161,8 +161,8 @@ export const COURSES: Course[] = [
   {
     slug: "seerah",
     chip: "Seerah",
-    image: "https://images.pexels.com/photos/20784662/pexels-photo-20784662.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    position: "center 20%",
+    image: "https://images.pexels.com/photos/20558196/pexels-photo-20558196.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    position: "center",
     name: "Seerah of Prophet Muhammad ﷺ",
     tag: "Learn about the beautiful life, teachings, and Sunnah of Prophet Muhammad ﷺ.",
     desc: ["The Seerah is the life story of our beloved Prophet Muhammad ﷺ — his blessed birth, his character, his struggles, his kindness and his teachings. Knowing his life is how we learn to love and follow him.", "In this course, students journey through the Seerah in simple, engaging lessons that build love for the Prophet ﷺ and a desire to follow his Sunnah."],
@@ -173,8 +173,8 @@ export const COURSES: Course[] = [
   {
     slug: "islamic-manners-ethics",
     chip: "Character",
-    image: "https://images.pexels.com/photos/7249219/pexels-photo-7249219.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    position: "center 65%",
+    image: "https://images.pexels.com/photos/20785119/pexels-photo-20785119.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    position: "center 25%",
     name: "Islamic Manners & Ethics",
     tag: "Learn Islamic manners, good character, Sunnah, and everyday Islamic practices.",
     desc: ["Islam is not only worship — it is beautiful character. In this course, students learn Islamic manners, good character, Sunnah, and everyday Islamic practices in a warm, practical way.", "From respecting parents and teachers to honesty, kindness and cleanliness, these lessons shape the student’s Akhlaq (character) alongside their Quran learning."],

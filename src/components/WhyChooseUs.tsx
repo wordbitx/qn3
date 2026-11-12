@@ -34,7 +34,7 @@ export default function WhyChooseUs() {
           <div className="overflow-hidden rounded-2xl shadow-card">
             <Image
               src={TEACHERS_PHOTO}
-              alt="Two women in hijabs in a live online Quran class with their teacher on a laptop"
+              alt="A woman in a hijab reading the Holy Quran on a rehal in a mosque"
               width={1200}
               height={900}
               className="h-[560px] w-full object-cover"

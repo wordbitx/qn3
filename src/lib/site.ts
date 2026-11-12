@@ -22,17 +22,31 @@ export function feeMessageForPlan(planName: string): string {
   return `Assalamu Alaikum! I want the exact monthly fee for the "${planName}" plan at Quran Light Institute.`;
 }
 
-/* Verified Pexels photos (see ~/workspace/quran-light-real-photos-2026-11-11/README.md).
-   20784507 REPLACES 34407214 everywhere: the old mother-daughter photo's
-   subjects look Korean (user feedback); 20784507 is a Turkish woman reading
-   the Quran in Sancaklar Mosque, Silivri, Turkey. */
+/* Verified Pexels photos (see ~/workspace/quran-light-real-photos-2026-11-11/README.md
+   and ~/workspace/quran-light-qn3-spec/PHOTO-ROUND-2-2026-11-12.md).
+   Photo round 2 (12 Nov 2026): the old hero female 34481773 and the
+   green-dress female 7249219 are replaced EVERYWHERE. New photos are
+   Turkish / Arab / South Asian subjects, each HTTP 200 + JPEG + visually
+   inspected. 20784507 (Turkish woman, Sancaklar Mosque) survives only as
+   one tiny 52px hero proof avatar. */
 export const HERO_PHOTO =
-  "https://images.pexels.com/photos/34481773/pexels-photo-34481773.jpeg?auto=compress&cs=tinysrgb&w=1600";
-export const COLLAGE_MAIN_PHOTO =
-  "https://images.pexels.com/photos/20784507/pexels-photo-20784507.jpeg?auto=compress&cs=tinysrgb&w=1200";
-export const COLLAGE_INSET_PHOTO =
-  "https://images.pexels.com/photos/29183999/pexels-photo-29183999.jpeg?auto=compress&cs=tinysrgb&w=1200";
+  "https://images.pexels.com/photos/29106154/pexels-photo-29106154.jpeg?auto=compress&cs=tinysrgb&w=1600";
+/* About collage — stylish 3-image composition (round 2):
+   dua = South Asian girl, hands raised in dua with tasbih + Quran on rehal;
+   girl = young Turkish girl in a rust-orange hijab reading the Quran in a
+   mosque in Kahta, Türkiye; woman = female teacher guiding a girl at a
+   rehal under a mosque dome. */
+export const COLLAGE_DUA_PHOTO =
+  "https://images.pexels.com/photos/4521950/pexels-photo-4521950.jpeg?auto=compress&cs=tinysrgb&w=1200";
+export const COLLAGE_GIRL_PHOTO =
+  "https://images.pexels.com/photos/20558190/pexels-photo-20558190.jpeg?auto=compress&cs=tinysrgb&w=1200";
+export const COLLAGE_WOMAN_PHOTO =
+  "https://images.pexels.com/photos/8164752/pexels-photo-8164752.jpeg?auto=compress&cs=tinysrgb&w=1200";
 export const TEACHERS_PHOTO =
-  "https://images.pexels.com/photos/7249219/pexels-photo-7249219.jpeg?auto=compress&cs=tinysrgb&w=1200";
+  "https://images.pexels.com/photos/20785854/pexels-photo-20785854.jpeg?auto=compress&cs=tinysrgb&w=1200";
+/* Banner band + Basic Arabic card: open Quran with a wooden tasbih —
+   a still life, no person, kept as-is (round 2 changed only the collage). */
+export const BANNER_PHOTO =
+  "https://images.pexels.com/photos/29183999/pexels-photo-29183999.jpeg?auto=compress&cs=tinysrgb&w=1200";
 export const VIDEO_POSTER =
   "https://images.pexels.com/photos/20784662/pexels-photo-20784662.jpeg?auto=compress&cs=tinysrgb&w=1600";

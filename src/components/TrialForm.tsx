@@ -70,7 +70,7 @@ export default function TrialForm({
       noValidate
       className={
         hero
-          ? "rounded-[18px] border border-white/40 bg-[linear-gradient(135deg,rgba(208,0,0,0.90),rgba(150,0,0,0.86))] p-[27px_26px_22px] shadow-cardLg backdrop-blur-[14px]"
+          ? "rounded-[18px] border border-white/50 bg-[linear-gradient(135deg,rgba(208,0,0,0.68),rgba(150,0,0,0.62))] p-[27px_26px_22px] shadow-cardLg backdrop-blur-[18px]"
           : "rounded-[18px] bg-white p-6 shadow-card sm:p-[38px_36px]"
       }
     >

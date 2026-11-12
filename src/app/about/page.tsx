@@ -56,7 +56,7 @@ export default function AboutPage() {
             <div className="relative min-h-[220px] overflow-hidden rounded-[16px_16px_90px_16px] shadow-card">
               <Image
                 src={HERO_PHOTO}
-                alt="An open Holy Quran on a wooden rehal"
+                alt="A woman in a hijab reading the Holy Quran on a wooden rehal in a sunlit mosque"
                 fill
                 sizes="(max-width: 1080px) 50vw, 25vw"
                 className="object-cover"
