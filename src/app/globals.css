@@ -325,7 +325,9 @@ button.btn-trial {
    labels as before — only the feel changes. */
 .btn-primary,
 .btn-navy,
-.btn-outline-light {
+.btn-outline-light,
+.btn-outline-red,
+.btn-outline-navy {
   position: relative;
   display: inline-flex;
   min-height: 50px;
@@ -382,7 +384,11 @@ button.btn-trial {
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
 }
 /* Navy-outline button for light backgrounds (e.g. course detail):
-   same system, navy border + navy text, fills navy on hover. */
+   same system, navy border + navy text, fills navy on hover.
+   Feedback round 4: this class was NOT in the shared base rule
+   above, so it had no border-radius, no inline-flex centring and no
+   min-height — it rendered as a plain inline link with square
+   corners (same defect as .btn-outline-red). Now in the base rule. */
 .btn-outline-navy {
   border: 2px solid var(--navy);
   background: transparent;
@@ -405,7 +411,17 @@ button.btn-trial {
 /* Red-outline button for the dark hero (Minha's "Discover More" is an
    outlined button on the dark photo): bright-red border so it stays
    visible on the dark navy photo, transparent bg, white text; hover
-   fills red. */
+   fills red.
+   Feedback round 4 — THE DEFECT (user: "uska jo edges nahi hai"):
+   this class was NOT in the shared base rule above, so it had NO
+   border-radius, NO display:inline-flex, NO font-weight, NO centring,
+   and min-height did not apply to a plain inline element — the button
+   rendered as a bare inline link with square corners and no height,
+   while Minha's frame f1 shows a bold centred button with a clearly
+   visible ~2px border, ~8–10px rounded corners and ~56px height.
+   Fix: in the shared base rule (12px radius — same as "Explore
+   Courses", so the pair matches; 2px #ff3b30 border; .btn-hero gives
+   it the same 56px height). Border and label unchanged. */
 .btn-outline-red {
   border: 2px solid var(--red-bright);
   background: transparent;
@@ -420,7 +436,9 @@ button.btn-trial {
 }
 .btn-primary:active,
 .btn-navy:active,
-.btn-outline-light:active {
+.btn-outline-light:active,
+.btn-outline-red:active,
+.btn-outline-navy:active {
   transform: translateY(0) scale(0.98);
 }
 /* Sheen sweep on the solid buttons. */
@@ -441,7 +459,9 @@ button.btn-trial {
 @media (prefers-reduced-motion: reduce) {
   .btn-primary,
   .btn-navy,
-  .btn-outline-light {
+  .btn-outline-light,
+  .btn-outline-red,
+  .btn-outline-navy {
     transition: none;
   }
   .btn-primary::after,

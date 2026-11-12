@@ -156,50 +156,59 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+        {/*
+          Feedback round 4 — policy links OUT of the old black box and
+          into the FOOTER BODY as a small regular links row (the three
+          policy pages themselves stay — they are real pages now).
+          The bottom of the footer is now ONE single line (below),
+          directly on the light gradient — no box at all.
+        */}
+        <nav
+          aria-label="Legal"
+          className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 pb-10 text-[14.5px]"
+        >
+          <Link href="/terms-of-use" className="text-navyInk/70 transition hover:text-brandRed">
+            Terms of Use
+          </Link>
+          <span className="text-navyInk/30" aria-hidden="true">
+            |
+          </span>
+          <Link href="/privacy-policy" className="text-navyInk/70 transition hover:text-brandRed">
+            Privacy Policy
+          </Link>
+          <span className="text-navyInk/30" aria-hidden="true">
+            |
+          </span>
+          <Link href="/cookie-policy" className="text-navyInk/70 transition hover:text-brandRed">
+            Cookie Policy
+          </Link>
+        </nav>
       </div>
-      {/* Copyright box — Minha's exact treatment (screenshot
-          WhatsApp_Image_2026-11-12_at_3.47.22_PM.jpeg): a BLACK
-          rounded-rectangle box with clear side margins at the bottom of
-          the gradient footer — NOT a full-width strip — white REGULAR
-          text inside, left aligned. Order inside the box: copyright
-          line, policy-links row ("Terms of Use | Privacy Policy |
-          Cookie Policy", real pages now created — round-3 finish
-          items), then the WordbitX developer credit ("Developed by
+      {/* Footer bottom — feedback round 4 (user: "wo box hata do, single
+          line chahiye"): the black rounded box is GONE. One single line
+          of subtle regular text, sitting directly on the light gradient
+          footer background (hairline above it, no dark/blue block):
+          copyright + the WordbitX developer credit ("Developed by
           WordbitX" linking to https://wordbitx.com, followed link
-          (no nofollow) so it counts as a backlink). */}
-      <div className="mx-auto max-w-7xl px-4 pb-6">
-        <div className="rounded-[16px] bg-black px-6 py-5">
-          <p className="text-[14.5px] leading-relaxed text-white">
-            Copyright © 2026 Quran Light Institute. All rights reserved.
-          </p>
-          <p className="mt-1.5 text-[14.5px] leading-relaxed text-white">
-            <Link href="/terms-of-use" className="text-white transition hover:text-white/80">
-              Terms of Use
-            </Link>
-            <span className="mx-2 text-white/50" aria-hidden="true">
-              |
-            </span>
-            <Link href="/privacy-policy" className="text-white transition hover:text-white/80">
-              Privacy Policy
-            </Link>
-            <span className="mx-2 text-white/50" aria-hidden="true">
-              |
-            </span>
-            <Link href="/cookie-policy" className="text-white transition hover:text-white/80">
-              Cookie Policy
-            </Link>
-          </p>
-          <p className="mt-1.5 text-[14.5px] leading-relaxed text-white">
+          (no nofollow) so it counts as a backlink). Wraps gracefully
+          on narrow phones, reads as a single line on desktop. */}
+      <div className="border-t border-navy/10">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-5 text-center text-[14.5px] leading-relaxed text-navyInk/70">
+          <span>Copyright © 2026 Quran Light Institute. All rights reserved.</span>
+          <span aria-hidden="true" className="text-navyInk/40">
+            ·
+          </span>
+          <span>
             Developed by{" "}
             <a
               href="https://wordbitx.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white underline decoration-white/50 underline-offset-2 transition hover:text-white/80"
+              className="font-medium text-navyInk underline decoration-navyInk/30 underline-offset-2 transition hover:text-brandRed"
             >
               WordbitX
             </a>
-          </p>
+          </span>
         </div>
       </div>
     </footer>

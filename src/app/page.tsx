@@ -13,7 +13,7 @@ import VideoCta from "@/components/VideoCta";
 import FaqList from "@/components/FaqList";
 import { Reveal } from "@/components/Reveal";
 import { COURSES, FAQS } from "@/lib/data";
-import { COLLAGE_DUA_PHOTO, COLLAGE_GIRL_PHOTO, TRIAL_MESSAGE, whatsappUrl } from "@/lib/site";
+import { COLLAGE_DUA_PHOTO, COLLAGE_WOMAN_DUA_PHOTO, TRIAL_MESSAGE, whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Quran Light Institute — Learn Quran Online with Tajweed",
@@ -65,12 +65,16 @@ export default function HomePage() {
 
       <TrustBand />
 
-      {/* About preview — text FIRST (mobile + desktop), images AFTER,
-          like Minha: the heading, body, checklist and Discover More come
-          first; the collage follows below them. */}
+      {/* About preview — feedback round 4 (user CORRECTED round 3:
+          round 3 made it text-first everywhere; desktop goes back to
+          the ORIGINAL layout). DESKTOP: images FIRST (collage left,
+          text right). MOBILE: text FIRST, images after (round 3's
+          mobile order kept). One DOM, responsive order classes —
+          text Reveal is order-1 lg:order-2, the collage div is
+          order-2 lg:order-1. No copy changes. */}
       <section className="py-[96px] max-[640px]:py-[64px]">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-2">
-          <Reveal>
+          <Reveal className="order-1 lg:order-2">
             <div>
               <p className="kicker">About Us</p>
               <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
@@ -98,19 +102,21 @@ export default function HomePage() {
               </Link>
             </div>
           </Reveal>
-          <div>
+          <div className="order-2 lg:order-1">
             {/* Minha's collage, finish items (round 3): 1 BIG premium
                 image on top, standing ALONE; bottom row = 3 items — navy
                 "14 Online Courses" card + light "Online Quran Courses"
-                card + girl photo. Desktop 3 columns, mobile stacked.
-                Each bottom item animates in on scroll (slower Reveal). */}
-            <Reveal from="right" delay={1}>
+                card + woman photo (feedback round 4: NO CHILD — the girl
+                photo is replaced by an adult woman's dua photo).
+                Desktop 3 columns, mobile stacked. Each bottom item
+                animates in on scroll (slower Reveal). */}
+            <Reveal from="left" delay={1}>
               <div className="relative overflow-hidden rounded-[20px] shadow-card">
                 <Image
                   src={COLLAGE_DUA_PHOTO}
-                  alt="A young girl with hands raised in dua, holding a tasbih beside an open Quran"
+                  alt="A woman's hands raised in dua with a white tasbih, warm light in a mosque"
                   width={1600}
-                  height={1000}
+                  height={2400}
                   sizes="(max-width: 1080px) 100vw, 50vw"
                   className="h-[340px] w-full object-cover object-[center_35%] transition duration-500 hover:scale-[1.04] lg:h-[400px]"
                 />
@@ -146,11 +152,11 @@ export default function HomePage() {
               <Reveal from="right" delay={2} className="h-full">
                 <div className="relative h-full min-h-[240px] overflow-hidden rounded-[20px] shadow-card lg:min-h-[260px]">
                   <Image
-                    src={COLLAGE_GIRL_PHOTO}
-                    alt="A young girl in a rust-orange hijab reading the Holy Quran in a mosque in Türkiye"
+                    src={COLLAGE_WOMAN_DUA_PHOTO}
+                    alt="A woman in a rust hijab with hands raised in dua in a sunlit mosque in Türkiye"
                     fill
                     sizes="(max-width: 1080px) 33vw, 25vw"
-                    className="object-cover object-[center_45%] transition duration-500 hover:scale-[1.04]"
+                    className="object-cover object-[center_40%] transition duration-500 hover:scale-[1.04]"
                   />
                 </div>
               </Reveal>

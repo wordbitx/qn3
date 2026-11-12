@@ -33,10 +33,10 @@ export default function WhyChooseUs() {
   return (
     <section className="bg-cream py-[96px] max-[640px]:py-[64px]">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-[0.92fr_1.08fr]">
-        {/* Feedback round 3 — text FIRST (mobile + desktop), photo AFTER,
-            like Minha: heading + features first, the photo with the 5+
-            badge follows below them. */}
-        <Reveal from="left">
+        {/* Feedback round 4 — DESKTOP images first (original
+            arrangement: photo left, text right), MOBILE text first.
+            One DOM, responsive order classes. No copy changes. */}
+        <Reveal from="right" className="order-1 lg:order-2">
           <div>
             <p className="kicker">Why Choose Us</p>
             <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
@@ -69,7 +69,7 @@ export default function WhyChooseUs() {
             </div>
           </div>
         </Reveal>
-        <Reveal from="right">
+        <Reveal from="left" className="order-2 lg:order-1">
           <div className="relative">
             <div className="overflow-hidden rounded-2xl shadow-card">
               <Image

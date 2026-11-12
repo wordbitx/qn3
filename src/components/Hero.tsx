@@ -39,10 +39,12 @@ export default function Hero() {
           — torn pixels. Mobile (≤lg, stacked layout) now gets a
           right-anchored portrait crop of the SAME photo; desktop keeps the
           landscape at w=2400. Two <Image>s, shown/hidden by breakpoint.
+          Feedback round 4: the photo is now 20785238 (a woman standing
+          in prayer in a mosque, subject right) — same two-image technique.
         */}
         <Image
           src={HERO_PHOTO}
-          alt="An open Holy Quran with a warm shaft of light across its pages"
+          alt="A woman in a hijab standing in prayer in a mosque, hands folded in devotion"
           fill
           sizes="100vw"
           quality={85}
@@ -51,7 +53,7 @@ export default function Hero() {
         />
         <Image
           src={HERO_PHOTO_MOBILE}
-          alt="An open Holy Quran with a warm shaft of light across its pages"
+          alt="A woman in a hijab standing in prayer in a mosque, hands folded in devotion"
           fill
           sizes="100vw"
           quality={85}

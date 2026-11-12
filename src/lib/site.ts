@@ -39,23 +39,50 @@ export function feeMessageForPlan(planName: string): string {
    warm-lit (behind the translucent red trial form). Verified HTTP 200 +
    JPEG + visually inspected at w=1200, w=2400 (2400×1600) and the
    right-anchored portrait mobile crop (1200×1800, lit pages top, dark
-   bottom). Desktop is w=2400. */
+   bottom). Desktop is w=2400.
+   Feedback round 4 (12 Nov 2026): the round-3 object hero 6873767 is
+   REPLACED — the user rejected it: he wants a FEMALE, like Minha's
+   images. New hero is Pexels 20785238 (Zeynep Sude Emek, Turkish): a
+   woman in a dark hijab + long beige dress standing in prayer, hands
+   folded at her chest, side profile, in a modern Sancaklar-style
+   mosque — wooden screens behind her, a tasbih on the floor, soft
+   light from a staircase on the left. Subject on the RIGHT, open space
+   on the LEFT: the ideal hero composition (headline over the open
+   left, trial form over the woman on the right). Native 6240×4160.
+   Verified HTTP 200 + JPEG + visually inspected at w=2400 (2400×1600)
+   and the right-anchored portrait mobile crop (1200×1800, full figure
+   in frame). Desktop is w=2400. FLAG: same Zeynep Sude Emek model as
+   the Teachers photo (20785854) — same woman, same dress, different
+   pose/setting; unavoidable for a premium Turkish hero (see the photos
+   README, round-4 flags). */
 export const HERO_PHOTO =
-  "https://images.pexels.com/photos/6873767/pexels-photo-6873767.jpeg?auto=compress&cs=tinysrgb&w=2400";
-/* Mobile hero: same photo 6873767, right-anchored portrait crop
-   (lit Quran pages top, dark bottom — headline over the lit pages,
-   trial form over the dark). Verified HTTP 200 + JPEG 1200×1800. */
+  "https://images.pexels.com/photos/20785238/pexels-photo-20785238.jpeg?auto=compress&cs=tinysrgb&w=2400";
+/* Mobile hero: same photo 20785238, right-anchored portrait crop
+   (the praying woman, full figure, wooden screens behind her).
+   Verified HTTP 200 + JPEG 1200×1800, visually inspected. */
 export const HERO_PHOTO_MOBILE =
-  "https://images.pexels.com/photos/6873767/pexels-photo-6873767.jpeg?auto=compress&cs=tinysrgb&fit=crop&crop=right&w=1200&h=1800";
+  "https://images.pexels.com/photos/20785238/pexels-photo-20785238.jpeg?auto=compress&cs=tinysrgb&fit=crop&crop=right&w=1200&h=1800";
 /* About collage — stylish 3-image composition (round 2):
    dua = South Asian girl, hands raised in dua with tasbih + Quran on rehal;
    girl = young Turkish girl in a rust-orange hijab reading the Quran in a
    mosque in Kahta, Türkiye; woman = female teacher guiding a girl at a
-   rehal under a mosque dome. */
+   rehal under a mosque dome.
+   Feedback round 4 (12 Nov 2026): NO CHILD in the collage. The girl
+   photo 20558190 is REMOVED and the big dua image 4521950 (young girl
+   in a white dupatta — the user considers it child-like too) is
+   replaced. Big image = 20558487 (SERHAT TUĞ, Kahta, Türkiye): a
+   woman's hands raised in dua, white sleeve + white tasbih on the
+   wrist, warm red mosque carpet, sunlit — the closest Pexels match to
+   Minha's frame f18 (warm-lit female hands + tasbih). No face. The
+   landscape slot shows a 22–60% vertical slice (object-position 35%);
+   the crop was simulated and visually inspected — both hands + tasbih
+   survive. Bottom-row photo = 20558488 (same SERHAT TUĞ shoot, same
+   woman in a rust hijab, side profile, hands raised in dua with a
+   white tasbih in a sunlit mosque). */
 export const COLLAGE_DUA_PHOTO =
-  "https://images.pexels.com/photos/4521950/pexels-photo-4521950.jpeg?auto=compress&cs=tinysrgb&w=1600";
-export const COLLAGE_GIRL_PHOTO =
-  "https://images.pexels.com/photos/20558190/pexels-photo-20558190.jpeg?auto=compress&cs=tinysrgb&w=1600";
+  "https://images.pexels.com/photos/20558487/pexels-photo-20558487.jpeg?auto=compress&cs=tinysrgb&w=1600";
+export const COLLAGE_WOMAN_DUA_PHOTO =
+  "https://images.pexels.com/photos/20558488/pexels-photo-20558488.jpeg?auto=compress&cs=tinysrgb&w=1600";
 export const COLLAGE_WOMAN_PHOTO =
   "https://images.pexels.com/photos/8164752/pexels-photo-8164752.jpeg?auto=compress&cs=tinysrgb&w=1600";
 export const TEACHERS_PHOTO =

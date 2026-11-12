@@ -28,10 +28,12 @@ export default function AboutPage() {
     <>
       <PageBanner crumb="About" title="About Us" />
 
-      {/* Who We Are */}
+      {/* Who We Are — feedback round 4: DESKTOP images first (original
+          arrangement: text right, images left), MOBILE text first.
+          One DOM, responsive order classes. No copy changes. */}
       <section className="py-[96px] max-[640px]:py-[64px]">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-2">
-          <Reveal from="left">
+          <Reveal from="right" className="order-1 lg:order-2">
           <div>
             <p className="kicker">Who We Are</p>
             <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
@@ -66,7 +68,7 @@ export default function AboutPage() {
             </Link>
           </div>
           </Reveal>
-          <Reveal from="right">
+          <Reveal from="left" className="order-2 lg:order-1">
           <div className="grid grid-cols-2 gap-4">
             <div className="relative row-span-2 min-h-[480px] overflow-hidden rounded-2xl shadow-card">
               <Image
@@ -93,7 +95,7 @@ export default function AboutPage() {
             <div className="relative min-h-[220px] overflow-hidden rounded-[16px_16px_90px_16px] shadow-card">
               <Image
                 src={HERO_PHOTO}
-                alt="An open Holy Quran in warm light"
+                alt="A woman in a hijab standing in prayer in a mosque"
                 fill
                 sizes="(max-width: 1080px) 50vw, 25vw"
                 className="object-cover"
