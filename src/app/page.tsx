@@ -119,54 +119,73 @@ export default function HomePage() {
                 (SAME AS IT IS: font, colour, everything unchanged)
                 + ONE male photo. The navy "14 Online Courses" card is
                 REMOVED entirely (user: "ye wala box khatm kar do") —
-                the "14" fact stays in StatsRow. Big image 30890559:
-                an open palm cupped holding a white tasbih on a red
-                patterned carpet (object-position 45% keeps the palm +
-                beads in the landscape crop). Male photo 7129612: a
-                young man in a white thobe reading a Quran
-                (object-position 62% centres his face + the book).
-                Desktop 2 columns, mobile stacked. Each bottom item
-                animates in on scroll (slower Reveal). NOTE (round 5):
+                the "14" fact stays in StatsRow. NOTE (round 5):
                 Minha's shot4 shows NO badge on the About big image,
                 and our collage NEVER had one — the 5+ ExperienceBadge
                 lives on WhyChooseUs + the Teachers page only, so none
-                is added here. */}
+                is added here.
+                Feedback round 6 (12 Nov 2026): (a) TOP IMAGE =
+                MINHA'S EXACT PHOTO ("yahi utha ke laga do, same as it
+                is"): two cupped hands holding a white tasbih over an
+                open Quran with gold-bordered pages on a patterned
+                carpet, warm sunlight — from Minha's homepage HTML
+                (wp-content/uploads/2026/04/Untitled-design-2026-04-17T115532.867.png),
+                saved LOCALLY as /about-dua-hands.jpg (do NOT hotlink
+                Minha's server; the file is a BINARY — it must reach
+                the repo via GitHub WEB UPLOAD, not push-files).
+                The old 30890559 (one palm, no Quran in frame) is
+                REPLACED. (b) MALE PHOTO 7129612 REPLACED ("boy
+                wala... iski jagah koi aur laga do") with Pexels
+                34162875: a young man in a white shawl + maroon cap,
+                sitting cross-legged on a green prayer rug in a mosque,
+                reading an open Quran, side profile, face visible.
+                Object-position 50%/35% keeps face + book. FLAG: he
+                is a Black man (West African look), not Minha's
+                light-skinned man in a blue shirt by a window; backup
+                8164585 (older man, grey suit). (c) BOTTOM ROW is now
+                TWO COLUMNS at ALL widths (grid-cols-2 — round 5 had
+                sm:grid-cols-2 so it stacked on mobile, which the user
+                rejected: "aise nahi"). The OQC box keeps OUR content
+                (same title/text/font/colour) — only the mobile sizing
+                shrinks so it fits half-width: smaller icon, title
+                ~16px, text ~12px, tighter padding. Desktop keeps the
+                same 2-col design. */}
             <Reveal from="left" delay={1}>
               <div className="relative overflow-hidden rounded-[20px] shadow-card">
                 <Image
                   src={COLLAGE_DUA_PHOTO}
-                  alt="An open palm cupped holding a white tasbih over a patterned prayer carpet in warm light"
+                  alt="Two hands cupped holding a white tasbih over an open Holy Quran on a patterned carpet in warm sunlight"
                   width={1600}
-                  height={2400}
+                  height={1152}
                   sizes="(max-width: 1080px) 100vw, 50vw"
                   className="h-[340px] w-full object-cover object-[center_45%] transition duration-500 hover:scale-[1.04] lg:h-[400px]"
                 />
               </div>
             </Reveal>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <div className="mt-3 grid grid-cols-2 gap-3 sm:mt-4 sm:gap-4">
               <Reveal delay={1} className="h-full">
-                <div className="flex h-full min-h-[240px] flex-col items-center justify-center rounded-[20px] bg-[#fff8f6] p-6 text-center shadow-card ring-1 ring-[#fbe9e4] lg:min-h-[260px]">
-                  <span className="flex h-[62px] w-[62px] items-center justify-center rounded-2xl bg-brandRed text-white">
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="h-9 w-9" aria-hidden="true">
+                <div className="flex h-full min-h-[210px] flex-col items-center justify-center rounded-[20px] bg-[#fff8f6] p-3 text-center shadow-card ring-1 ring-[#fbe9e4] sm:p-4 lg:min-h-[260px] lg:p-6">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brandRed text-white lg:h-[62px] lg:w-[62px]">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6 lg:h-9 lg:w-9" aria-hidden="true">
                       <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z" />
                     </svg>
                   </span>
-                  <h3 className="mt-4 font-display text-[20px] font-bold leading-snug tracking-[0.06em] text-navyInk lg:text-[22px]">
+                  <h3 className="mt-3 font-display text-[16px] font-bold leading-snug tracking-[0.06em] text-navyInk lg:mt-4 lg:text-[22px]">
                     Online Quran Courses
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                  <p className="mt-1.5 text-[12px] leading-relaxed text-muted lg:mt-2 lg:text-sm">
                     Our courses are designed for effective Quran learning and understanding
                   </p>
                 </div>
               </Reveal>
               <Reveal from="right" delay={2} className="h-full">
-                <div className="relative h-full min-h-[240px] overflow-hidden rounded-[20px] shadow-card lg:min-h-[260px]">
+                <div className="relative h-full min-h-[210px] overflow-hidden rounded-[20px] shadow-card lg:min-h-[260px]">
                   <Image
                     src={COLLAGE_MAN_PHOTO}
-                    alt="A young man in a white thobe reading the Holy Quran indoors"
+                    alt="A young man in a white shawl reading the Holy Quran in a mosque"
                     fill
                     sizes="(max-width: 1080px) 50vw, 25vw"
-                    className="object-cover object-[62%_50%] transition duration-500 hover:scale-[1.04]"
+                    className="object-cover object-[50%_35%] transition duration-500 hover:scale-[1.04]"
                   />
                 </div>
               </Reveal>

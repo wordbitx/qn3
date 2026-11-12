@@ -46,19 +46,27 @@ export default function Hero() {
           dark stone wall) — the mobile crop is CENTER-anchored
           (crop=center), not right-anchored, because the subject is in
           the middle of the frame.
-        */}
+          Feedback round 6: the hero is now Pexels 11514335 — an OPEN
+          Holy Quran on a wooden rehal with a WHITE tasbih on a
+          patterned carpet, warm golden window light. The book is the
+          subject (the user asked for "koi Quran Pak ki koi aisi laga
+          do"). Desktop Image uses object-[center_35%] so the wide
+          landscape band keeps the rehal + open Quran (verified by a
+          PIL simulation); the mobile crop stays CENTER-anchored.
+          NOT 6873767 (the round-4 object-only Quran the user
+          rejected). */}
         <Image
           src={HERO_PHOTO}
-          alt="A woman in a hijab sitting and reading the Holy Quran in a mosque"
+          alt="An open Holy Quran on a wooden rehal with a white tasbih in warm window light"
           fill
           sizes="100vw"
           quality={85}
-          className="hero-zoom hidden object-cover lg:block"
+          className="hero-zoom hidden object-cover object-[center_35%] lg:block"
           priority
         />
         <Image
           src={HERO_PHOTO_MOBILE}
-          alt="A woman in a hijab sitting and reading the Holy Quran in a mosque"
+          alt="An open Holy Quran on a wooden rehal with a white tasbih in warm window light"
           fill
           sizes="100vw"
           quality={85}
