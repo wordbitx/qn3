@@ -79,14 +79,33 @@ export function feeMessageForPlan(planName: string): string {
    white tasbih on the floor). Desktop is w=2400. FLAG 3: same
    Zeynep model as the Teachers photo (20785854) — the user has
    accepted the same-model reuse in rounds 2 and 4; the hero and
-   Teachers are the two prominent spots. */
+   Teachers are the two prominent spots.
+   Feedback round 6 (12 Nov 2026): the user wants a PREMIUM HOLY
+   QURAN image for the hero ("koi Quran Pak ki koi aisi laga do") —
+   the BOOK as subject. New hero is Pexels 11514335: an OPEN Holy
+   Quran on a wooden rehal with a WHITE tasbih (Arabic-letter beads)
+   on a patterned carpet, warm golden window light through a lattice.
+   Verified HTTP 200 + JPEG at w=2400 (2400×3200) and the CENTER
+   portrait mobile crop 1200×1800, both visually inspected (PIL
+   simulations: desktop band at object-position 35% keeps the rehal
+   + open Quran; mobile crop keeps rehal + Quran + tasbih). Desktop
+   Image uses object-[center_35%]. NOT 6873767 (round-4 rejected
+   object-only Quran — dark, hospital-like); 11514335 is warm +
+   bright and was the round-5 collage-big backup. Rejected hero
+   candidates this round: 31743462 (open Quran by a bright window,
+   teal carpet — the window dominates, the book is small at the
+   bottom), 325266 / 13549654 (macro Quran text, no context),
+   12123505 (mosque wall "Allah" calligraphy, no Quran),
+   14074052 / 14743719 / 28823661 (CLOSED books, product shots),
+   3452843 (Holi crowd, not Quran), 17857931 / 28128042 (mosque
+   interior / closed Quran + microphone). */
 export const HERO_PHOTO =
-  "https://images.pexels.com/photos/20784759/pexels-photo-20784759.jpeg?auto=compress&cs=tinysrgb&w=2400";
-/* Mobile hero: same photo 20784759, CENTER-anchored portrait crop
-   (the reading woman is centered, so the crop keeps her full figure).
-   Verified HTTP 200 + JPEG 1200×1800, visually inspected. */
+  "https://images.pexels.com/photos/11514335/pexels-photo-11514335.jpeg?auto=compress&cs=tinysrgb&w=2400";
+/* Mobile hero: same photo 11514335, CENTER-anchored portrait crop
+   (the rehal + open Quran + tasbih are centred, so the crop keeps
+   them all). Verified HTTP 200 + JPEG 1200×1800, visually inspected. */
 export const HERO_PHOTO_MOBILE =
-  "https://images.pexels.com/photos/20784759/pexels-photo-20784759.jpeg?auto=compress&cs=tinysrgb&fit=crop&crop=center&w=1200&h=1800";
+  "https://images.pexels.com/photos/11514335/pexels-photo-11514335.jpeg?auto=compress&cs=tinysrgb&fit=crop&crop=center&w=1200&h=1800";
 /* About collage — stylish 3-image composition (round 2):
    dua = South Asian girl, hands raised in dua with tasbih + Quran on rehal;
    girl = young Turkish girl in a rust-orange hijab reading the Quran in a
@@ -129,11 +148,44 @@ export const HERO_PHOTO_MOBILE =
    portrait-native, unmistakable Quran — older man, corporate look).
    Rejected male candidates: 20597768 (hands only, no person),
    29894263 (too dark, face hidden by the book), 16066399
-   (over-shoulder, no face), 34496696 (back of head only). */
-export const COLLAGE_DUA_PHOTO =
-  "https://images.pexels.com/photos/30890559/pexels-photo-30890559.jpeg?auto=compress&cs=tinysrgb&w=1600";
+   (over-shoulder, no face), 34496696 (back of head only).
+   Feedback round 6 (12 Nov 2026): (a) TOP IMAGE = MINHA'S EXACT
+   PHOTO. The user re-sent shot4 and said "yahi utha ke laga do,
+   same as it is". Found in Minha's homepage HTML next to the About
+   heading: https://minhainternationalinstitute.com/wp-content/uploads/2026/04/Untitled-design-2026-04-17T115532.867.png
+   (1700×1224). Visually verified against shot4: two cupped hands
+   holding a WHITE pearl tasbih over an OPEN Quran with
+   gold-bordered pages on a patterned carpet, warm sunlight.
+   Downloaded and saved locally as public/about-dua-hands.jpg
+   (converted to JPG q82, 1600×1152, 189 KB) — DO NOT HOTLINK
+   MINHA'S SERVER. BINARY: this file CANNOT go through github
+   push-files — it must be uploaded via the GitHub WEB UPLOAD to
+   the repo (same route as logo.jpg / intro.mp4 in round 1) or the
+   live site will 404 the image. Original PNG kept in
+   ~/workspace/quran-light-real-photos-2026-11-11/minha-exact-dua-hands-tasbih-quran.png.
+   The old 30890559 (one palm, no Quran in frame) is REPLACED.
+   (b) MALE PHOTO 7129612 REPLACED — the user said "boy wala...
+   iski jagah koi aur laga do". New male = Pexels 34162875: a YOUNG
+   man in a white shawl + maroon cap, sitting cross-legged on a
+   green prayer rug in a mosque, reading an OPEN Quran, side
+   profile, face visible, warm orange-tiled wall. Photographer
+   name not retrievable (Pexels photo page returns a stub).
+   Verified HTTP 200 + JPEG at w=1600 (1600×2000) + PIL crop
+   simulations (desktop band at object-position 35% keeps face +
+   book; mobile near-full frame). FLAG: he is a Black man (West
+   African look), NOT Minha's light-skinned man in a blue shirt by
+   a window — the user asked for "koi aur" (a different person),
+   and this is the best premium adult male reading a Quran found;
+   backup is 8164585 (older man, grey suit, corporate look). The
+   object position is object-[50%_35%]. (c) BOTTOM ROW is now
+   grid-cols-2 at ALL widths (mobile too — round 5 had
+   sm:grid-cols-2 so it stacked on mobile, which the user
+   rejected: "aise nahi"). The OQC box gets mobile half-width
+   sizing (smaller icon/title/text/padding). Desktop keeps the
+   same 2-col design. */
+export const COLLAGE_DUA_PHOTO = "/about-dua-hands.jpg";
 export const COLLAGE_MAN_PHOTO =
-  "https://images.pexels.com/photos/7129612/pexels-photo-7129612.jpeg?auto=compress&cs=tinysrgb&w=1600";
+  "https://images.pexels.com/photos/34162875/pexels-photo-34162875.jpeg?auto=compress&cs=tinysrgb&w=1600";
 export const TEACHERS_PHOTO =
   "https://images.pexels.com/photos/20785854/pexels-photo-20785854.jpeg?auto=compress&cs=tinysrgb&w=2400";
 /* Banner band + Basic Arabic card: open Quran with a wooden tasbih —
