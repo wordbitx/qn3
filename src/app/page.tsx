@@ -13,7 +13,7 @@ import VideoCta from "@/components/VideoCta";
 import FaqList from "@/components/FaqList";
 import { Reveal } from "@/components/Reveal";
 import { COURSES, FAQS } from "@/lib/data";
-import { COLLAGE_DUA_PHOTO, COLLAGE_WOMAN_DUA_PHOTO, TRIAL_MESSAGE, whatsappUrl } from "@/lib/site";
+import { COLLAGE_DUA_PHOTO, COLLAGE_MAN_PHOTO, TRIAL_MESSAGE, whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Quran Light Institute — Learn Quran Online with Tajweed",
@@ -71,24 +71,34 @@ export default function HomePage() {
           text right). MOBILE: text FIRST, images after (round 3's
           mobile order kept). One DOM, responsive order classes —
           text Reveal is order-1 lg:order-2, the collage div is
-          order-2 lg:order-1. No copy changes. */}
-      <section className="py-[96px] max-[640px]:py-[64px]">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-2">
+          order-2 lg:order-1. No copy changes.
+          Feedback round 5 (user, side-by-side vs Minha shot6):
+          Minha's About has consistent ~24px side padding on heading,
+          paragraph and checklist (ours let text touch the edges),
+          a ~32px mobile heading, regular-weight paragraph with ~1.7
+          line-height, and comfortable checklist spacing. Also the
+          gap between the trust marquee and the "— ABOUT US" kicker
+          was ~112px (TrustBand py-12 bottom 48px + this section's
+          64px mobile top) — Minha has no such gap, so the mobile
+          top padding is cut to 40px (TrustBand bottom cut to 24px
+          too: 64px total now). */}
+      <section className="py-[96px] max-[640px]:pb-[64px] max-[640px]:pt-[40px]">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
           <Reveal className="order-1 lg:order-2">
             <div>
               <p className="kicker">About Us</p>
-              <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
+              <h2 className="mt-3 font-display text-[32px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
                 Quality Islamic &amp; Quranic Education for Everyone
               </h2>
-              <p className="mt-4 leading-relaxed text-muted">
+              <p className="mt-4 leading-[1.7] text-muted">
                 At Quran Light Institute, we are dedicated to delivering authentic Quranic and
                 Islamic education to students worldwide. Our aim is to build a strong foundation
                 of faith, knowledge, and character through the teachings of the Holy Quran — in a
                 positive learning environment where students grow spiritually and intellectually.
               </p>
-              <ul className="mt-6 space-y-3">
+              <ul className="mt-6 space-y-4">
                 {ABOUT_POINTS.map((p) => (
-                  <li key={p} className="flex items-start gap-2.5 font-medium text-navyInk">
+                  <li key={p} className="flex items-start gap-2.5 font-normal text-navyInk">
                     {CHECK_ICON}
                     {p}
                   </li>
@@ -103,37 +113,37 @@ export default function HomePage() {
             </div>
           </Reveal>
           <div className="order-2 lg:order-1">
-            {/* Minha's collage, finish items (round 3): 1 BIG premium
-                image on top, standing ALONE; bottom row = 3 items — navy
-                "14 Online Courses" card + light "Online Quran Courses"
-                card + woman photo (feedback round 4: NO CHILD — the girl
-                photo is replaced by an adult woman's dua photo).
-                Desktop 3 columns, mobile stacked. Each bottom item
-                animates in on scroll (slower Reveal). */}
+            {/* Minha's collage, feedback round 5 (shot4 — EXACT
+                structure): 1 BIG image on top, standing ALONE; bottom
+                row = 2 items — the light "Online Quran Courses" box
+                (SAME AS IT IS: font, colour, everything unchanged)
+                + ONE male photo. The navy "14 Online Courses" card is
+                REMOVED entirely (user: "ye wala box khatm kar do") —
+                the "14" fact stays in StatsRow. Big image 30890559:
+                an open palm cupped holding a white tasbih on a red
+                patterned carpet (object-position 45% keeps the palm +
+                beads in the landscape crop). Male photo 7129612: a
+                young man in a white thobe reading a Quran
+                (object-position 62% centres his face + the book).
+                Desktop 2 columns, mobile stacked. Each bottom item
+                animates in on scroll (slower Reveal). NOTE (round 5):
+                Minha's shot4 shows NO badge on the About big image,
+                and our collage NEVER had one — the 5+ ExperienceBadge
+                lives on WhyChooseUs + the Teachers page only, so none
+                is added here. */}
             <Reveal from="left" delay={1}>
               <div className="relative overflow-hidden rounded-[20px] shadow-card">
                 <Image
                   src={COLLAGE_DUA_PHOTO}
-                  alt="A woman's hands raised in dua with a white tasbih, warm light in a mosque"
+                  alt="An open palm cupped holding a white tasbih over a patterned prayer carpet in warm light"
                   width={1600}
                   height={2400}
                   sizes="(max-width: 1080px) 100vw, 50vw"
-                  className="h-[340px] w-full object-cover object-[center_35%] transition duration-500 hover:scale-[1.04] lg:h-[400px]"
+                  className="h-[340px] w-full object-cover object-[center_45%] transition duration-500 hover:scale-[1.04] lg:h-[400px]"
                 />
               </div>
             </Reveal>
-            <div className="mt-4 grid gap-4 sm:grid-cols-3">
-              <Reveal from="left" delay={0} className="h-full">
-                <div className="flex h-full min-h-[240px] flex-col justify-center rounded-[20px] bg-navyDark p-6 text-white shadow-card lg:min-h-[260px]">
-                  <p className="font-display text-[25px] font-bold leading-tight">
-                    14 <span className="text-redBright">Online</span> Courses
-                  </p>
-                  <p className="mt-1.5 text-sm leading-relaxed text-white/85">
-                    Live one-to-one classes for kids &amp; adults — from home, anywhere in the
-                    world.
-                  </p>
-                </div>
-              </Reveal>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
               <Reveal delay={1} className="h-full">
                 <div className="flex h-full min-h-[240px] flex-col items-center justify-center rounded-[20px] bg-[#fff8f6] p-6 text-center shadow-card ring-1 ring-[#fbe9e4] lg:min-h-[260px]">
                   <span className="flex h-[62px] w-[62px] items-center justify-center rounded-2xl bg-brandRed text-white">
@@ -152,11 +162,11 @@ export default function HomePage() {
               <Reveal from="right" delay={2} className="h-full">
                 <div className="relative h-full min-h-[240px] overflow-hidden rounded-[20px] shadow-card lg:min-h-[260px]">
                   <Image
-                    src={COLLAGE_WOMAN_DUA_PHOTO}
-                    alt="A woman in a rust hijab with hands raised in dua in a sunlit mosque in Türkiye"
+                    src={COLLAGE_MAN_PHOTO}
+                    alt="A young man in a white thobe reading the Holy Quran indoors"
                     fill
-                    sizes="(max-width: 1080px) 33vw, 25vw"
-                    className="object-cover object-[center_40%] transition duration-500 hover:scale-[1.04]"
+                    sizes="(max-width: 1080px) 50vw, 25vw"
+                    className="object-cover object-[62%_50%] transition duration-500 hover:scale-[1.04]"
                   />
                 </div>
               </Reveal>

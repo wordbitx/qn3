@@ -184,21 +184,19 @@ export default function Footer() {
           </Link>
         </nav>
       </div>
-      {/* Footer bottom — feedback round 4 (user: "wo box hata do, single
-          line chahiye"): the black rounded box is GONE. One single line
-          of subtle regular text, sitting directly on the light gradient
-          footer background (hairline above it, no dark/blue block):
-          copyright + the WordbitX developer credit ("Developed by
-          WordbitX" linking to https://wordbitx.com, followed link
-          (no nofollow) so it counts as a backlink). Wraps gracefully
-          on narrow phones, reads as a single line on desktop. */}
+      {/* Footer bottom — feedback round 5 (user: the text was too
+          big and wrapped to THREE lines on mobile): now EXACTLY TWO
+          stacked lines, 12px, centred, regular weight — line 1 the
+          full copyright, line 2 "Developed by WordbitX" (link to
+          https://wordbitx.com, target _blank, rel noopener
+          noreferrer, NO nofollow, so it counts as a backlink).
+          Line 1 at 12px is ~330px on a 390px phone — fits one line.
+          (Round 4's single-line-on-desktop idea is dead — the user
+          explicitly wants line 1 copyright, line 2 the credit.) */}
       <div className="border-t border-navy/10">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-5 text-center text-[14.5px] leading-relaxed text-navyInk/70">
-          <span>Copyright © 2026 Quran Light Institute. All rights reserved.</span>
-          <span aria-hidden="true" className="text-navyInk/40">
-            ·
-          </span>
-          <span>
+        <div className="mx-auto max-w-7xl px-4 py-5 text-center text-[12px] leading-[1.7] text-navyInk/70">
+          <span className="block">Copyright © 2026 Quran Light Institute. All rights reserved.</span>
+          <span className="block">
             Developed by{" "}
             <a
               href="https://wordbitx.com"

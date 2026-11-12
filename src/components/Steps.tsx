@@ -2,12 +2,23 @@ import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 
 /**
- * Our Process (PREVIEW-SPEC §3.8), premium polish round: Minha-style
- * ROWS on mobile AND desktop — square photo left, red "01." number,
- * bold title, gray text, on a very light blush section background
- * (#fff8f6, distinct warmth from the cream Why Choose Us section above
- * it). Rows are white cards with a warm blush ring + soft shadow and a
- * hover lift; single column on phones/tablets, 2×2 grid on desktop.
+ * Our Process (PREVIEW-SPEC §3.8), feedback round 5 — restyled to
+ * Minha's "How Learning Happens" (shot2) EXACTLY. What was odd vs
+ * Minha: (1) our photos were small (104px mobile / 120px desktop) —
+ * Minha's are a big ~150px square on the left; (2) our cards had a
+ * warm blush RING (#fbe9e4) — Minha's are plain white with only a
+ * soft shadow; (3) our cards HOVER-LIFTED (-translate-y-1.5) —
+ * Minha's sit still; (4) our titles turned RED on hover —
+ * Minha's stay dark navy; (5) our padding/gap were tight (p-4,
+ * gap-5) — Minha's are roomier. Fixed: 120px mobile / 150px
+ * desktop photos with ~12px corners, plain white cards (soft
+ * shadow only, no ring, no lift), dark titles, p-5/sm:p-6,
+ * gap-6. KEPT: our red "01." numbers (not Minha's orange), our
+ * 4 steps' content and photos, the 2×2 desktop grid, the photo
+ * zoom on hover (inside its overflow-hidden frame — no layout
+ * effect), and the blush #fff8f6 SECTION background (the user
+ * complained about the boxes, not the section; the blush keeps
+ * this section distinct from the cream Why Choose Us above it).
  * Same copy, same photos as the mobile-fix round.
  */
 const STEPS = [
@@ -59,7 +70,7 @@ export default function Steps() {
             simple and clear.
           </p>
         </Reveal>
-        <ol className="mt-12 grid gap-5 lg:grid-cols-2">
+        <ol className="mt-12 grid gap-6 lg:grid-cols-2">
           {STEPS.map((s, i) => (
             <Reveal
               key={s.n}
@@ -68,8 +79,8 @@ export default function Steps() {
               delay={(i % 2) as 0 | 1}
               className="h-full"
             >
-              <div className="group flex h-full items-center gap-5 rounded-[18px] bg-white p-4 shadow-card ring-1 ring-[#fbe9e4] transition duration-300 hover:-translate-y-1.5 hover:shadow-cardLg sm:gap-6 sm:p-5">
-                <div className="relative h-[104px] w-[104px] shrink-0 overflow-hidden rounded-[14px] sm:h-[120px] sm:w-[120px]">
+              <div className="group flex h-full items-center gap-5 rounded-[18px] bg-white p-5 shadow-card sm:gap-6 sm:p-6">
+                <div className="relative h-[120px] w-[120px] shrink-0 overflow-hidden rounded-[12px] sm:h-[150px] sm:w-[150px]">
                   <Image
                     src={s.src}
                     alt={s.alt}
@@ -82,7 +93,7 @@ export default function Steps() {
                   <span className="font-display text-[20px] font-bold leading-none text-brandRed">
                     {s.num}.
                   </span>
-                  <h3 className="mt-1.5 font-display text-[20px] font-bold leading-snug text-navyInk transition group-hover:text-brandRed sm:text-[22px]">
+                  <h3 className="mt-1.5 font-display text-[20px] font-bold leading-snug text-navyInk sm:text-[22px]">
                     {s.title}
                   </h3>
                   <p className="mt-1.5 text-[0.95rem] leading-relaxed text-muted">{s.text}</p>

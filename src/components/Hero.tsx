@@ -37,14 +37,19 @@ export default function Hero() {
           Mobile-fix round: the landscape hero stretched over a ~390×1300px
           portrait phone container upscaled its visible slice ~4x (DPR 2–3)
           — torn pixels. Mobile (≤lg, stacked layout) now gets a
-          right-anchored portrait crop of the SAME photo; desktop keeps the
-          landscape at w=2400. Two <Image>s, shown/hidden by breakpoint.
+          portrait crop of the SAME photo; desktop keeps the landscape
+          at w=2400. Two <Image>s, shown/hidden by breakpoint.
           Feedback round 4: the photo is now 20785238 (a woman standing
           in prayer in a mosque, subject right) — same two-image technique.
+          Feedback round 5: the photo is now 20784759 (an adult woman
+          sitting and reading an open Quran, subject CENTERED against a
+          dark stone wall) — the mobile crop is CENTER-anchored
+          (crop=center), not right-anchored, because the subject is in
+          the middle of the frame.
         */}
         <Image
           src={HERO_PHOTO}
-          alt="A woman in a hijab standing in prayer in a mosque, hands folded in devotion"
+          alt="A woman in a hijab sitting and reading the Holy Quran in a mosque"
           fill
           sizes="100vw"
           quality={85}
@@ -53,7 +58,7 @@ export default function Hero() {
         />
         <Image
           src={HERO_PHOTO_MOBILE}
-          alt="A woman in a hijab standing in prayer in a mosque, hands folded in devotion"
+          alt="A woman in a hijab sitting and reading the Holy Quran in a mosque"
           fill
           sizes="100vw"
           quality={85}

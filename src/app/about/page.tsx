@@ -30,29 +30,33 @@ export default function AboutPage() {
 
       {/* Who We Are — feedback round 4: DESKTOP images first (original
           arrangement: text right, images left), MOBILE text first.
-          One DOM, responsive order classes. No copy changes. */}
+          One DOM, responsive order classes. No copy changes.
+          Feedback round 5: same typography fixes as the homepage
+          About (Minha shot6) — 24px side padding, 32px mobile
+          heading, 1.7 paragraph line-height, regular-weight
+          checklist with comfortable spacing. */}
       <section className="py-[96px] max-[640px]:py-[64px]">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
           <Reveal from="right" className="order-1 lg:order-2">
           <div>
             <p className="kicker">Who We Are</p>
-            <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
+            <h2 className="mt-3 font-display text-[32px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
               Help Your Child Learn the Holy Quran from Home
             </h2>
-            <p className="mt-4 leading-relaxed text-muted">
+            <p className="mt-4 leading-[1.7] text-muted">
               Quran Light Institute is an online Quran academy with 5+ years of experience,
               teaching kids and adults through live one-to-one classes. Every lesson is
               personal: the teacher listens to the student&apos;s recitation, corrects gently,
               and follows a clear plan suited to the student&apos;s age and level.
             </p>
-            <p className="mt-3 leading-relaxed text-muted">
+            <p className="mt-3 leading-[1.7] text-muted">
               Our mission is simple — to make authentic Quranic education reachable from any
               home in the world, with qualified male and female teachers, flexible timings that
               respect family routines, and honest progress monitoring for parents.
             </p>
-            <ul className="mt-6 space-y-3">
+            <ul className="mt-6 space-y-4">
               {POINTS.map((p) => (
-                <li key={p} className="flex items-start gap-2.5 font-medium text-navyInk">
+                <li key={p} className="flex items-start gap-2.5 font-normal text-navyInk">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 h-5 w-5 shrink-0 text-brandRed" aria-hidden="true">
                     <path d="M20 6 9 17l-5-5" />
                   </svg>
@@ -95,7 +99,7 @@ export default function AboutPage() {
             <div className="relative min-h-[220px] overflow-hidden rounded-[16px_16px_90px_16px] shadow-card">
               <Image
                 src={HERO_PHOTO}
-                alt="A woman in a hijab standing in prayer in a mosque"
+                alt="A woman in a hijab sitting and reading the Holy Quran in a mosque"
                 fill
                 sizes="(max-width: 1080px) 50vw, 25vw"
                 className="object-cover"
