@@ -8,7 +8,6 @@ const QUICK_LINKS: [string, string][] = [
   ["About Us", "/about"],
   ["Our Courses", "/courses"],
   ["Our Teachers", "/teachers"],
-  ["Pricing Plans", "/pricing"],
   ["Fee Schedule", "/fees"],
   ["Online Admission", "/admission"],
   ["FAQs", "/faqs"],

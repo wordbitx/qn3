@@ -250,38 +250,6 @@ button.btn-trial {
   transition: max-height 0.45s ease;
 }
 
-/* ---- Pricing cards ----
-   Hover lifts −10px; popular card top border turns red. Tap bounce
-   (cardTap keyframes) plays when a card body is clicked — PricingCards
-   adds .tapped briefly. */
-@keyframes cardTap {
-  0% {
-    transform: scale(1);
-  }
-  35% {
-    transform: scale(0.985) translateY(2px);
-  }
-  70% {
-    transform: scale(1.005) translateY(-2px);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-.pricing-card {
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
-}
-.pricing-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 22px 50px rgba(13, 27, 51, 0.16);
-}
-.pricing-card.tapped {
-  animation: cardTap 0.45s ease;
-}
-
 /* ---- Video play button pulsing ring ---- */
 @keyframes pulse-ring {
   0% {

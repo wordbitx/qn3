@@ -8,7 +8,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/about", priority: 0.8 },
     { path: "/courses", priority: 0.9 },
     { path: "/teachers", priority: 0.8 },
-    { path: "/pricing", priority: 0.8 },
     { path: "/fees", priority: 0.8 },
     { path: "/admission", priority: 0.8 },
     { path: "/faqs", priority: 0.7 },
