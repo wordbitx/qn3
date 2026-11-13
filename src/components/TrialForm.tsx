@@ -31,10 +31,10 @@ export default function TrialForm({
 
   const inputCls = hero
     ? "w-full rounded-lg border border-white/50 bg-white/95 px-4 py-2.5 text-[16px] text-ink outline-none placeholder:text-muted/70 focus:border-white focus:ring-2 focus:ring-white/40"
-    : "w-full rounded-lg border-[1.5px] border-line bg-[#fffdf9] px-4 py-2.5 text-[16px] text-ink outline-none placeholder:text-muted/70 focus:border-navy focus:ring-2 focus:ring-navy/20";
+    : "w-full rounded-xl border-[1.5px] border-line bg-[#fffdf9] px-4 py-3 text-[16px] text-ink outline-none placeholder:text-muted/70 focus:border-navy focus:ring-2 focus:ring-navy/20";
   const labelCls = hero
     ? "mb-1 block text-sm font-medium text-white"
-    : "mb-1 block text-sm font-medium text-navyDark";
+    : "mb-1.5 block text-sm font-semibold text-navyDark";
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -71,12 +71,24 @@ export default function TrialForm({
       className={
         hero
           ? "rounded-[18px] border border-white/50 bg-[linear-gradient(135deg,rgba(208,0,0,0.68),rgba(150,0,0,0.62))] p-[27px_26px_22px] shadow-cardLg backdrop-blur-[18px]"
-          : "rounded-[18px] bg-white p-6 shadow-card sm:p-[38px_36px]"
+          : "relative overflow-hidden rounded-[20px] bg-white p-6 shadow-cardLg ring-1 ring-line sm:p-10"
       }
     >
+      {/* Feedback round 10 (13 Nov 2026): premium contact card — red top
+          accent + "100% Free" pill. Hero variant untouched. */}
+      {hero ? null : (
+        <span className="absolute inset-x-0 top-0 h-1.5 bg-brandRed" aria-hidden="true" />
+      )}
+      {hero ? null : (
+        <p className="relative inline-flex rounded-full bg-[#fff1f0] px-3.5 py-1.5 text-[12px] font-bold uppercase tracking-[0.12em] text-brandRed">
+          100% Free &middot; No Payment Needed
+        </p>
+      )}
       <h2
-        className={`font-display text-[26px] font-bold leading-tight ${
-          hero ? "text-center text-white" : "text-left text-navyInk"
+        className={`font-display font-bold leading-tight ${
+          hero
+            ? "text-center text-[26px] text-white"
+            : "mt-4 text-left text-[28px] text-navyInk"
         }`}
       >
         5 Free Trial Classes
@@ -89,7 +101,7 @@ export default function TrialForm({
         Book your trial for students satisfaction
       </p>
 
-      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+      <div className={hero ? "mt-5 grid gap-3 sm:grid-cols-2" : "mt-6 grid gap-4 sm:grid-cols-2"}>
         <label className="block">
           <span className={labelCls}>Name *</span>
           <input className={inputCls} value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" autoComplete="name" />
@@ -146,17 +158,26 @@ export default function TrialForm({
 
       <button
         type="submit"
-        className="mt-5 w-full btn-navy"
+        className="mt-6 w-full btn-navy"
       >
-        Send Message
+        Book My FREE Trial
       </button>
-      <p
-        className={`mt-3 text-[13.5px] leading-relaxed ${
-          hero ? "text-center text-white/85" : "text-left text-muted"
-        }`}
-      >
-        Your details open in WhatsApp — nothing is charged, the trial is completely free.
-      </p>
+      {hero ? (
+        <p className="mt-3 text-center text-[13.5px] leading-relaxed text-white/85">
+          Your details open in WhatsApp — nothing is charged, the trial is completely free.
+        </p>
+      ) : (
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-1.5 border-t border-line pt-4">
+          {["No payment needed", "5-day FREE trial", "Reply on WhatsApp"].map((t) => (
+            <span key={t} className="flex items-center gap-1.5 text-[13px] font-medium text-muted">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 shrink-0 text-brandRed" aria-hidden="true">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              {t}
+            </span>
+          ))}
+        </div>
+      )}
     </form>
   );
 }

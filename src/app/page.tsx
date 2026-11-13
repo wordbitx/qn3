@@ -10,6 +10,7 @@ import StatsRow from "@/components/StatsRow";
 import Steps from "@/components/Steps";
 import PricingCards from "@/components/PricingCards";
 import VideoCta from "@/components/VideoCta";
+import TestimonialsGrid from "@/components/TestimonialsGrid";
 import FaqList from "@/components/FaqList";
 import { Reveal } from "@/components/Reveal";
 import { COURSES, FAQS } from "@/lib/data";
@@ -293,30 +294,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials — honest placeholder. The 6 SAMPLE testimonials from
-          the preview are NOT presented as real reviews. */}
+      {/* Testimonials — feedback round 11 (13 Nov 2026): 10 reviews
+          in a horizontal auto-scroll carousel (see TestimonialsGrid).
+          Round 10 labelled them "Sample"; round 11 REMOVED all visible
+          "Sample" labelling on the user's direct instruction — let the
+          client check it once. The reviews are still samples awaiting
+          the client's official reviews (see SAMPLE_REVIEWS in
+          src/lib/data.ts). */}
       <section className="bg-cream py-[96px] max-[640px]:py-[64px]">
-        <div className="mx-auto max-w-3xl px-4 text-center">
+        <div className="mx-auto max-w-7xl px-4">
           <Reveal>
-            <p className="kicker kicker-centered">Testimonials</p>
-            <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
-              What Our Students &amp; Parents Say
-            </h2>
-            <p className="mt-4 text-lg leading-relaxed text-muted">
-              Real reviews from our students and parents will appear here soon — every review
-              will come from a real student or parent, in their own words.
-            </p>
-            <p className="mt-3 leading-relaxed text-muted">
-              The truest testimonial is your own experience. That is why every new student
-              begins with 5-day absolutely FREE trial classes — meet the teacher, attend real
-              one-to-one lessons, and see the progress yourself before you decide.
-            </p>
-            <Link
-              href="/contact"
-              className="mt-8 btn-primary"
-            >
-              Book Free Trial
-            </Link>
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="kicker kicker-centered">Testimonials</p>
+              <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
+                What Our Students &amp; Parents Say
+              </h2>
+            </div>
+          </Reveal>
+          <TestimonialsGrid />
+          <Reveal>
+            <div className="mx-auto mt-12 max-w-3xl text-center">
+              <p className="leading-relaxed text-muted">
+                The truest testimonial is your own experience. That is why every new student
+                begins with 5-day absolutely FREE trial classes — meet the teacher, attend real
+                one-to-one lessons, and see the progress yourself before you decide.
+              </p>
+              <Link
+                href="/contact"
+                className="mt-8 btn-primary"
+              >
+                Book Free Trial
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>

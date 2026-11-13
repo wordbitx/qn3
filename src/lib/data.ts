@@ -251,3 +251,77 @@ export const PRICING_PLANS: PricingPlan[] = [
     features: ["60-Minute Live Class", "1 on 1 Session", "Qualified Male & Female Teachers", "Flexible Timings in Your Time Zone", "Monthly Progress Report", "Choose your days — 2, 3 or 5 days a week", "Free Trial Classes for Students Satisfaction"],
   },
 ];
+
+export type SampleReview = { name: string; role: string; course: string; text: string };
+
+/* Feedback round 10 (13 Nov 2026) — reviews to show how this section
+   will look; round 11 (13 Nov 2026): the user DIRECTLY instructed that
+   the visible "Sample" labels be removed — let the client check it once,
+   she will like it. So the cards carry NO "Sample" badge and the section
+   carries NO sample note. The reviews are still samples awaiting the
+   client's official reviews — the list lives here as SAMPLE_REVIEWS
+   (internal name only, never rendered) so replacement stays a one-file
+   change: when the client sends real ones, replace this whole list.
+   First names only, no full names, no invented countries or results. */
+export const SAMPLE_REVIEWS: SampleReview[] = [
+  {
+    name: "Amina",
+    role: "Parent",
+    course: "Hifz-ul-Quran",
+    text: "My daughter is memorising the Quran with her teacher, and the one-to-one attention makes all the difference. Her teacher is patient, kind, and she actually looks forward to every class.",
+  },
+  {
+    name: "Bilal",
+    role: "Student",
+    course: "Tajweed",
+    text: "My Tajweed has improved so much since I joined. My teacher corrects every word gently, and the evening timings fit perfectly around my work.",
+  },
+  {
+    name: "Fatima",
+    role: "Parent",
+    course: "Quran Reading (Nazra)",
+    text: "My son reads Nazra on his own now, Alhamdulillah. His female teacher is wonderful with children, and the monthly progress report tells me exactly how he is doing.",
+  },
+  {
+    name: "Omar",
+    role: "Student",
+    course: "Noorani Qaida",
+    text: "I started from zero and the free trial helped me decide. My teacher explains everything slowly and clearly — I never feel rushed in my lesson.",
+  },
+  {
+    name: "Maryam",
+    role: "Parent",
+    course: "Quran Tafseer",
+    text: "My daughter does not just read the Quran now, she understands it. The teacher stays in touch with us, and we always know what she is learning each week.",
+  },
+  {
+    name: "Hassan",
+    role: "Student",
+    course: "Hifz-ul-Quran",
+    text: "Hifz felt impossible before I joined. My teacher gave me a daily plan, revises with me in every class, and my memorisation is steady now, Alhamdulillah.",
+  },
+  {
+    name: "Zainab",
+    role: "Parent",
+    course: "Quran Reading (Nazra)",
+    text: "My young daughter loves her Quran classes — her teacher makes every lesson fun and patient, and she practises her Nazra every day without us asking her to.",
+  },
+  {
+    name: "Ahmed",
+    role: "Student",
+    course: "Hifz-ul-Quran",
+    text: "My Hifz has become steady because every class follows the same rhythm — new lesson, then revision of the old ones. My teacher never lets me fall behind.",
+  },
+  {
+    name: "Sana",
+    role: "Parent",
+    course: "Noorani Qaida",
+    text: "My son was shy and slow to start, but his teacher is so patient with him. He has finished Noorani Qaida and now reads the Quran with confidence, MashaAllah.",
+  },
+  {
+    name: "Yusuf",
+    role: "Student",
+    course: "Tajweed",
+    text: "My pronunciation of the letters was weak before. My teacher worked on my makharij word by word, and now I can hear the difference in my own recitation.",
+  },
+];
