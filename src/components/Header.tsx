@@ -48,7 +48,18 @@ const NAV: NavItem[] = [
  * ("Institute" / "Learn Quran Online") are now 10px with tighter
  * tracking so they fit INSIDE the "Quran Light" name width (the user:
  * they stuck out past the logo) — measured at 1280px, see the
- * round-18 change log. MOBILE IS UNCHANGED (round 14). */
+ * round-18 change log. MOBILE IS UNCHANGED (round 14).
+ * Feedback round 19 (13 Nov 2026): the lockup taglines go PREMIUM
+ * (user's option (b) — the parent chose it over going back to one
+ * line, which is what squeezed the nav in round 16). Line 2 is now
+ * a divider row — short RED rule + "INSTITUTE" in LIGHT BLUE
+ * (#4a86d8) + short red rule — on desktop AND mobile (mobile gets
+ * its own 3-line lockup: name 23px + rule/INSTITUTE/rule at 9px +
+ * "Learn Quran Online" at 9px; header stays 64px). Line 3
+ * ("Learn Quran Online") is unchanged on desktop (10px, 0.08em).
+ * The line-2 row still fits INSIDE the name width — measured at
+ * 1280px, see the round-19 change log. This echoes the Nov-10
+ * motif the user liked: "INSTITUTE with red lines beside it". */
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -83,23 +94,38 @@ export default function Header() {
               tracking (0.08em), so both lines render narrower than
               the 27px name — measured at 1280px, see the round-18
               change log. All three lines still share one centre.
-              MOBILE IS UNCHANGED (round 14): the two desktop lines
-              are hidden on mobile and the one-line tagline shows
-              instead — 64px header, 48px logo, 23px name, 10px
-              tagline, exactly as before. */}
+              Round 19 (user, 13 Nov 22:29): the taglines go PREMIUM
+              (option (b)) — line 2 is a divider row: short RED rule
+              + "INSTITUTE" in LIGHT BLUE (#4a86d8) + short red rule,
+              on DESKTOP and MOBILE. Mobile now has the same 3-line
+              lockup (name 23px + rule/INSTITUTE/rule at 9px +
+              "Learn Quran Online" at 9px) — the old one-line mobile
+              tagline is gone, but the mobile header stays 64px and
+              the name/tagline left edges stay aligned (76px). */}
           <span className="min-w-0 leading-none min-[641px]:text-center">
             <span className="block font-display text-[27px] font-extrabold tracking-tight max-[640px]:text-[23px]">
               <span className="text-navy">Quran</span>{" "}
               <span className="text-brandRed">Light</span>
             </span>
-            <span className="mt-1 block whitespace-nowrap text-[10px] font-medium uppercase tracking-[0.08em] text-muted max-[640px]:hidden">
-              Institute
+            <span className="mt-1 hidden items-center justify-center gap-2 min-[641px]:flex">
+              <span className="h-[2px] w-[22px] rounded-full bg-brandRed" aria-hidden="true" />
+              <span className="whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.14em] text-[#4a86d8]">
+                Institute
+              </span>
+              <span className="h-[2px] w-[22px] rounded-full bg-brandRed" aria-hidden="true" />
             </span>
             <span className="mt-0.5 block whitespace-nowrap text-[10px] font-medium uppercase tracking-[0.08em] text-muted max-[640px]:hidden">
               Learn Quran Online
             </span>
-            <span className="mt-1 hidden whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.09em] text-ink max-[640px]:block">
-              Institute — Learn Quran Online
+            <span className="mt-0.5 hidden items-center gap-1.5 max-[640px]:flex">
+              <span className="h-[1.5px] w-[14px] rounded-full bg-brandRed" aria-hidden="true" />
+              <span className="whitespace-nowrap text-[9px] font-bold uppercase tracking-[0.12em] text-[#4a86d8]">
+                Institute
+              </span>
+              <span className="h-[1.5px] w-[14px] rounded-full bg-brandRed" aria-hidden="true" />
+            </span>
+            <span className="mt-0.5 hidden whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.08em] text-ink max-[640px]:block">
+              Learn Quran Online
             </span>
           </span>
         </Link>
