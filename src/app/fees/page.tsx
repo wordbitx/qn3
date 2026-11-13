@@ -29,13 +29,41 @@ export const metadata: Metadata = {
    5-day trial is kept everywhere (NOT the reference's 3-day trial).
    NO copied rating/reviews (4.9/5, 1450 reviews), NO DBS/COPPA, NO
    "Admissions 2026 Open" top bar (our top bar keeps phone +
-   socials). The calculator lives on the HOME page only. */
+   socials). The calculator lives on the HOME page only.
+   Feedback round 19 (13 Nov 2026): the matrix's AFFIRMATIVE cells
+   are GREEN — EXACT pattern from the parent's live-browser pixel
+   measurement of equrantutors.com/fees (13 Nov 22:30 PKT): green
+   #047857 (emerald-700), BOLD — the 3 Days column's values (EXCEPT
+   "Available", which is dark), plus "✓ Included" (all 5) and
+   "Free ($0)" (all 5), plus the single 5 Days "✓ Accelerated".
+   Header row: solid #0f172a, white text, GOLD #fbbf24 for
+   "3 Days/Wk ⭐". The blue band is rebuilt to the reference's exact
+   measured design (solid #0f172a, contained ~900px, ~180px tall,
+   gold eyebrow, white 28–30px heading, grey paragraph, NO pills,
+   3 small icons right of the heading). */
 
 /* Complete Plan Comparison Matrix — EXACT cell text from the
    reference's fees page (fresh fetch, 13 Nov 21:38). Columns:
    2 Days/Wk | 3 Days/Wk ⭐ | 4 Days/Wk | 5 Days/Wk | Weekend.
-   The 3-day column is highlighted (star in the header + red). The
-   star is an inline SVG — the site has NO emojis. */
+   The 3-day column is highlighted (gold header text + green bold
+   values — NO background tint, per the live measurement). The
+   star is an inline SVG — the site has NO emojis.
+   Round 19 GREEN RULE (live-browser pixel measurement, 13 Nov
+   22:30 PKT — green #047857, bold): a cell is green when (a) it is
+   in the 3 Days column and is NOT "Available", or (b) its row is
+   "100% Free Makeup Lessons" (✓ Included ×5), or (c) its row is
+   "Admission / Registration Fee" (Free ($0) ×5), or (d) it is
+   "✓ Accelerated". Everything else is dark: value cells #334155,
+   "—" dashes light grey #cbd5e1, feature labels #0f172a bold.
+   A checkmark is the same colour as its cell. */
+const isGreenCell = (row: string, col: number, v: string) => {
+  if (v === "Available" || v === "—") return false;
+  if (row === "100% Free Makeup Lessons") return true;
+  if (row === "Admission / Registration Fee") return true;
+  if (v === "✓ Accelerated") return true;
+  if (col === 1) return true; // the 3 Days column (except "Available")
+  return false;
+};
 const MATRIX_ROWS: { feature: string; values: string[] }[] = [
   { feature: "Live 1-on-1 Classes per Month", values: ["8 Classes", "12 Classes", "16 Classes", "20 Classes", "8 Classes"] },
   { feature: "Class Duration (Minutes)", values: ["30 Mins", "30 Mins", "30 Mins", "30 / 45 Mins", "30 Mins"] },
@@ -132,9 +160,6 @@ const FEES_FAQS = [
   },
 ];
 
-/* Payment methods shown as white pills on the navy band. */
-const PAYMENT_METHODS = ["PayPal", "Stripe", "Visa", "MasterCard", "Faster Payments", "ACH/Zelle", "Interac", "PayID"];
-
 export default function FeesPage() {
   return (
     <>
@@ -175,8 +200,8 @@ export default function FeesPage() {
             <div className="overflow-x-auto rounded-2xl border border-line bg-white shadow-card">
               <table className="w-full min-w-[720px] border-collapse text-left text-[15px]">
                 <thead>
-                  <tr className="border-b border-line bg-[#f8f6f2]">
-                    <th scope="col" className="px-5 py-4 font-display text-[16px] font-bold text-navyInk">
+                  <tr className="bg-[#0f172a]">
+                    <th scope="col" className="px-5 py-4 font-display text-[16px] font-bold text-white">
                       Feature &amp; Benefit
                     </th>
                     {MATRIX_COLS.map((c, i) => (
@@ -184,13 +209,13 @@ export default function FeesPage() {
                         key={c}
                         scope="col"
                         className={`px-4 py-4 text-center font-display text-[16px] font-bold ${
-                          i === 1 ? "text-brandRed" : "text-navyInk"
+                          i === 1 ? "text-[#fbbf24]" : "text-white"
                         }`}
                       >
                         <span className="inline-flex items-center justify-center gap-1.5">
                           {c}
                           {i === 1 ? (
-                            <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 text-[#c19a3d]" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 text-[#fbbf24]" aria-hidden="true">
                               <path d="M12 2.6 14.9 8.5l6.4.9-4.6 4.5 1.1 6.4L12 17.3l-5.8 3 1.1-6.4L2.7 9.4l6.4-.9L12 2.6Z" />
                             </svg>
                           ) : null}
@@ -202,14 +227,18 @@ export default function FeesPage() {
                 <tbody>
                   {MATRIX_ROWS.map((row, ri) => (
                     <tr key={row.feature} className={ri % 2 === 0 ? "bg-white" : "bg-[#fcfaf7]"}>
-                      <th scope="row" className="px-5 py-3.5 font-semibold text-navyInk">
+                      <th scope="row" className="px-5 py-3.5 font-bold text-[#0f172a]">
                         {row.feature}
                       </th>
                       {row.values.map((v, i) => (
                         <td
                           key={`${row.feature}-${i}`}
-                          className={`px-4 py-3.5 text-center font-medium ${
-                            i === 1 ? "text-navyInk" : "text-muted"
+                          className={`px-4 py-3.5 text-center ${
+                            isGreenCell(row.feature, i, v)
+                              ? "font-bold text-[#047857]"
+                              : v === "—"
+                                ? "font-medium text-[#cbd5e1]"
+                                : "font-medium text-[#334155]"
                           }`}
                         >
                           {v}
@@ -248,61 +277,57 @@ export default function FeesPage() {
         </div>
       </section>
 
-      {/* International Payments — PREMIUM CONTAINED BAND (round 18):
-          the user's "blue si patti si" is now a contained rounded
-          band (navy gradient + shadow), not a plain full-width
-          section. Same content: PayPal, Stripe, Visa, MasterCard,
-          direct local bank transfers (UK Faster Payments, USA
-          ACH/Zelle, Canada Interac, Australia PayID) + invoices on
-          the 1st of every month via email and WhatsApp. The payment
-          methods also show as white pills. The reference's strip
-          carries card/lock/bank icons — small white SVGs here,
-          NO emojis. */}
-      <section className="py-[72px] max-[640px]:py-[56px]">
+      {/* International Payments — EXACT REFERENCE STRIP (round 19):
+          rebuilt to the parent's live-browser pixel measurement of
+          equrantutors.com/fees (13 Nov 22:30 PKT): SOLID #0f172a
+          (slate-900, NOT a gradient), contained box ~900px wide
+          (the reference: 1,214px at a 1,919px viewport = 63.3%),
+          ~180px tall, radius 20px, padding ~41/39/35px. Gold
+          #fbbf24 eyebrow "SECURE GLOBAL CHECKOUT" (~12px, bold,
+          letter-spaced); white heading ~28–30px; light-grey
+          #cbd5e1 paragraph ~15–16px, two lines, exact text. The
+          payment methods appear ONLY as plain text inside the
+          paragraph — NO pills, NO logos, NO badges. Three small
+          generic icons (gold card, gold lock, light bank) sit
+          right of the heading — small SVGs, NO emojis, NO labels.
+          Gold #fbbf24 is used ONLY here + the matrix header
+          "3 Days/Wk ⭐" (the fee-card gold button stays #c19a3d). */}
+      <section className="py-12 max-[640px]:py-10">
         <div className="mx-auto max-w-7xl px-4">
           <Reveal>
-            <div className="overflow-hidden rounded-[24px] bg-gradient-to-br from-[#00338C] via-[#0a4aa8] to-[#1460c8] px-6 py-12 text-center shadow-[0_20px_50px_rgba(0,51,140,0.35)] sm:px-12">
-              <p className="flex items-center justify-center gap-2 text-[13px] font-bold uppercase tracking-[0.18em] text-white/75">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden="true">
-                  <rect x="4" y="10.5" width="16" height="10" rx="2" />
-                  <path d="M8 10.5V7.5a4 4 0 0 1 7.8-1.2" />
-                </svg>
+            <div className="mx-auto max-w-[900px] overflow-hidden rounded-[20px] bg-[#0f172a] px-5 py-8 text-center shadow-[0_16px_40px_rgba(15,23,42,0.30)] sm:px-9 sm:py-10">
+              <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#fbbf24]">
                 Secure Global Checkout
               </p>
-              <h2 className="mt-3 font-display text-[30px] font-bold leading-[1.15] tracking-[-0.02em] text-white sm:text-[36px]">
-                Accepted International Payment Gateways
-              </h2>
-              <div className="mt-6 flex items-center justify-center gap-6 text-white/70" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7">
-                  <rect x="2.5" y="5" width="19" height="14" rx="2.5" />
-                  <path d="M2.5 10h19" />
-                  <path d="M6 15h4" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7">
-                  <rect x="4" y="10.5" width="16" height="10" rx="2" />
-                  <path d="M8 10.5V7.5a4 4 0 0 1 7.8-1.2" />
-                  <circle cx="12" cy="15.5" r="1.4" />
-                </svg>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7">
-                  <path d="M3 9.5 12 4l9 5.5" />
-                  <path d="M5 10v8M9.7 10v8M14.3 10v8M19 10v8" />
-                  <path d="M3.5 20.5h17" />
-                </svg>
+              <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+                <h2 className="font-display text-[26px] font-bold leading-[1.15] tracking-[-0.02em] text-white sm:text-[30px]">
+                  Accepted International Payment Gateways
+                </h2>
+                <span className="flex items-center gap-3" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-[#fbbf24]">
+                    <rect x="2.5" y="5" width="19" height="14" rx="2.5" />
+                    <path d="M2.5 10h19" />
+                    <path d="M6 15h4" />
+                  </svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-[#fbbf24]">
+                    <rect x="4" y="10.5" width="16" height="10" rx="2" />
+                    <path d="M8 10.5V7.5a4 4 0 0 1 7.8-1.2" />
+                    <circle cx="12" cy="15.5" r="1.4" />
+                  </svg>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-[#cbd5e1]">
+                    <path d="M3 9.5 12 4l9 5.5" />
+                    <path d="M5 10v8M9.7 10v8M14.3 10v8M19 10v8" />
+                    <path d="M3.5 20.5h17" />
+                  </svg>
+                </span>
               </div>
-              <p className="mx-auto mt-6 max-w-2xl leading-relaxed text-white/85">
+              <p className="mx-auto mt-3 text-[15px] leading-relaxed text-[#cbd5e1] sm:text-base">
                 We support encrypted payments via PayPal, Stripe, Visa,
                 MasterCard, and direct local bank transfers in the UK
                 (Faster Payments), USA (ACH/Zelle), Canada (Interac),
                 and Australia (PayID). Invoices are sent via email and
                 WhatsApp on the 1st of every month.
               </p>
-              <div className="mt-7 flex flex-wrap items-center justify-center gap-2.5">
-                {PAYMENT_METHODS.map((m) => (
-                  <span key={m} className="rounded-full bg-white px-4 py-2 text-[14px] font-bold text-[#00338C] shadow-sm">
-                    {m}
-                  </span>
-                ))}
-              </div>
             </div>
           </Reveal>
         </div>
