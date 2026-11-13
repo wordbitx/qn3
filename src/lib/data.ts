@@ -251,3 +251,53 @@ export const PRICING_PLANS: PricingPlan[] = [
     features: ["60-Minute Live Class", "1 on 1 Session", "Qualified Male & Female Teachers", "Flexible Timings in Your Time Zone", "Monthly Progress Report", "Choose your days — 2, 3 or 5 days a week", "Free Trial Classes for Students Satisfaction"],
   },
 ];
+
+export type SampleReview = { name: string; role: string; course: string; text: string };
+
+/* Feedback round 10 (13 Nov 2026) — SAMPLE REVIEWS, NOT REAL ONES.
+   The user asked for 5–10 good reviews to show how this section will
+   look, and said the client will delete them and replace them with her
+   official reviews after handover. These are clearly LABELLED "Sample"
+   on every card (see TestimonialsGrid) and the section carries a note
+   saying real student and parent reviews will replace them. First
+   names only, no full names, no invented countries or results. NEVER
+   present these as real reviews — when the client sends real ones,
+   replace this whole list. */
+export const SAMPLE_REVIEWS: SampleReview[] = [
+  {
+    name: "Amina",
+    role: "Parent",
+    course: "Hifz-ul-Quran",
+    text: "My daughter is memorising the Quran with her teacher, and the one-to-one attention makes all the difference. Her teacher is patient, kind, and she actually looks forward to every class.",
+  },
+  {
+    name: "Bilal",
+    role: "Student",
+    course: "Tajweed",
+    text: "My Tajweed has improved so much since I joined. My teacher corrects every word gently, and the evening timings fit perfectly around my work.",
+  },
+  {
+    name: "Fatima",
+    role: "Parent",
+    course: "Quran Reading (Nazra)",
+    text: "My son reads Nazra on his own now, Alhamdulillah. His female teacher is wonderful with children, and the monthly progress report tells me exactly how he is doing.",
+  },
+  {
+    name: "Omar",
+    role: "Student",
+    course: "Noorani Qaida",
+    text: "I started from zero and the free trial helped me decide. My teacher explains everything slowly and clearly — I never feel rushed in my lesson.",
+  },
+  {
+    name: "Maryam",
+    role: "Parent",
+    course: "Quran Tafseer",
+    text: "My daughter does not just read the Quran now, she understands it. The teacher stays in touch with us, and we always know what she is learning each week.",
+  },
+  {
+    name: "Hassan",
+    role: "Student",
+    course: "Hifz-ul-Quran",
+    text: "Hifz felt impossible before I joined. My teacher gave me a daily plan, revises with me in every class, and my memorisation is steady now, Alhamdulillah.",
+  },
+];
