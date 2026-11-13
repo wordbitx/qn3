@@ -294,12 +294,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials — feedback round 10 (13 Nov 2026): 6 SAMPLE
-          reviews, each card labelled "Sample", with the sample note
-          under the heading. The user asked for 5–10 good reviews to
-          show how the section will look; the client will delete them
-          and replace them with her official reviews after handover.
-          They are NEVER presented as real reviews. */}
+      {/* Testimonials — feedback round 11 (13 Nov 2026): 10 reviews
+          in a horizontal auto-scroll carousel (see TestimonialsGrid).
+          Round 10 labelled them "Sample"; round 11 REMOVED all visible
+          "Sample" labelling on the user's direct instruction — let the
+          client check it once. The reviews are still samples awaiting
+          the client's official reviews (see SAMPLE_REVIEWS in
+          src/lib/data.ts). */}
       <section className="bg-cream py-[96px] max-[640px]:py-[64px]">
         <div className="mx-auto max-w-7xl px-4">
           <Reveal>
@@ -308,11 +309,6 @@ export default function HomePage() {
               <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
                 What Our Students &amp; Parents Say
               </h2>
-              <p className="mt-4 text-[15px] font-medium leading-relaxed text-navyInk/80">
-                Sample reviews showing how this section will look — the
-                institute&apos;s real student and parent reviews will
-                replace them.
-              </p>
             </div>
           </Reveal>
           <TestimonialsGrid />

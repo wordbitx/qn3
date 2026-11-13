@@ -7,18 +7,17 @@ import { Reveal } from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "Testimonials — Quran Light Institute",
   description:
-    "Sample reviews showing how our student testimonials will look — real reviews from our students and parents will replace them.",
+    "Read what our students and parents say about learning the Quran online with Quran Light Institute — live one-to-one classes with qualified male and female teachers.",
   alternates: { canonical: "https://quranlightinstitute.com/testimonials" },
 };
 
 /**
- * Testimonials page — feedback round 10 (13 Nov 2026): 6 SAMPLE
- * reviews, each card labelled "Sample", with the sample note under
- * the heading. The user asked for 5–10 good reviews to show how the
- * section will look; the client will delete them and replace them
- * with her official reviews after handover. They are NEVER presented
- * as real reviews — when the client sends real ones, replace the
- * SAMPLE_REVIEWS list in src/lib/data.ts.
+ * Testimonials page — feedback round 11 (13 Nov 2026): 10 reviews in
+ * a horizontal auto-scroll carousel (see TestimonialsGrid). Round 10
+ * labelled them "Sample"; round 11 REMOVED all visible "Sample"
+ * labelling on the user's direct instruction — let the client check
+ * it once. The reviews are still samples awaiting the client's
+ * official reviews (see SAMPLE_REVIEWS in src/lib/data.ts).
  */
 export default function TestimonialsPage() {
   return (
@@ -32,11 +31,6 @@ export default function TestimonialsPage() {
             <h2 className="font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
               What Our Students Say
             </h2>
-            <p className="mt-4 text-[15px] font-medium leading-relaxed text-navyInk/80">
-              Sample reviews showing how this section will look — the
-              institute&apos;s real student and parent reviews will
-              replace them.
-            </p>
           </div>
           </Reveal>
           <TestimonialsGrid />

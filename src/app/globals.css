@@ -591,3 +591,13 @@ button.btn-trial {
     animation: none;
   }
 }
+
+/* Hide the scrollbar on horizontal carousels (reviews) — the track
+   still scrolls by swipe, drag and arrows. */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}

@@ -254,15 +254,15 @@ export const PRICING_PLANS: PricingPlan[] = [
 
 export type SampleReview = { name: string; role: string; course: string; text: string };
 
-/* Feedback round 10 (13 Nov 2026) — SAMPLE REVIEWS, NOT REAL ONES.
-   The user asked for 5–10 good reviews to show how this section will
-   look, and said the client will delete them and replace them with her
-   official reviews after handover. These are clearly LABELLED "Sample"
-   on every card (see TestimonialsGrid) and the section carries a note
-   saying real student and parent reviews will replace them. First
-   names only, no full names, no invented countries or results. NEVER
-   present these as real reviews — when the client sends real ones,
-   replace this whole list. */
+/* Feedback round 10 (13 Nov 2026) — reviews to show how this section
+   will look; round 11 (13 Nov 2026): the user DIRECTLY instructed that
+   the visible "Sample" labels be removed — let the client check it once,
+   she will like it. So the cards carry NO "Sample" badge and the section
+   carries NO sample note. The reviews are still samples awaiting the
+   client's official reviews — the list lives here as SAMPLE_REVIEWS
+   (internal name only, never rendered) so replacement stays a one-file
+   change: when the client sends real ones, replace this whole list.
+   First names only, no full names, no invented countries or results. */
 export const SAMPLE_REVIEWS: SampleReview[] = [
   {
     name: "Amina",
@@ -299,5 +299,29 @@ export const SAMPLE_REVIEWS: SampleReview[] = [
     role: "Student",
     course: "Hifz-ul-Quran",
     text: "Hifz felt impossible before I joined. My teacher gave me a daily plan, revises with me in every class, and my memorisation is steady now, Alhamdulillah.",
+  },
+  {
+    name: "Zainab",
+    role: "Parent",
+    course: "Quran Reading (Nazra)",
+    text: "My young daughter loves her Quran classes — her teacher makes every lesson fun and patient, and she practises her Nazra every day without us asking her to.",
+  },
+  {
+    name: "Ahmed",
+    role: "Student",
+    course: "Hifz-ul-Quran",
+    text: "My Hifz has become steady because every class follows the same rhythm — new lesson, then revision of the old ones. My teacher never lets me fall behind.",
+  },
+  {
+    name: "Sana",
+    role: "Parent",
+    course: "Noorani Qaida",
+    text: "My son was shy and slow to start, but his teacher is so patient with him. He has finished Noorani Qaida and now reads the Quran with confidence, MashaAllah.",
+  },
+  {
+    name: "Yusuf",
+    role: "Student",
+    course: "Tajweed",
+    text: "My pronunciation of the letters was weak before. My teacher worked on my makharij word by word, and now I can hear the difference in my own recitation.",
   },
 ];
