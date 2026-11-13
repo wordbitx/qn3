@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
-import PricingCards from "@/components/PricingCards";
+import FeesSchedule from "@/components/FeesSchedule";
 import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
@@ -19,8 +19,8 @@ const PAYMENT_STEPS = [
   },
   {
     n: "02.",
-    title: "Confirm Your Fee on WhatsApp",
-    text: "Fees depend on your plan and country. Message us on WhatsApp and we confirm your exact monthly fee personally.",
+    title: "Check the Exact Prices",
+    text: "The exact monthly prices are shown above — choose your region and the number of students. For 45- or 60-minute classes, message us on WhatsApp and we confirm your exact fee.",
   },
   {
     n: "03.",
@@ -43,14 +43,23 @@ export default function PricingPage() {
               Upgrade Your Skills and Knowledge
             </h2>
             <p className="mt-3 leading-relaxed text-muted">
-              Simple monthly plans built around your class length. Start with 5 absolutely
-              FREE trial classes — the exact fee for your country is confirmed on WhatsApp
-              before you enrol.
+              Real monthly prices below — choose your region and the
+              number of students, and the prices update automatically.
+              Start with 5 absolutely FREE trial classes.
             </p>
           </div>
           </Reveal>
+          {/* Feedback round 17 (user, 13 Nov 21:15): the /pricing
+              page shows the SAME fee boxes as /fees — the shared
+              FeesSchedule calculator + 5 price cards, with the
+              Reveal animation. The old duration plans (30/45/60
+              min, PricingCards) are RETIRED for now: the user will
+              confirm with the client later whether to keep the
+              pricing page or remove it. PricingCards.tsx is left
+              in the repo, unused, in case the duration plans come
+              back. */}
           <div className="mt-12">
-            <PricingCards />
+            <FeesSchedule intro={false} />
           </div>
           <div className="mt-8 text-center">
             <Link

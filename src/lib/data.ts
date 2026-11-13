@@ -287,21 +287,107 @@ export const FEE_REGIONS: FeeRegion[] = [
 
 export const FEE_STUDENTS = [1, 2, 3, 4];
 
-export type FeeFrequency = { id: string; title: string; classesPerMonth: number; minutesEach: number; popular?: boolean };
-/* The REFERENCE'S five plans, as it is — title = plan name + frequency
-   ("Foundation 2 Days", "Regular 3 Days", "Fluent 4 Days",
-   "Daily / Hifz 5 Days", "Weekend Sat & Sun"). Classes per month =
-   days per week × 4 weeks. 3 Days is the Most Popular card (the
-   reference's "Most Popular ⭐"). Every plan is 30 minutes per class.
-   The 5 Days plan IS the Hifz plan — at $75 it is the highest price,
-   which is how "Hifz fee higher" is expressed now (round 15's separate
-   Hifz premium card is removed). */
+export type FeeFrequency = {
+  id: string;
+  freqLabel: string;
+  title: string;
+  subtitle: string;
+  features: string[];
+  ctaGold?: boolean;
+  classesPerMonth: number;
+  minutesEach: number;
+  popular?: boolean;
+};
+/* The REFERENCE'S five plans, as it is — freqLabel + title + subtitle
+   + per-card features + CTA, copied from the reference's pricing
+   cards (user's DIRECT "as it is" instruction, round 17, 13 Nov 2026,
+   from his screenshot of equrantutors.com/fees). "30 mins" appears
+   ONLY on the 2-day, 4-day and Weekend subtitles — the 3-day card
+   says "12 classes / month (Recommended)" and the 5-day "20 classes /
+   month (Intensive)", exactly as on the reference. The 3-day CTA is
+   the reference's gold "START 3-DAY FREE TRIAL", adapted to OUR 5-day
+   trial (the client's own fact): "START 5-DAY FREE TRIAL →". All other
+   cards: "BOOK FREE TRIAL →" (dark). Classes per month = days per
+   week × 4 weeks. 3 Days is the Most Popular card. The 5 Days plan IS
+   the Hifz plan — at $75 it is the highest price, which is how "Hifz
+   fee higher" is expressed (round 15's separate Hifz premium card is
+   removed). NOTE (round 17): the per-card features ARE the reference's
+   own words (makeup lessons, Dean review, Ijazah track, scholar
+   supervision, certified tutor) — copied per the user's direct
+   instruction; the client can correct any claim about her institute. */
 export const FEE_FREQUENCIES: FeeFrequency[] = [
-  { id: "2", title: "Foundation 2 Days", classesPerMonth: 8, minutesEach: 30 },
-  { id: "3", title: "Regular 3 Days", classesPerMonth: 12, minutesEach: 30, popular: true },
-  { id: "4", title: "Fluent 4 Days", classesPerMonth: 16, minutesEach: 30 },
-  { id: "5", title: "Daily / Hifz 5 Days", classesPerMonth: 20, minutesEach: 30 },
-  { id: "W", title: "Weekend Sat & Sun", classesPerMonth: 8, minutesEach: 30 },
+  {
+    id: "2",
+    freqLabel: "2 Days / Week",
+    title: "Foundation 2 Days",
+    subtitle: "8 classes per month, 30 mins each",
+    features: [
+      "1-on-1 private live class",
+      "Male or female certified tutor",
+      "100% free makeup lessons",
+      "Monthly progress report",
+    ],
+    classesPerMonth: 8,
+    minutesEach: 30,
+  },
+  {
+    id: "3",
+    freqLabel: "3 Days / Week",
+    title: "Regular 3 Days",
+    subtitle: "12 classes / month (Recommended)",
+    features: [
+      "1-on-1 private live class",
+      "Mon-Wed-Fri or Tue-Thu-Sat",
+      "Weekly audio correction logs",
+      "100% free makeup lessons",
+    ],
+    ctaGold: true,
+    classesPerMonth: 12,
+    minutesEach: 30,
+    popular: true,
+  },
+  {
+    id: "4",
+    freqLabel: "4 Days / Week",
+    title: "Fluent 4 Days",
+    subtitle: "16 classes per month, 30 mins each",
+    features: [
+      "Rapid Tajweed & Nazra fluency",
+      "Flexible evening / weekend slots",
+      "Direct scholar supervision",
+      "100% free makeup lessons",
+    ],
+    classesPerMonth: 16,
+    minutesEach: 30,
+  },
+  {
+    id: "5",
+    freqLabel: "5 Days / Week",
+    title: "Daily / Hifz 5 Days",
+    subtitle: "20 classes / month (Intensive)",
+    features: [
+      "Daily Sabaq, Sabqi & Manzil",
+      "Senior Academic Dean review",
+      "Official Ijazah Certification track",
+      "100% free makeup lessons",
+    ],
+    classesPerMonth: 20,
+    minutesEach: 30,
+  },
+  {
+    id: "W",
+    freqLabel: "Weekend Plan",
+    title: "Weekend (Sat & Sun)",
+    subtitle: "8 classes per month, 30 mins each",
+    features: [
+      "Tailored for busy UK/US school terms",
+      "Morning & afternoon UK/US slots",
+      "Certified tutor matching",
+      "100% free makeup lessons",
+    ],
+    classesPerMonth: 8,
+    minutesEach: 30,
+  },
 ];
 
 /* 1-student base rates, per currency — the reference's prices.
