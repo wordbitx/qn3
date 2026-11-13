@@ -8,7 +8,7 @@ import CourseCard from "@/components/CourseCard";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import StatsRow from "@/components/StatsRow";
 import Steps from "@/components/Steps";
-import PricingCards from "@/components/PricingCards";
+import FeeCardsRow from "@/components/FeeCardsRow";
 import VideoCta from "@/components/VideoCta";
 import TestimonialsGrid from "@/components/TestimonialsGrid";
 import FaqList from "@/components/FaqList";
@@ -259,9 +259,32 @@ export default function HomePage() {
               before you enrol.
             </p>
           </Reveal>
-          <div className="mt-12">
-            <PricingCards />
-          </div>
+          {/* Frequency fee cards in a horizontal-scroll row (round 15,
+              expansion #2): the same 4 cards as /fees — 2 / 3 / 5 / 7
+              days a week — with the session lengths (30 / 45 / 60 min)
+              inside each card. Scroll-snap + drag + arrows; no
+              auto-advance. The region and student controls live on
+              /fees, linked below.
+              Animation (round 15, user 20:38): the row + link sit in
+              ONE section-level Reveal — the whole row fades/rises in
+              as a unit, like the other sections. Card-level Reveals
+              were NOT used inside this track: the testimonials
+              carousel (the pattern) does not wrap its cards either,
+              and per-card transforms would fight the scroll-snap /
+              drag measurements. On /fees the same cards DO have
+              per-card Reveals — safe there, the grid is not a scroll
+              container. */}
+          <Reveal>
+            <FeeCardsRow />
+            <div className="mt-8 text-center">
+              <Link
+                href="/fees"
+                className="font-semibold text-navy underline decoration-navy/30 underline-offset-4 transition hover:text-brandRed"
+              >
+                See the detailed fee schedule →
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 

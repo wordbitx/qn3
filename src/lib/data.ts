@@ -252,6 +252,89 @@ export const PRICING_PLANS: PricingPlan[] = [
   },
 ];
 
+/* Feedback round 15 (13 Nov 2026) — the /fees page (Fee Schedule),
+   modelled on the LAYOUT of equrantutors.com's pricing section only:
+   region/currency selector + number-of-students slider + frequency
+   plan cards + Hifz premium + per-course fees. Their prices, stats
+   and claims are NOT copied. The fee AMOUNTS do not exist yet — the
+   client never sent a rate card — so every fee slot reads
+   "Confirmed on WhatsApp". When the client sends the rates, fill
+   them in HERE (a data change, not a rebuild). */
+
+export type FeeRegion = { id: string; label: string; currency: string; currencyName: string; symbol: string };
+/* Browser-verified (parent, 13 Nov 2026): equrantutors.com's dropdown
+   is exactly these 5 options, in this order, default USD — USA,
+   Canada, Europe, UK, Pakistan. NO Australia. Option text matches
+   the reference: "USD ($ US Dollar) - USA". */
+export const FEE_REGIONS: FeeRegion[] = [
+  { id: "US", label: "USA", currency: "USD", currencyName: "US Dollar", symbol: "$" },
+  { id: "CA", label: "Canada", currency: "CAD", currencyName: "Canadian Dollar", symbol: "$" },
+  { id: "EU", label: "Europe", currency: "EUR", currencyName: "Euro", symbol: "€" },
+  { id: "UK", label: "UK", currency: "GBP", currencyName: "British Pound", symbol: "£" },
+  { id: "PK", label: "Pakistan", currency: "PKR", currencyName: "Pakistani Rupee", symbol: "Rs." },
+];
+
+export const FEE_STUDENTS = [1, 2, 3, 4];
+
+export type FeeFrequency = { id: string; label: string; classesPerMonth: number; popular?: boolean };
+/* Classes per month = days per week × 4 weeks (plain arithmetic).
+   3 Days / Week is the Most Popular card — the same middle-choice
+   treatment the site already gives the 45-Minutes Hadiya plan. */
+export const FEE_FREQUENCIES: FeeFrequency[] = [
+  { id: "2", label: "2 Days / Week", classesPerMonth: 8 },
+  { id: "3", label: "3 Days / Week", classesPerMonth: 12, popular: true },
+  { id: "5", label: "5 Days / Week", classesPerMonth: 20 },
+  { id: "7", label: "7 Days / Week", classesPerMonth: 28 },
+];
+
+export type FeeDuration = { id: string; label: string; minutes: number };
+export const FEE_DURATIONS: FeeDuration[] = [
+  { id: "30", label: "30 Minutes", minutes: 30 },
+  { id: "45", label: "45 Minutes", minutes: 45 },
+  { id: "60", label: "1 Hour", minutes: 60 },
+];
+
+export const FEE_NOT_SET = "Confirmed on WhatsApp";
+
+/* Calculator formula (browser-verified LOGIC from equrantutors.com,
+   amounts NOT copied): their 1→2 student prices move as base ×
+   students minus a 15% sibling discount (e.g. $35 → $60 for 2 Days).
+   Quran Light's table uses the SAME formula structure:
+     monthly fee = base rate (per currency, 1 student) × students
+                   × sibling-discount factor (only when 2+ students
+                   AND the client has confirmed a discount).
+   The base rates are all null (not set) until the client sends her
+   rate card — so every fee slot reads FEE_NOT_SET today. The
+   discount factor is null (OFF/unset): the reference's 15% sibling
+   discount is THEIR claim and is NOT copied. When the client sends
+   her rates (per currency) and confirms or denies a sibling
+   discount, fill FEE_BASE_RATES and FEE_SIBLING_DISCOUNT_FACTOR —
+   a data change, not a rebuild. (This replaces the first draft's
+   FEE_TABLE keyed by region × students × frequency × duration:
+   the verified calculator works from per-currency base rates.) */
+export const FEE_BASE_RATES: Record<string, number | null> = {};
+for (const region of FEE_REGIONS) {
+  for (const freq of FEE_FREQUENCIES) {
+    for (const duration of FEE_DURATIONS) {
+      FEE_BASE_RATES[`${region.id}|${freq.id}|${duration.id}`] = null;
+    }
+  }
+}
+
+/* Sibling discount factor, e.g. 0.85 for a 15% discount. NULL = unset:
+   no discount is shown until the client confirms one. */
+export const FEE_SIBLING_DISCOUNT_FACTOR: number | null = null;
+
+export function feeFor(regionId: string, students: number, frequencyId: string, durationId: string): string {
+  const base = FEE_BASE_RATES[`${regionId}|${frequencyId}|${durationId}`];
+  if (base == null) return FEE_NOT_SET;
+  const region = FEE_REGIONS.find((r) => r.id === regionId) ?? FEE_REGIONS[0];
+  const factor =
+    students >= 2 && FEE_SIBLING_DISCOUNT_FACTOR != null ? FEE_SIBLING_DISCOUNT_FACTOR : 1;
+  const amount = Math.round(base * students * factor);
+  return `${region.symbol}${amount.toLocaleString("en-US")}`;
+}
+
 export type SampleReview = { name: string; role: string; course: string; text: string };
 
 /* Feedback round 10 (13 Nov 2026) — reviews to show how this section
