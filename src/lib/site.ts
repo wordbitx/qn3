@@ -12,10 +12,10 @@ export function whatsappUrl(message: string): string {
 }
 
 export const TRIAL_MESSAGE =
-  "Assalamu Alaikum! I want to book the 3-Day FREE Trial Classes at Quran Light Institute.";
+  "Assalamu Alaikum! I want to book the 5-Day FREE Trial Classes at Quran Light Institute.";
 
 export function trialMessageForCourse(courseName: string): string {
-  return `Assalamu Alaikum! I want to ask about the "${courseName}" course and book the 3-day FREE trial classes at Quran Light Institute.`;
+  return `Assalamu Alaikum! I want to ask about the "${courseName}" course and book the 5-day FREE trial classes at Quran Light Institute.`;
 }
 
 export function feeMessageForPlan(planName: string): string {

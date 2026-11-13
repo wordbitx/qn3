@@ -8,7 +8,7 @@ import { COURSES } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Our Courses — Quran Light Institute",
   description:
-    "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 3-day absolutely FREE trial classes.",
+    "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 5-day absolutely FREE trial classes.",
   alternates: { canonical: "https://quranlightinstitute.com/courses" },
 };
 
@@ -29,7 +29,7 @@ export default function CoursesPage() {
               </h2>
             </div>
             <p className="leading-relaxed text-muted lg:max-w-[430px] lg:justify-self-end">
-              All 14 courses are taught live, one-to-one, with a 3-day absolutely FREE trial
+              All 14 courses are taught live, one-to-one, with a 5-day absolutely FREE trial
               before you enrol in any of them.
             </p>
           </div>

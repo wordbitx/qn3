@@ -36,7 +36,7 @@ export default function TestimonialsPage() {
           <p className="mt-3 font-sans leading-relaxed text-muted">
             The truest testimonial is your own experience. That is why every new student
             begins with{" "}
-            <strong className="text-navyInk">3-day absolutely FREE trial classes</strong> —
+            <strong className="text-navyInk">5-day absolutely FREE trial classes</strong> —
             meet the teacher, attend real one-to-one lessons, and see the progress yourself
             before you decide.
           </p>
@@ -44,7 +44,7 @@ export default function TestimonialsPage() {
             href="/contact"
             className="btn-primary mt-8"
           >
-            Book your 3-day FREE trial and share your experience →
+            Book your 5-day FREE trial and share your experience →
           </Link>
           </Reveal>
         </div>

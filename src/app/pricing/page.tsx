@@ -6,7 +6,7 @@ import { Reveal } from "@/components/Reveal";
 export const metadata: Metadata = {
   title: "Pricing Plans — Quran Light Institute",
   description:
-    "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 3-day absolutely FREE trial classes.",
+    "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 5-day absolutely FREE trial classes.",
   alternates: { canonical: "https://quranlightinstitute.com/pricing" },
 };
 
@@ -14,7 +14,7 @@ const PAYMENT_STEPS = [
   {
     n: "01.",
     title: "Take the Free Trial First",
-    text: "Your first 3 days of classes are absolutely free. No payment is asked before or during the trial.",
+    text: "Your first 5 days of classes are absolutely free. No payment is asked before or during the trial.",
   },
   {
     n: "02.",
@@ -42,7 +42,7 @@ export default function PricingPage() {
               Upgrade Your Skills and Knowledge
             </h2>
             <p className="mt-3 leading-relaxed text-muted">
-              Simple monthly plans built around your weekly schedule. Start with 3 absolutely
+              Simple monthly plans built around your class length. Start with 5 absolutely
               FREE trial classes — the exact fee for your country is confirmed on WhatsApp
               before you enrol.
             </p>

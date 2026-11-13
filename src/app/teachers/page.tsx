@@ -9,7 +9,7 @@ import { TEACHERS_PHOTO, TRIAL_MESSAGE, whatsappUrl } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Our Teachers — Quran Light Institute",
   description:
-    "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 3-day absolutely FREE trial classes.",
+    "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 5-day absolutely FREE trial classes.",
   alternates: { canonical: "https://quranlightinstitute.com/teachers" },
 };
 
@@ -17,7 +17,7 @@ const POINTS = [
   "Qualified male teachers for brothers and boys",
   "Qualified female teachers — sisters and young children learn comfortably",
   "Personal attention in every single class, because lessons are one-to-one",
-  "Meet your teacher first in the 3-day FREE trial classes",
+  "Meet your teacher first in the 5-day FREE trial classes",
 ];
 
 export default function TeachersPage() {

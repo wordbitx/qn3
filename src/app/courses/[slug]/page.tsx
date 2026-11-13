@@ -101,7 +101,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                 {course.name}
               </h3>
               <p className="mt-2 leading-relaxed text-muted">
-                Start this course with 3-day absolutely FREE trial classes — live, one-to-one,
+                Start this course with 5-day absolutely FREE trial classes — live, one-to-one,
                 with a qualified teacher.
               </p>
               <a

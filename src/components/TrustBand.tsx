@@ -22,7 +22,7 @@ const ITEMS: { label: string; icon: string }[] = [
   { label: "Male & Female Teachers", icon: "M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm-8 0a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-2.7 0-8 1.3-8 4v2h10v-2c0-.9-.4-1.8-1.1-2.5A10 10 0 0 0 8 13zm8 0c-.6 0-1.2.1-1.8.2A5.6 5.6 0 0 1 16 17v2h8v-2c0-2.7-5.3-4-8-4z" },
   { label: "Flexible Timings", icon: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 10.6 4.2 2.5-.8 1.3L11 14V6h2v6.6z" },
   { label: "Progress Monitoring", icon: "M3 3v18h18v-2H5V3H3zm4 12 4-4 3 3 6-7-1.4-1.4L13 11.2l-3-3-5.4 5.4L4 14.4z" },
-  { label: "3-Day FREE Trial", icon: "M12 2 9.2 8.6 2 9.3l5.5 4.7L5.8 21 12 17.3 18.2 21l-1.7-7 5.5-4.7-7.2-.7L12 2z" },
+  { label: "5-Day FREE Trial", icon: "M12 2 9.2 8.6 2 9.3l5.5 4.7L5.8 21 12 17.3 18.2 21l-1.7-7 5.5-4.7-7.2-.7L12 2z" },
 ];
 
 function TrackChunk({ hidden = false }: { hidden?: boolean }) {

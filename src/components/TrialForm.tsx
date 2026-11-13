@@ -45,7 +45,7 @@ export default function TrialForm({
     }
     setError("");
     const lines = [
-      "Assalamu Alaikum! I want to book the 3-Day FREE Trial Classes at Quran Light Institute.",
+      "Assalamu Alaikum! I want to book the 5-Day FREE Trial Classes at Quran Light Institute.",
       "",
       `Name: ${name.trim()}`,
     ];
@@ -79,7 +79,7 @@ export default function TrialForm({
           hero ? "text-center text-white" : "text-left text-navyInk"
         }`}
       >
-        3 Free Trial Classes
+        5 Free Trial Classes
       </h2>
       <p
         className={`mt-1.5 text-[12.5px] font-semibold uppercase tracking-[0.14em] ${

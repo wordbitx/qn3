@@ -11,6 +11,7 @@ const NAV = [
   { label: "Courses", href: "/courses" },
   { label: "Teachers", href: "/teachers" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Admission", href: "/admission" },
   { label: "FAQs", href: "/faqs" },
   { label: "Contact", href: "/contact" },
 ];
@@ -24,7 +25,9 @@ const NAV = [
  * float + press feedback; the cream mobile menu slides down + fades in
  * with links staggering in one by one (never all at once).
  * Menu closes on link tap and on route change.
- */
+ * Feedback round 7: 8 nav links now (Admission added) — the desktop
+ * row needs ≥1280px to fit, so the desktop nav / burger breakpoint
+ * moves from lg to xl; below 1280px the mobile menu shows instead. */
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -63,7 +66,7 @@ export default function Header() {
 
         <button
           type="button"
-          className="burger-float ml-auto flex h-12 w-12 shrink-0 flex-col items-center justify-center gap-[5px] rounded-full bg-brandRed text-white shadow-[0_8px_20px_rgba(208,0,0,0.35)] transition duration-300 hover:bg-redDark hover:shadow-[0_10px_24px_rgba(208,0,0,0.45)] active:scale-90 lg:hidden"
+          className="burger-float ml-auto flex h-12 w-12 shrink-0 flex-col items-center justify-center gap-[5px] rounded-full bg-brandRed text-white shadow-[0_8px_20px_rgba(208,0,0,0.35)] transition duration-300 hover:bg-redDark hover:shadow-[0_10px_24px_rgba(208,0,0,0.45)] active:scale-90 xl:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -88,7 +91,7 @@ export default function Header() {
           />
         </button>
 
-        <nav className="main ml-auto hidden items-center gap-1 lg:flex" aria-label="Main">
+        <nav className="main ml-auto hidden items-center gap-1 xl:flex" aria-label="Main">
           {NAV.map((item) => (
             <Link
               key={item.href}
@@ -112,7 +115,7 @@ export default function Header() {
       {/* Mobile menu — always mounted; opens with a smooth slide-down +
           fade (grid-rows 0fr → 1fr) and links stagger in one by one. */}
       <div
-        className={`grid transition-all duration-500 ease-in-out lg:hidden ${
+        className={`grid transition-all duration-500 ease-in-out xl:hidden ${
           open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
         }`}
         aria-hidden={!open}

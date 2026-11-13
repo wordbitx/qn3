@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/courses", priority: 0.9 },
     { path: "/teachers", priority: 0.8 },
     { path: "/pricing", priority: 0.8 },
+    { path: "/admission", priority: 0.8 },
     { path: "/faqs", priority: 0.7 },
     { path: "/contact", priority: 0.8 },
     { path: "/terms-of-use", priority: 0.5 },

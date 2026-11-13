@@ -34,7 +34,7 @@ const STEPS = [
     n: "STEP 02",
     num: "02",
     title: "Book Your Free Trial",
-    text: "Fill the trial form or message us on WhatsApp. Your 3-day trial classes are absolutely free.",
+    text: "Fill the trial form or message us on WhatsApp. Your 5-day trial classes are absolutely free.",
     src: "https://images.pexels.com/photos/7582576/pexels-photo-7582576.jpeg?auto=compress&cs=tinysrgb&w=1600",
     alt: "A woman in a hijab studying on a laptop with a book",
   },

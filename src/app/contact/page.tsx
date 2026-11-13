@@ -7,7 +7,7 @@ import { EMAIL, PHONE_DISPLAY, PHONE_TEL, TRIAL_MESSAGE, whatsappUrl } from "@/l
 export const metadata: Metadata = {
   title: "Contact Us — Quran Light Institute",
   description:
-    "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 3-day absolutely FREE trial classes.",
+    "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 5-day absolutely FREE trial classes.",
   alternates: { canonical: "https://quranlightinstitute.com/contact" },
 };
 
@@ -25,7 +25,7 @@ export default function ContactPage({
           <div className="mx-auto max-w-3xl text-center">
             <p className="kicker kicker-centered">Get In Touch</p>
             <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
-              Book Your 3-Day FREE Trial Classes
+              Book Your 5-Day FREE Trial Classes
             </h2>
             <p className="mt-3 leading-relaxed text-muted">
               Call, WhatsApp or email us — or fill the form below and your trial request opens

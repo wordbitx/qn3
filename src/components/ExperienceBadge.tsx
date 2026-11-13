@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { CountUp } from "@/components/Reveal";
 
 /**
- * Experience badge — circular white "5+ Years Experience" badge that
+ * Experience badge — circular white "11+ Years Experience" badge that
  * overlaps the teachers photo (WhyChooseUs + Teachers page).
  *
  * Premium polish round: like Minha's animated "25+ years" badge, this
@@ -12,7 +12,8 @@ import { CountUp } from "@/components/Reveal";
  * number counts up (CountUp), with a faint pulsing ring around the
  * circle. The rise is driven by this component's own
  * IntersectionObserver — Reveal's force timer would fire too early for
- * a below-fold badge. The number stays 5+ (the real figure).
+ * a below-fold badge. The number is 11+ (the real figure, round 7 —
+ * was 5+ before the client's own requirements).
  * Feedback round 5 (Minha shot3): the badge must overlap the
  * TOP-LEFT corner of the photo on ALL widths, exactly like Minha's
  * 25+ badge. It used to flip to top-RIGHT on mobile (max-lg:right-4)
@@ -56,7 +57,7 @@ export default function ExperienceBadge({ className = "" }: { className?: string
           aria-hidden="true"
         />
         <span className="font-display text-[40px] font-extrabold leading-none text-brandRed">
-          <CountUp value={5} suffix="+" />
+          <CountUp value={11} suffix="+" />
         </span>
         <span className="mt-1 px-3 text-[14px] font-bold leading-tight text-navyInk">
           Years Experience

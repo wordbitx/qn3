@@ -15,7 +15,7 @@ export const metadata: Metadata = {
  * Terms of Use — honest, generic policy content for an online Quran
  * academy. Only known real facts are used: institute name, email,
  * phone/WhatsApp, one-to-one live online classes, male & female
- * teachers, 3-day free trial. No invented prices, stats, addresses
+ * teachers, 5-day free trial. No invented prices, stats, addresses
  * or teacher names.
  */
 const SECTIONS: { heading: string; body: string }[] = [
@@ -25,7 +25,7 @@ const SECTIONS: { heading: string; body: string }[] = [
   },
   {
     heading: "Free trial classes",
-    body: "Every new student begins with 3-day absolutely FREE trial classes. The trial lets you meet your teacher, attend real one-to-one lessons, and see how the classes work before you enrol. No payment is taken before the trial.",
+    body: "Every new student begins with 5-day absolutely FREE trial classes. The trial lets you meet your teacher, attend real one-to-one lessons, and see how the classes work before you enrol. No payment is taken before the trial.",
   },
   {
     heading: "Fees and enrolment",
