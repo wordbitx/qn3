@@ -16,7 +16,7 @@ import type { Course } from "@/lib/data";
  * card, min-height 480px, dark gradient, red uppercase chip + red 62px
  * circular arrow top-right (hover: white circle, red arrow, rotate
  * 45°), uppercase white name, tag line, footer "Read More" + outlined
- * pill "3-Day FREE Trial". Whole card links to /courses/<slug>; hover
+ * pill "5-Day FREE Trial". Whole card links to /courses/<slug>; hover
  * lift −8px + photo zoom.
  */
 export default function CourseCard({ course }: { course: Course }) {
@@ -66,7 +66,7 @@ export default function CourseCard({ course }: { course: Course }) {
         <div className="mt-4 flex items-center justify-between border-t border-white/25 pt-4">
           <span className="text-[15px] font-medium text-white">Read More</span>
           <span className="rounded-lg border-[1.5px] border-[#fdeeda]/80 bg-white/10 px-3 py-1 text-[15px] font-semibold text-white backdrop-blur-sm">
-            3-Day FREE Trial
+            5-Day FREE Trial
           </span>
         </div>
       </div>

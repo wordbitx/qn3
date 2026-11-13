@@ -8,7 +8,7 @@ import { FAQS } from "@/lib/data";
 export const metadata: Metadata = {
   title: "FAQs — Quran Light Institute",
   description:
-    "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 3-day absolutely FREE trial classes.",
+    "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 5-day absolutely FREE trial classes.",
   alternates: { canonical: "https://quranlightinstitute.com/faqs" },
 };
 

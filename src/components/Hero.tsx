@@ -135,7 +135,7 @@ export default function Hero() {
               </div>
               <p className="leading-tight">
                 <span className="block font-display text-[26px] font-bold text-white">
-                  5+ Years
+                  11+ Years
                 </span>
                 <span className="text-sm text-white/85">
                   Teaching Experience — Kids &amp; Adults Worldwide

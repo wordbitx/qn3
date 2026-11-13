@@ -9,6 +9,7 @@ const QUICK_LINKS: [string, string][] = [
   ["Our Courses", "/courses"],
   ["Our Teachers", "/teachers"],
   ["Pricing Plans", "/pricing"],
+  ["Online Admission", "/admission"],
   ["FAQs", "/faqs"],
   ["Contact Us", "/contact"],
 ];
@@ -57,7 +58,7 @@ export default function Footer() {
             </div>
             <p className="mt-5 text-[15.5px] leading-relaxed text-muted">
               Quran Light Institute offers live one-to-one online Quran classes for kids and
-              adults — with qualified male and female teachers, flexible timings and a 3-day
+              adults — with qualified male and female teachers, flexible timings and a 5-day
               absolutely FREE trial.
             </p>
             <div className="mt-5 flex items-center gap-2.5">

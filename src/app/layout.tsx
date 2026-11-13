@@ -19,7 +19,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const SITE_DESCRIPTION =
-  "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 3-day absolutely FREE trial classes.";
+  "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 5-day absolutely FREE trial classes.";
 
 export const metadata: Metadata = {
   title: "Quran Light Institute — Learn Quran Online with Tajweed",
@@ -57,7 +57,7 @@ export default function RootLayout({
         <Footer />
         {/* Floating WhatsApp button */}
         <a
-          href="https://wa.me/923056622104?text=Assalamu%20Alaikum!%20I%20want%20to%20book%20the%203-Day%20FREE%20Trial%20Classes%20at%20Quran%20Light%20Institute."
+          href="https://wa.me/923056622104?text=Assalamu%20Alaikum!%20I%20want%20to%20book%20the%205-Day%20FREE%20Trial%20Classes%20at%20Quran%20Light%20Institute."
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"

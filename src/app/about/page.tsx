@@ -12,7 +12,7 @@ import { HERO_PHOTO, VIDEO_POSTER } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Us — Quran Light Institute",
   description:
-    "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 3-day absolutely FREE trial classes.",
+    "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 5-day absolutely FREE trial classes.",
   alternates: { canonical: "https://quranlightinstitute.com/about" },
 };
 
@@ -21,6 +21,7 @@ const POINTS = [
   "Qualified male & female teachers",
   "Classes for kids & adults of all ages",
   "Student progress monitoring with regular assessments",
+  "Learning in a caring Islamic environment",
 ];
 
 export default function AboutPage() {
@@ -44,7 +45,7 @@ export default function AboutPage() {
               Help Your Child Learn the Holy Quran from Home
             </h2>
             <p className="mt-4 leading-[1.7] text-muted">
-              Quran Light Institute is an online Quran academy with 5+ years of experience,
+              Quran Light Institute is an online Quran academy with 11+ years of experience,
               teaching kids and adults through live one-to-one classes. Every lesson is
               personal: the teacher listens to the student&apos;s recitation, corrects gently,
               and follows a clear plan suited to the student&apos;s age and level.
@@ -64,11 +65,13 @@ export default function AboutPage() {
                 </li>
               ))}
             </ul>
+            {/* Feedback round 7 — admission CTA: the Online Admission
+                page (steps + trial form + admission FAQs) is the way in. */}
             <Link
-              href="/contact"
+              href="/admission"
               className="mt-8 btn-primary"
             >
-              Book Free Trial
+              Start Your Admission
             </Link>
           </div>
           </Reveal>
@@ -99,7 +102,7 @@ export default function AboutPage() {
             <div className="relative min-h-[220px] overflow-hidden rounded-[16px_16px_90px_16px] shadow-card">
               <Image
                 src={HERO_PHOTO}
-                alt="A woman in a hijab sitting and reading the Holy Quran in a mosque"
+                alt="An open Holy Quran on a wooden rehal with a white tasbih in warm window light"
                 fill
                 sizes="(max-width: 1080px) 50vw, 25vw"
                 className="object-cover"

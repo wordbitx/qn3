@@ -203,40 +203,51 @@ export const ADDITIONAL_SPECIALITIES: Speciality[] = [
   { title: "Quran Tafseer", text: "Understand the meanings and lessons of Quranic verses through simple explanations." },
   { title: "Seerah of Prophet Muhammad ﷺ", text: "Learn about the beautiful life, teachings, and Sunnah of Prophet Muhammad ﷺ." },
   { title: "Student Progress Monitoring", text: "Regular progress assessments and personalized guidance for every student." },
-  { title: "3-Day Absolutely FREE Trial Classes", text: "Experience our online Quran classes with no cost for the first three days." },
+  { title: "5-Day Absolutely FREE Trial Classes", text: "Experience our online Quran classes with no cost for the first five days." },
 ];
 
 export type Faq = { q: string; a: string };
 
 export const FAQS: Faq[] = [
-  { q: "Are the trial classes really free?", a: "Yes — we offer 3-day absolutely FREE trial classes. You can experience our online Quran classes with no cost for the first three days before deciding anything." },
+  { q: "Are the trial classes really free?", a: "Yes — we offer 5-day absolutely FREE trial classes. You can experience our online Quran classes with no cost for the first five days before deciding anything." },
   { q: "Are the classes one-to-one?", a: "Yes. Every class is a live one-to-one online session, so the teacher gives the student their full, personal attention in every lesson." },
   { q: "Do you have female teachers?", a: "Yes, we have qualified and experienced male and female teachers, so sisters and young children can learn comfortably with a female tutor." },
   { q: "What timings are available?", a: "Class timings are flexible. You choose a time that suits your daily routine and your time zone — we teach students online, worldwide." },
   { q: "How will I know my child's progress?", a: "We monitor every student's progress with regular assessments and personalized guidance, so parents always know how their child is improving." },
   { q: "Which course should my child start with?", a: "Beginners usually start with Noorani Qaida, then move to Quran Reading (Nazra) and Tajweed. During your free trial classes, the teacher will assess the student's level and recommend the right course." },
   { q: "How do I start?", a: "Simply call or WhatsApp us on +92 305 6622104, or fill in the free trial form on the Contact page, and we will arrange your first class." },
+  /* Feedback round 7 (13 Nov 2026): fee by class duration + admission,
+     from the client's own requirements. No rates are stated here — the
+     exact fee is confirmed personally on WhatsApp. */
+  { q: "Do the fees differ by class duration?", a: "Yes. The monthly fee depends on the length of each class — 30 minutes, 45 minutes or 1 hour have different fees. Message us on WhatsApp and we confirm your exact monthly fee personally, before you enrol." },
+  { q: "How do I get admission?", a: "Book the 5-day free trial first, then choose your plan on WhatsApp — 30, 45 or 60 minutes per class, on the days that suit you. Once you are satisfied with the trial, your classes start. See the Online Admission page for the full steps." },
 ];
 
 export type PricingPlan = { id: string; name: string; desc: string; features: string[]; popular?: boolean };
+/* Feedback round 7 (13 Nov 2026): plans are now by CLASS DURATION,
+   not days per week — the client said the fee must differ by duration
+   (30 / 45 / 60 minutes). 45 Minutes is the Popular (middle) card.
+   No numeric prices anywhere — the fee line stays "Monthly Fee /
+   Confirmed personally on WhatsApp". Days per week (2, 3 or 5) is
+   still the family's choice, kept as a feature line on every card. */
 export const PRICING_PLANS: PricingPlan[] = [
   {
-    id: "2-days",
-    name: "2 Days a Week",
-    desc: "A gentle pace for busy families — steady progress, twice a week.",
-    features: ["8 Classes / Month", "Monday to Friday", "2 Days a Week", "1 on 1 Session", "Qualified Male & Female Teachers", "Flexible Timings in Your Time Zone", "Free Trial Classes for Students Satisfaction"],
+    id: "30-min",
+    name: "30 Minutes",
+    desc: "A focused half-hour lesson — a gentle pace for young children and busy families.",
+    features: ["30-Minute Live Class", "1 on 1 Session", "Qualified Male & Female Teachers", "Flexible Timings in Your Time Zone", "Monthly Progress Report", "Choose your days — 2, 3 or 5 days a week", "Free Trial Classes for Students Satisfaction"],
   },
   {
-    id: "3-days",
-    name: "3 Days a Week",
-    desc: "Our most chosen rhythm — regular practice with room to revise.",
-    features: ["12 Classes / Month", "Monday to Friday", "3 Days a Week", "1 on 1 Session", "Qualified Male & Female Teachers", "Flexible Timings in Your Time Zone", "Free Trial Classes for Students Satisfaction"],
+    id: "45-min",
+    name: "45 Minutes",
+    desc: "Our most chosen lesson length — enough time to learn, revise and practise in every class.",
+    features: ["45-Minute Live Class", "1 on 1 Session", "Qualified Male & Female Teachers", "Flexible Timings in Your Time Zone", "Monthly Progress Report", "Choose your days — 2, 3 or 5 days a week", "Free Trial Classes for Students Satisfaction"],
     popular: true,
   },
   {
-    id: "5-days",
-    name: "5 Days a Week",
-    desc: "Daily learning for the fastest progress — ideal for Hifz students.",
-    features: ["20 Classes / Month", "Monday to Friday", "5 Days a Week (Mon–Fri)", "1 on 1 Session", "Qualified Male & Female Teachers", "Flexible Timings in Your Time Zone", "Free Trial Classes for Students Satisfaction"],
+    id: "1-hour",
+    name: "1 Hour",
+    desc: "A full hour of learning — ideal for Hifz students and adults who want deeper study.",
+    features: ["60-Minute Live Class", "1 on 1 Session", "Qualified Male & Female Teachers", "Flexible Timings in Your Time Zone", "Monthly Progress Report", "Choose your days — 2, 3 or 5 days a week", "Free Trial Classes for Students Satisfaction"],
   },
 ];

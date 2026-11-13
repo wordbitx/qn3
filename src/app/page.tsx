@@ -18,18 +18,18 @@ import { COLLAGE_DUA_PHOTO, COLLAGE_MAN_PHOTO, TRIAL_MESSAGE, whatsappUrl } from
 export const metadata: Metadata = {
   title: "Quran Light Institute — Learn Quran Online with Tajweed",
   description:
-    "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 3-day absolutely FREE trial classes.",
+    "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 5-day absolutely FREE trial classes.",
   alternates: { canonical: "https://quranlightinstitute.com" },
   openGraph: {
     title: "Quran Light Institute — Learn Quran Online with Tajweed",
     description:
-      "Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 3-day absolutely FREE trial classes.",
+      "Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 5-day absolutely FREE trial classes.",
     url: "https://quranlightinstitute.com",
   },
 };
 
 const SITE_DESCRIPTION =
-  "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 3-day absolutely FREE trial classes.";
+  "Quran Light Institute — Learn Quran Online with Tajweed. Live one-to-one online Quran classes for kids and adults with qualified male and female teachers. 5-day absolutely FREE trial classes.";
 
 const JSON_LD = {
   "@context": "https://schema.org",
@@ -44,7 +44,7 @@ const JSON_LD = {
 const ABOUT_POINTS = [
   "Qualified male & female Quran teachers",
   "Our courses are designed for effective Quran learning and understanding",
-  "3-day absolutely FREE trial classes for every new student",
+  "5-day absolutely FREE trial classes for every new student",
 ];
 
 const CHECK_ICON = (
@@ -253,7 +253,7 @@ export default function HomePage() {
               Upgrade Your Skills and Knowledge
             </h2>
             <p className="mt-3 leading-relaxed text-muted">
-              Simple monthly plans built around your weekly schedule. Start with 3 absolutely
+              Simple monthly plans built around your weekly schedule. Start with 5 absolutely
               FREE trial classes — the exact fee for your country is confirmed on WhatsApp
               before you enrol.
             </p>
@@ -308,7 +308,7 @@ export default function HomePage() {
             </p>
             <p className="mt-3 leading-relaxed text-muted">
               The truest testimonial is your own experience. That is why every new student
-              begins with 3-day absolutely FREE trial classes — meet the teacher, attend real
+              begins with 5-day absolutely FREE trial classes — meet the teacher, attend real
               one-to-one lessons, and see the progress yourself before you decide.
             </p>
             <Link
