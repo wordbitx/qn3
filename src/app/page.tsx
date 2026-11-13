@@ -245,7 +245,7 @@ export default function HomePage() {
 
       <Steps />
 
-      {/* Pricing preview */}
+      {/* Fee preview */}
       <section className="py-[96px] max-[640px]:py-[64px]">
         <div className="mx-auto max-w-7xl px-4">
           <Reveal className="mx-auto max-w-3xl text-center">
@@ -268,9 +268,11 @@ export default function HomePage() {
               is GONE: the cards now show REAL PRICES and STACK on
               mobile, so every price is visible by scrolling the
               page. The calculator is the shared FeesSchedule
-              component (same as /fees); only the heading above is
+              component (home only since round 18 — the /fees page is
+              the reference's page as it is, with no cards, and the
+              /pricing page is removed); only the heading above is
               the home page's own. */}
-          <FeesSchedule intro={false} />
+          <FeesSchedule />
           <Reveal>
             <div className="mt-8 text-center">
               <Link

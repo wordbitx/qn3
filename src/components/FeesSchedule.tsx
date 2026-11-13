@@ -10,12 +10,13 @@ import {
 import FeeCard from "@/components/FeeCard";
 
 /**
- * Fee calculator (feedback rounds 15–16, 13 Nov 2026) — ONE shared
- * component rendered on BOTH the home page (intro={false}) and the
- * /fees page (intro={true}): region/currency selector + number-of-
- * students slider ABOVE the 5 price cards, and the card prices update
- * live when the controls change — exactly like the reference's
- * homepage calculator (equrantutors.com).
+ * Fee calculator (feedback rounds 15–16, 13 Nov 2026) — rendered on
+ * the HOME page ONLY since round 18 (the /fees page is the
+ * reference's page as it is — no cards there — and the /pricing page
+ * is removed). Region/currency selector + number-of-students slider
+ * ABOVE the 5 price cards, and the card prices update live when the
+ * controls change — exactly like the reference's homepage calculator
+ * (equrantutors.com).
  *
  * Round 16 (user, 13 Nov 20:51 — firm correction): round 15 showed
  * NO price anywhere ("Confirmed on WhatsApp" slots) and hid the home
@@ -43,42 +44,53 @@ import FeeCard from "@/components/FeeCard";
  * in because it is how the reference's prices move with students:
  * monthly fee = base × students × 0.85 (see feeFor in lib/data.ts).
  *
+ * Round 18 (user, 13 Nov 21:38): the slider only goes to 4 — a
+ * CUSTOM number input (1–20) sits under it. Typing a number
+ * OVERRIDES the slider and the prices auto-calculate with the same
+ * formula (base × n × 0.85 for n≥2, Math.round). Clearing the input
+ * reverts to the slider value; moving the slider clears the custom
+ * value. The green pill, the discount note and the "Showing fees"
+ * line always follow the ACTIVE count.
+ *
  * 5-day trial is kept everywhere (NOT the reference's 3-day trial).
  * Per-card Reveals are safe here: the cards stack / sit in a grid,
  * not a scroll container (round-15 lesson: no card-level Reveals
  * inside a scroll track).
  *
  * Layout: this component renders NO outer container — the parent
- * provides the section + max-w-7xl wrapper (home: page.tsx's
- * pricing section; /fees: fees/page.tsx's section).
+ * (home page.tsx's pricing section) provides the section + max-w-7xl
+ * wrapper.
  */
 
-export default function FeesSchedule({ intro = true }: { intro?: boolean }) {
+const CUSTOM_MIN = 1;
+const CUSTOM_MAX = 20;
+
+export default function FeesSchedule() {
   /* Default region is USD (the reference's default). Default students: 1. */
   const [regionId, setRegionId] = useState("US");
   const [students, setStudents] = useState(1);
+  /* Custom count (round 18): "" = no custom value, use the slider. */
+  const [customStudents, setCustomStudents] = useState("");
   const region = FEE_REGIONS.find((r) => r.id === regionId) ?? FEE_REGIONS[0];
-  const studentLabel = students === 1 ? "For 1 student" : `For ${students} students`;
+  const parsed = customStudents === "" ? null : Number(customStudents);
+  const activeStudents =
+    parsed !== null && Number.isFinite(parsed)
+      ? Math.min(CUSTOM_MAX, Math.max(CUSTOM_MIN, Math.round(parsed)))
+      : students;
+  const studentLabel = activeStudents === 1 ? "For 1 student" : `For ${activeStudents} students`;
+
+  const onCustomChange = (value: string) => {
+    if (value === "") {
+      setCustomStudents("");
+      return;
+    }
+    const n = Number(value);
+    if (!Number.isFinite(n)) return;
+    setCustomStudents(String(Math.min(CUSTOM_MAX, Math.max(CUSTOM_MIN, Math.floor(n)))));
+  };
 
   return (
     <>
-      {intro ? (
-        <Reveal>
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="kicker kicker-centered">Hadiya</p>
-            <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
-              Monthly Fees, Made Clear
-            </h2>
-            <p className="mt-3 leading-relaxed text-muted">
-              Fixed monthly fees for overseas families, billed monthly
-              after your 5-day absolutely FREE trial. Choose your region
-              and the number of students — the prices below update
-              automatically.
-            </p>
-          </div>
-        </Reveal>
-      ) : null}
-
       <Reveal className="mt-10">
         <div className="mx-auto max-w-3xl rounded-2xl bg-white p-6 shadow-card ring-1 ring-line sm:p-8">
           <div className="grid gap-8 md:grid-cols-2">
@@ -114,12 +126,15 @@ export default function FeesSchedule({ intro = true }: { intro?: boolean }) {
                   max={FEE_STUDENTS[FEE_STUDENTS.length - 1]}
                   step={1}
                   value={students}
-                  onChange={(e) => setStudents(Number(e.target.value))}
+                  onChange={(e) => {
+                    setStudents(Number(e.target.value));
+                    setCustomStudents("");
+                  }}
                   className="fee-range mt-1 flex-1"
                   aria-label="Number of students"
                 />
                 <span className="inline-flex h-8 shrink-0 items-center rounded-full bg-[#16a34a] px-3.5 text-[15px] font-bold text-white">
-                  {students} {students === 1 ? "Student" : "Students"}
+                  {activeStudents} {activeStudents === 1 ? "Student" : "Students"}
                 </span>
               </div>
               <div className="mt-2 flex justify-between text-sm font-medium text-muted" aria-hidden="true">
@@ -127,8 +142,27 @@ export default function FeesSchedule({ intro = true }: { intro?: boolean }) {
                   <span key={n}>{n}</span>
                 ))}
               </div>
+              {/* Custom count (round 18): typing a number here OVERRIDES
+                  the slider; clearing it reverts to the slider value. */}
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                <label htmlFor="fee-students-custom" className="text-sm font-semibold text-navyDark">
+                  Or enter number of students
+                </label>
+                <input
+                  id="fee-students-custom"
+                  type="number"
+                  min={CUSTOM_MIN}
+                  max={CUSTOM_MAX}
+                  inputMode="numeric"
+                  value={customStudents}
+                  placeholder={String(students)}
+                  onChange={(e) => onCustomChange(e.target.value)}
+                  className="w-20 rounded-xl border-[1.5px] border-line bg-[#fffdf9] px-3 py-2 text-[16px] font-semibold text-ink outline-none focus:border-navy focus:ring-2 focus:ring-navy/20"
+                  aria-label="Custom number of students"
+                />
+              </div>
               <p className="mt-2 text-sm font-medium text-navyInk">
-                {students === 1
+                {activeStudents === 1
                   ? "Add 2 or more siblings to unlock 15% Family Discount!"
                   : "15% Family Sibling Discount Applied!"}
               </p>
@@ -153,7 +187,7 @@ export default function FeesSchedule({ intro = true }: { intro?: boolean }) {
             delay={(i % 3) as 0 | 1 | 2}
             className="h-full"
           >
-            <FeeCard freq={freq} region={region} students={students} />
+            <FeeCard freq={freq} region={region} students={activeStudents} />
           </Reveal>
         ))}
       </div>

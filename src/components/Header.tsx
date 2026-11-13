@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation";
 type NavItem = {
   label: string;
   href: string;
-  children?: { label: string; href: string }[];
 };
 
 const NAV: NavItem[] = [
@@ -16,15 +15,7 @@ const NAV: NavItem[] = [
   { label: "About", href: "/about" },
   { label: "Courses", href: "/courses" },
   { label: "Teachers", href: "/teachers" },
-  { label: "Pricing", href: "/pricing" },
-  {
-    label: "Fee",
-    href: "/fees",
-    children: [
-      { label: "Fee Schedule", href: "/fees" },
-      { label: "Pricing", href: "/pricing" },
-    ],
-  },
+  { label: "Fee", href: "/fees" },
   { label: "Admission", href: "/admission" },
   { label: "FAQs", href: "/faqs" },
   { label: "Contact", href: "/contact" },
@@ -33,8 +24,8 @@ const NAV: NavItem[] = [
 /**
  * Sticky header — cream #fff7ec, 96px (64px mobile). Flat nav, active link
  * is red text. Brand: 82px circular logo, "Quran Light" (Light red) +
- * "Institute — Learn Quran Online" tagline (visible on mobile too since
- * the mobile-fix round — smaller, single line). Red "Get Started" → /contact.
+ * taglines (visible on mobile too since the mobile-fix round — smaller,
+ * single line). Red "Get Started" → /contact.
  * Burger (≤1080px): red 48×48 button, morphs into an X when open, gentle
  * float + press feedback; the cream mobile menu slides down + fades in
  * with links staggering in one by one (never all at once).
@@ -42,59 +33,32 @@ const NAV: NavItem[] = [
  * Feedback round 7: 8 nav links now (Admission added) — the desktop
  * row needs ≥1280px to fit, so the desktop nav / burger breakpoint
  * moves from lg to xl; below 1280px the mobile menu shows instead.
- * Feedback round 16: 9 nav links ("Fee" → /fees added after Pricing,
- * the user's word) — measured at 1280px, the row still fits (see the
- * round-16 change log); the xl breakpoint is unchanged. The mobile
- * menu gets "Fee" automatically (same NAV array).
  * Feedback round 14: mobile header compacted (bar 78→64px, logo 58→48px,
  * name 21→23px, tagline 9→10px semibold ink) — and the CLOSED mobile
  * menu no longer leaks a 17px dead strip: its nav padding/border now
  * apply only when open (grid-rows 0fr alone did not collapse the
  * nav's py-2 + border-t). Desktop header unchanged (96px bar, 82px logo).
- * Feedback round 17: "Fee" becomes a DROPDOWN (desktop hover/click,
- * mobile tap-expand) with "Fee Schedule" → /fees and "Pricing" →
- * /pricing inside — the pricing page stays for now, the user will
- * confirm with the client later whether to keep it or remove it.
- * The desktop brand lockup is now THREE centred lines ("Quran
- * Light" / "Institute" / "Learn Quran Online") — the one-line
- * tagline was too long and squeezed the nav + Get Started button;
- * the lockup is narrower now. MOBILE IS UNCHANGED (round 14). */
+ * Feedback round 17: "Fee" became a DROPDOWN (Fee Schedule + Pricing)
+ * and the desktop lockup became THREE centred lines — both CHANGED
+ * again in round 18 (see below).
+ * Feedback round 18 (13 Nov 2026): the /pricing page is REMOVED (the
+ * user decided — no more "confirm with the client"). "Fee" is a plain
+ * nav link to /fees again — the round-17 dropdown is GONE, and so is
+ * the standalone "Pricing" nav item. The desktop lockup taglines
+ * ("Institute" / "Learn Quran Online") are now 10px with tighter
+ * tracking so they fit INSIDE the "Quran Light" name width (the user:
+ * they stuck out past the logo) — measured at 1280px, see the
+ * round-18 change log. MOBILE IS UNCHANGED (round 14). */
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  /* Fee dropdown (round 17): desktop hover/click + mobile tap-expand. */
-  const [feeOpen, setFeeOpen] = useState(false);
-  const [mobileFeeOpen, setMobileFeeOpen] = useState(false);
-  const feeRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setOpen(false);
-    setFeeOpen(false);
-    setMobileFeeOpen(false);
   }, [pathname]);
-
-  /* Close the desktop Fee dropdown on Escape or an outside click. */
-  useEffect(() => {
-    if (!feeOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setFeeOpen(false);
-    };
-    const onDown = (e: MouseEvent) => {
-      if (feeRef.current && !feeRef.current.contains(e.target as Node)) {
-        setFeeOpen(false);
-      }
-    };
-    document.addEventListener("keydown", onKey);
-    document.addEventListener("mousedown", onDown);
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.removeEventListener("mousedown", onDown);
-    };
-  }, [feeOpen]);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
-  const isFeeActive = pathname === "/fees" || pathname === "/pricing";
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-cream shadow-[0_2px_18px_rgba(13,27,51,0.06)]">
@@ -110,17 +74,15 @@ export default function Header() {
               priority
             />
           </span>
-          {/* Brand lockup — round 17 scope addition (user, 13 Nov
-              21:17, DESKTOP ONLY): the one-line tagline was too long
-              and squeezed the nav + Get Started button. Desktop is
-              now THREE lines, centred as a unit (each line centred
-              relative to the widest line, "Learn Quran Online"):
-              "Quran Light" (styling unchanged) / "Institute" /
-              "Learn Quran Online" — the old one-line tagline
-              "Institute — Learn Quran Online" is SPLIT into the two
-              centred lines below, keeping the tagline styling
-              (uppercase, tracking, muted). The lockup is narrower
-              now, which frees horizontal space for the nav.
+          {/* Brand lockup — round 17 made it THREE centred lines
+              ("Quran Light" / "Institute" / "Learn Quran Online").
+              Round 18 (user, 13 Nov 21:38): the two tagline lines
+              stuck out past the logo — "Quran Light" ends at the T
+              of "Light", and the taglines must fit INSIDE that
+              width. FIX: the taglines are now 10px with tighter
+              tracking (0.08em), so both lines render narrower than
+              the 27px name — measured at 1280px, see the round-18
+              change log. All three lines still share one centre.
               MOBILE IS UNCHANGED (round 14): the two desktop lines
               are hidden on mobile and the one-line tagline shows
               instead — 64px header, 48px logo, 23px name, 10px
@@ -130,10 +92,10 @@ export default function Header() {
               <span className="text-navy">Quran</span>{" "}
               <span className="text-brandRed">Light</span>
             </span>
-            <span className="mt-1 block whitespace-nowrap text-[11.5px] font-medium uppercase tracking-[0.14em] text-muted max-[640px]:hidden">
+            <span className="mt-1 block whitespace-nowrap text-[10px] font-medium uppercase tracking-[0.08em] text-muted max-[640px]:hidden">
               Institute
             </span>
-            <span className="mt-0.5 block whitespace-nowrap text-[11.5px] font-medium uppercase tracking-[0.14em] text-muted max-[640px]:hidden">
+            <span className="mt-0.5 block whitespace-nowrap text-[10px] font-medium uppercase tracking-[0.08em] text-muted max-[640px]:hidden">
               Learn Quran Online
             </span>
             <span className="mt-1 hidden whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.09em] text-ink max-[640px]:block">
@@ -170,86 +132,17 @@ export default function Header() {
         </button>
 
         <nav className="main ml-auto hidden items-center gap-1 xl:flex" aria-label="Main">
-          {NAV.map((item) =>
-            item.children ? (
-              /* Fee dropdown (round 17): the top-level "Fee" label
-                 links to /fees; hover (or the chevron) opens the
-                 panel with "Fee Schedule" + "Pricing". The Pricing
-                 page stays for now — the user will confirm with the
-                 client later whether to keep it or remove it. */
-              <div
-                key={item.href}
-                ref={feeRef}
-                className="relative"
-                onMouseEnter={() => setFeeOpen(true)}
-                onMouseLeave={() => setFeeOpen(false)}
-              >
-                <div className="flex items-center">
-                  <Link
-                    href={item.href}
-                    className={`py-2 pl-3 pr-1 text-[16.5px] font-medium transition ${
-                      isFeeActive ? "text-brandRed" : "text-navyInk hover:text-brandRed"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                  <button
-                    type="button"
-                    aria-label="Fee menu"
-                    aria-expanded={feeOpen}
-                    aria-haspopup="true"
-                    onClick={() => setFeeOpen((v) => !v)}
-                    className={`flex items-center py-2 pl-0.5 pr-2 transition ${
-                      isFeeActive ? "text-brandRed" : "text-navyInk hover:text-brandRed"
-                    }`}
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className={`h-3.5 w-3.5 transition-transform duration-300 ${
-                        feeOpen ? "rotate-180" : ""
-                      }`}
-                      aria-hidden="true"
-                    >
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                  </button>
-                </div>
-                {feeOpen ? (
-                  <div className="absolute left-0 top-full z-50 w-52 rounded-xl border border-line bg-white py-2 shadow-card">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        onClick={() => setFeeOpen(false)}
-                        className={`block px-4 py-2.5 text-[16px] font-medium transition ${
-                          isActive(child.href)
-                            ? "text-brandRed"
-                            : "text-navyInk hover:bg-cream hover:text-brandRed"
-                        }`}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
-            ) : (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`px-3 py-2 text-[16.5px] font-medium transition ${
-                  isActive(item.href) ? "text-brandRed" : "text-navyInk hover:text-brandRed"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ),
-          )}
+          {NAV.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`px-3 py-2 text-[16.5px] font-medium transition ${
+                isActive(item.href) ? "text-brandRed" : "text-navyInk hover:text-brandRed"
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
           <Link
             href="/contact"
             className="btn-trial ml-3 btn-primary"
@@ -274,75 +167,20 @@ export default function Header() {
           aria-label="Mobile"
         >
           <div className="flex flex-col">
-            {NAV.map((item, i) =>
-              item.children ? (
-                /* Fee in the mobile menu (round 17): tapping the row
-                   EXPANDS it to show "Fee Schedule" + "Pricing"
-                   (indented below); the row itself does not navigate. */
-                <div key={item.href} className="border-b border-line last:border-b-0">
-                  <button
-                    type="button"
-                    tabIndex={open ? 0 : -1}
-                    aria-expanded={mobileFeeOpen}
-                    onClick={() => setMobileFeeOpen((v) => !v)}
-                    style={{ transitionDelay: open ? `${90 + i * 55}ms` : "0ms" }}
-                    className={`flex h-12 w-full items-center justify-between px-2 text-[16.5px] font-medium transition-all duration-500 ease-out ${
-                      open ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
-                    } ${isFeeActive ? "text-brandRed" : "text-navyInk"}`}
-                  >
-                    {item.label}
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className={`h-4 w-4 transition-transform duration-300 ${
-                        mobileFeeOpen ? "rotate-180" : ""
-                      }`}
-                      aria-hidden="true"
-                    >
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                  </button>
-                  <div
-                    className={`grid transition-all duration-300 ease-in-out ${
-                      mobileFeeOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                    }`}
-                  >
-                    <div className="min-h-0 overflow-hidden">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          tabIndex={open && mobileFeeOpen ? 0 : -1}
-                          onClick={() => setOpen(false)}
-                          className={`flex h-11 items-center border-t border-line/60 pl-6 pr-2 text-[16px] font-medium ${
-                            isActive(child.href) ? "text-brandRed" : "text-navyInk"
-                          }`}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  tabIndex={open ? 0 : -1}
-                  onClick={() => setOpen(false)}
-                  style={{ transitionDelay: open ? `${90 + i * 55}ms` : "0ms" }}
-                  className={`flex h-12 items-center border-b border-line px-2 text-[16.5px] font-medium transition-all duration-500 ease-out last:border-b-0 ${
-                    open ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
-                  } ${isActive(item.href) ? "text-brandRed" : "text-navyInk"}`}
-                >
-                  {item.label}
-                </Link>
-              ),
-            )}
+            {NAV.map((item, i) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                tabIndex={open ? 0 : -1}
+                onClick={() => setOpen(false)}
+                style={{ transitionDelay: open ? `${90 + i * 55}ms` : "0ms" }}
+                className={`flex h-12 items-center border-b border-line px-2 text-[16.5px] font-medium transition-all duration-500 ease-out last:border-b-0 ${
+                  open ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
+                } ${isActive(item.href) ? "text-brandRed" : "text-navyInk"}`}
+              >
+                {item.label}
+              </Link>
+            ))}
             <Link
               href="/contact"
               tabIndex={open ? 0 : -1}

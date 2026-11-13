@@ -223,34 +223,6 @@ export const FAQS: Faq[] = [
   { q: "How do I get admission?", a: "Book the 5-day free trial first, then choose your plan on WhatsApp — 30, 45 or 60 minutes per class, on the days that suit you. Once you are satisfied with the trial, your classes start. See the Online Admission page for the full steps." },
 ];
 
-export type PricingPlan = { id: string; name: string; desc: string; features: string[]; popular?: boolean };
-/* Feedback round 7 (13 Nov 2026): plans are now by CLASS DURATION,
-   not days per week — the client said the fee must differ by duration
-   (30 / 45 / 60 minutes). 45 Minutes is the Popular (middle) card.
-   No numeric prices anywhere — the fee line stays "Monthly Fee /
-   Confirmed personally on WhatsApp". Days per week (2, 3 or 5) is
-   still the family's choice, kept as a feature line on every card. */
-export const PRICING_PLANS: PricingPlan[] = [
-  {
-    id: "30-min",
-    name: "30 Minutes",
-    desc: "A focused half-hour lesson — a gentle pace for young children and busy families.",
-    features: ["30-Minute Live Class", "1 on 1 Session", "Qualified Male & Female Teachers", "Flexible Timings in Your Time Zone", "Monthly Progress Report", "Choose your days — 2, 3 or 5 days a week", "Free Trial Classes for Students Satisfaction"],
-  },
-  {
-    id: "45-min",
-    name: "45 Minutes",
-    desc: "Our most chosen lesson length — enough time to learn, revise and practise in every class.",
-    features: ["45-Minute Live Class", "1 on 1 Session", "Qualified Male & Female Teachers", "Flexible Timings in Your Time Zone", "Monthly Progress Report", "Choose your days — 2, 3 or 5 days a week", "Free Trial Classes for Students Satisfaction"],
-    popular: true,
-  },
-  {
-    id: "1-hour",
-    name: "1 Hour",
-    desc: "A full hour of learning — ideal for Hifz students and adults who want deeper study.",
-    features: ["60-Minute Live Class", "1 on 1 Session", "Qualified Male & Female Teachers", "Flexible Timings in Your Time Zone", "Monthly Progress Report", "Choose your days — 2, 3 or 5 days a week", "Free Trial Classes for Students Satisfaction"],
-  },
-];
 
 /* Feedback round 16 (13 Nov 2026) — REAL PRICES, as on the
    reference. The user corrected round 15 firmly: the reference

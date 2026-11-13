@@ -3,8 +3,9 @@ import { feeFor, type FeeFrequency, type FeeRegion } from "@/lib/data";
 
 /**
  * One fee plan card — COMPACT and premium, like the reference's
- * cards. Shared by the home page calculator, the /fees page and the
- * /pricing page (round 17), so all three show the same card.
+ * cards. Shared by the home page calculator (round 18: the /fees
+ * page is the reference's page as it is — no cards there — and the
+ * /pricing page is removed), so the card shows on home only.
  *
  * Round 17 (user, 13 Nov 21:15 — screenshot of equrantutors.com/fees):
  * the SUBTITLES and FEATURES are now the reference's own words, per
