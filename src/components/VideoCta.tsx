@@ -66,7 +66,7 @@ export default function VideoCta() {
         </Reveal>
         <Reveal delay={1}>
           <p className="mx-auto mt-4 max-w-[600px] leading-relaxed text-white/85">
-            Tap the screen for a quiet moment with the Holy Quran — then start with 3 absolutely
+            Tap the screen for a quiet moment with the Holy Quran — then start with 5 absolutely
             FREE trial classes. Experience a live one-to-one lesson, meet the teacher, and then
             decide — with no obligation at all.
           </p>

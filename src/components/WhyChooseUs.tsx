@@ -5,36 +5,38 @@ import { TEACHERS_PHOTO } from "@/lib/site";
 
 /** Why Choose Us (PREVIEW-SPEC §3.7): cream section, photo left with
  * the animated circular "11+ Years Experience" badge (rises in +
- * counts up, like Minha's 25+ badge), 8 features 2×2 on the right.
+ * counts up, like Minha's 25+ badge), features on the right.
  * Feedback round 7 (13 Nov 2026): 4 features → 8, from the client's
- * own requirements — "One-to-One Attention" is now "Individual
- * Student Attention" and "Progress Monitoring" is now "Monthly
- * Progress Reports" (her words); added Parent-Teacher Communication,
- * Secure Online Learning, Student Attendance System and Islamic
- * Environment ("Islamic belong" — interpreted, see roadmap).
- * Feedback round 5 (Minha shot3): the photo was too TALL (560px) —
- * now moderate (360px mobile / 460px desktop), ~16px rounded
- * corners, badge overlapping the TOP-LEFT corner like Minha's 25+.
- * Also the ROOT CAUSE of the floating-WhatsApp bug: this text
- * column's Reveal (from="right", +56px) CONTAINED the feature-item
- * Reveals (also left/right, ±56px) — the shifts compounded to
- * +112px and expanded the mobile layout viewport to 486px. The
- * feature items now rise VERTICALLY (no horizontal shift), so no
- * compounding; html/body overflow-x: clip (globals.css) is the
- * belt-and-braces guard for every other sideways Reveal. */
+ * own requirements.
+ * Feedback round 9 (13 Nov 2026): 8 features → 10, in the CLIENT'S
+ * EXACT WORDS — the user checked the live site and could not find
+ * them (different words, scattered across pages). "Live 1-to-1
+ * Online Classes" and "Kids & Adults Classes" were missing from
+ * this section entirely (they only lived in the 12 Specialities,
+ * which render on the About page only) — both added, with the
+ * specialities' own descriptions. "Qualified Teachers" is now
+ * "Male & Female Teachers" and "Flexible Learning" is now "Flexible
+ * Class Timings" (her words). Icons for the 2 new items reuse
+ * existing SVGs from this set. The h2 is now "Why Choose Quran
+ * Light Institute" so the section is unmistakable. */
 const FEATURES = [
   {
-    title: "Qualified Teachers",
+    title: "Live 1-to-1 Online Classes",
+    text: "Personalized Quran lessons with full teacher attention through live online sessions.",
+    icon: "M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z",
+  },
+  {
+    title: "Male & Female Teachers",
     text: "Experienced, qualified and caring male and female Quran teachers for every student.",
     icon: "M12 3 1 8.5l11 5.5 9-4.5V15h2V8.5L12 3zM5 12.6V16c0 1.66 3.13 3 7 3s7-1.34 7-3v-3.4l-7 3.5-7-3.5z",
   },
   {
-    title: "Individual Student Attention",
-    text: "Every class is a live one-to-one session — the teacher's full attention is on your child.",
-    icon: "M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z",
+    title: "Kids & Adults Classes",
+    text: "Quran learning programs specially designed for children and adults of all ages.",
+    icon: "M12 3 1 8.5l11 5.5 9-4.5V15h2V8.5L12 3zM5 12.6V16c0 1.66 3.13 3 7 3s7-1.34 7-3v-3.4l-7 3.5-7-3.5z",
   },
   {
-    title: "Flexible Learning",
+    title: "Flexible Class Timings",
     text: "Choose class timings that fit your daily routine and your time zone — anywhere in the world.",
     icon: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 10.6 4.2 2.5-.8 1.3L11 14V6h2v6.6z",
   },
@@ -42,6 +44,11 @@ const FEATURES = [
     title: "Monthly Progress Reports",
     text: "Regular progress assessments and a monthly report keep parents fully informed.",
     icon: "M3 3v18h18v-2H5V3H3zm4 12 4-4 3 3 6-7-1.4-1.4L13 11.2l-3-3-5.4 5.4L4 14.4z",
+  },
+  {
+    title: "Individual Student Attention",
+    text: "Every class is a live one-to-one session — the teacher's full attention is on your child.",
+    icon: "M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z",
   },
   {
     title: "Parent-Teacher Communication",
@@ -76,7 +83,7 @@ export default function WhyChooseUs() {
           <div>
             <p className="kicker">Why Choose Us</p>
             <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
-              Empowering Skills for a Successful Future Ahead
+              Why Choose Quran Light Institute
             </h2>
             <p className="mt-4 leading-relaxed text-muted">
               With 11+ years of experience in online Quran teaching, we combine qualified teachers,
