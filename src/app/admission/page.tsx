@@ -8,29 +8,43 @@ import { TRIAL_MESSAGE, whatsappUrl } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Online Admission — Quran Light Institute",
   description:
-    "Quran Light Institute — Learn Quran Online with Tajweed. Online admission in three simple steps: book the 5-day absolutely FREE trial classes, choose your plan, and start learning live one-to-one.",
+    "Quran Light Institute — Learn Quran Online with Tajweed. Online admission in four simple steps: book the 5-day absolutely FREE trial, meet your teacher, attend your free trial classes, and confirm your plan to begin learning live one-to-one.",
   alternates: { canonical: "https://quranlightinstitute.com/admission" },
 };
 
 /* Feedback round 7 (13 Nov 2026): the client's "Online admission"
    requirement. Admission is a process, not a page of new facts —
    every step below describes the existing trial → plan → start flow
-   only. No invented content, prices or timelines. */
+   only. No invented content, prices or timelines.
+   Feedback round 15, expansion #3 (13 Nov 2026): the steps reworked
+   into the reference's 4-step structure ("How Registration &
+   Admission Works" on equrantutors.com) with Quran Light's OWN
+   facts. NOT copied: the 3-day trial (ours is 5 days), "Diagnostic
+   Evaluation" (step 2 is "Meet Your Teacher" — no vetting or
+   certification claim exists for Quran Light), "3 live classes"
+   (the trial is 5 days), "weekly progress logs" (ours is the real
+   "Monthly Progress Reports" feature). The rest of the page — form,
+   "What happens next" panel, FAQs, WhatsApp CTA — is untouched. */
 const ADMISSION_STEPS = [
   {
     n: "01.",
     title: "Book Your 5-Day Free Trial",
-    text: "Fill the free trial registration form below or message us on WhatsApp. Your first 5 days of classes are absolutely free — no payment is asked before or during the trial.",
+    text: "Fill the simple form below with your course interest and your convenient days and times — or message us on WhatsApp. Your first 5 days of classes are absolutely free.",
   },
   {
     n: "02.",
-    title: "Choose Your Plan",
-    text: "After the trial, choose your class length — 30, 45 or 60 minutes — and your days, 2, 3 or 5 days a week. Your exact monthly fee is confirmed personally on WhatsApp.",
+    title: "Meet Your Teacher",
+    text: "We match you with a qualified male or female teacher for your timing and timezone — sisters and young children learn comfortably with a female tutor.",
   },
   {
     n: "03.",
-    title: "Start Classes",
-    text: "Meet your teacher, get your class schedule, and begin learning — live, one-to-one, from home.",
+    title: "Attend Your Free Trial Classes",
+    text: "Attend live, one-to-one classes for your 5-day trial — real lessons with your teacher, from home.",
+  },
+  {
+    n: "04.",
+    title: "Confirm & Begin",
+    text: "Choose your plan — 30, 45 or 60 minutes, 2, 3 or 5 days a week — confirm your exact monthly fee on WhatsApp, and start regular classes with a monthly progress report.",
   },
 ];
 
@@ -61,13 +75,17 @@ const STEP_ICONS = [
     <rect x="3" y="4" width="18" height="18" rx="3" />
     <path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4" />
   </svg>,
-  <svg key="plan" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7" aria-hidden="true">
-    <path d="M9 11l3 3L22 4" />
-    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+  <svg key="teacher" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7" aria-hidden="true">
+    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+    <circle cx="12" cy="7" r="4" />
   </svg>,
   <svg key="play" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7" aria-hidden="true">
     <circle cx="12" cy="12" r="10" />
     <path d="M10 8l6 4-6 4V8z" fill="currentColor" stroke="none" />
+  </svg>,
+  <svg key="confirm" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7" aria-hidden="true">
+    <path d="M9 11l3 3L22 4" />
+    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
   </svg>,
 ];
 
@@ -113,7 +131,7 @@ export default function AdmissionPage() {
           <div className="mx-auto max-w-3xl text-center">
             <p className="kicker kicker-centered">How Admission Works</p>
             <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
-              Three Simple Steps to Start Learning
+              Four Simple Steps to Start Learning
             </h2>
             <p className="mt-3 leading-relaxed text-muted">
               Admission is fully online — no visit, no paperwork. Trial first,
@@ -121,12 +139,12 @@ export default function AdmissionPage() {
             </p>
           </div>
           </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {ADMISSION_STEPS.map((s, i) => (
               <Reveal
                 key={s.n}
                 from={i % 2 === 0 ? "left" : "right"}
-                delay={i as 0 | 1 | 2}
+                delay={(i % 3) as 0 | 1 | 2}
                 className="h-full"
               >
               <div className="relative h-full overflow-hidden rounded-[20px] border border-line bg-white p-8 text-left shadow-[0_3px_12px_rgba(13,27,51,0.05)] transition duration-300 hover:-translate-y-[5px] hover:shadow-card">

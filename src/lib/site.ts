@@ -22,6 +22,11 @@ export function feeMessageForPlan(planName: string): string {
   return `Assalamu Alaikum! I want the exact monthly fee for the "${planName}" plan at Quran Light Institute.`;
 }
 
+/* Feedback round 15 (13 Nov 2026): the /fees page CTA — a general
+   fee enquiry (no plan name), used by the Fee Schedule page. */
+export const FEE_MESSAGE =
+  "Assalamu Alaikum! I want my exact monthly fee for Quran Light Institute.";
+
 /* Verified Pexels photos (see ~/workspace/quran-light-real-photos-2026-11-11/README.md
    and ~/workspace/quran-light-qn3-spec/PHOTO-ROUND-2-2026-11-12.md).
    Photo round 2 (12 Nov 2026): the old hero female 34481773 and the

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
 import PricingCards from "@/components/PricingCards";
 import { Reveal } from "@/components/Reveal";
@@ -50,6 +51,14 @@ export default function PricingPage() {
           </Reveal>
           <div className="mt-12">
             <PricingCards />
+          </div>
+          <div className="mt-8 text-center">
+            <Link
+              href="/fees"
+              className="font-semibold text-navy underline decoration-navy/30 underline-offset-4 transition hover:text-brandRed"
+            >
+              See the detailed fee schedule →
+            </Link>
           </div>
         </div>
       </section>
