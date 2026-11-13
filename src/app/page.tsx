@@ -248,7 +248,7 @@ export default function HomePage() {
       <section className="py-[96px] max-[640px]:py-[64px]">
         <div className="mx-auto max-w-7xl px-4">
           <Reveal className="mx-auto max-w-3xl text-center">
-            <p className="kicker kicker-centered">Pricing Plans</p>
+            <p className="kicker kicker-centered">Hadiya Plans</p>
             <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
               Upgrade Your Skills and Knowledge
             </h2>
@@ -276,7 +276,7 @@ export default function HomePage() {
               Still Have Questions?
             </h2>
             <p className="mt-3 leading-relaxed text-muted">
-              Message us any time — we reply on WhatsApp and email, and your first 3 trial
+              Message us any time — we reply on WhatsApp and email, and your first 5 trial
               classes are completely free.
             </p>
             <Link
@@ -332,7 +332,7 @@ export default function HomePage() {
                 Start Your Quran Journey Today
               </h2>
               <p className="mt-3 max-w-xl leading-relaxed text-white/85">
-                Join your first class with 3 absolutely FREE trial lessons — meet your teacher,
+                Join your first class with 5 absolutely FREE trial lessons — meet your teacher,
                 experience one-to-one learning, and then decide. No payment, no obligation.
               </p>
             </div>
@@ -350,6 +350,12 @@ export default function HomePage() {
                 className="btn-outline-light"
               >
                 Explore Courses
+              </Link>
+              <Link
+                href="/admission"
+                className="btn-outline-light"
+              >
+                Online Admission
               </Link>
             </div>
           </div>

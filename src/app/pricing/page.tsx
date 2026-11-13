@@ -37,7 +37,7 @@ export default function PricingPage() {
         <div className="mx-auto max-w-7xl px-4">
           <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <p className="kicker kicker-centered">Pricing Plans</p>
+            <p className="kicker kicker-centered">Hadiya Plans</p>
             <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.12] tracking-[-0.02em] text-navyInk sm:text-[44px]">
               Upgrade Your Skills and Knowledge
             </h2>
