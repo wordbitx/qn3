@@ -31,7 +31,10 @@ const AVATARS = [
  */
 export default function Hero() {
   return (
-    <section className="px-3.5 py-3.5">
+    /* Feedback round 14: hero section top padding on mobile 14→10px, so
+       the gap between the (now compacted) mobile header and the hero card
+       shrinks. Desktop hero padding unchanged. */
+    <section className="px-3.5 py-3.5 max-[640px]:pt-2.5">
       <div className="relative overflow-hidden rounded-[22px] bg-navyDark">
         {/*
           Mobile-fix round: the landscape hero stretched over a ~390×1300px

@@ -6,12 +6,14 @@ import { EMAIL, TRIAL_MESSAGE, whatsappUrl } from "@/lib/site";
  * the email (hidden ≤640px). Right: social icons — Facebook and YouTube are
  * PLACEHOLDERS pointing to /contact (preview behaviour, do not invent
  * profile URLs); only WhatsApp is a real link.
- */
+ * Feedback round 14: mobile top bar compacted (54→44px: py-2 → py-1 on
+ * mobile only) — number and icons unchanged, still fully tappable.
+ * Desktop top bar unchanged (54px). */
 export default function TopBar() {
   const wa = whatsappUrl(TRIAL_MESSAGE);
   return (
     <div className="bg-navy text-white">
-      <div className="mx-auto flex min-h-[54px] max-w-7xl items-center justify-between gap-3 px-4 py-2 text-[14.5px] font-normal">
+      <div className="mx-auto flex min-h-[54px] max-w-7xl items-center justify-between gap-3 px-4 py-2 text-[14.5px] font-normal max-[640px]:min-h-[44px] max-[640px]:py-1">
         <div className="flex min-w-0 items-center gap-3">
           <a
             href={wa}

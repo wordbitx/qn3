@@ -17,7 +17,7 @@ const NAV = [
 ];
 
 /**
- * Sticky header — cream #fff7ec, 96px (78px mobile). Flat nav, active link
+ * Sticky header — cream #fff7ec, 96px (64px mobile). Flat nav, active link
  * is red text. Brand: 82px circular logo, "Quran Light" (Light red) +
  * "Institute — Learn Quran Online" tagline (visible on mobile too since
  * the mobile-fix round — smaller, single line). Red "Get Started" → /contact.
@@ -27,7 +27,12 @@ const NAV = [
  * Menu closes on link tap and on route change.
  * Feedback round 7: 8 nav links now (Admission added) — the desktop
  * row needs ≥1280px to fit, so the desktop nav / burger breakpoint
- * moves from lg to xl; below 1280px the mobile menu shows instead. */
+ * moves from lg to xl; below 1280px the mobile menu shows instead.
+ * Feedback round 14: mobile header compacted (bar 78→64px, logo 58→48px,
+ * name 21→23px, tagline 9→10px semibold ink) — and the CLOSED mobile
+ * menu no longer leaks a 17px dead strip: its nav padding/border now
+ * apply only when open (grid-rows 0fr alone did not collapse the
+ * nav's py-2 + border-t). Desktop header unchanged (96px bar, 82px logo). */
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -41,9 +46,9 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-cream shadow-[0_2px_18px_rgba(13,27,51,0.06)]">
-      <div className="mx-auto flex h-[96px] max-w-7xl items-center gap-3 px-4 max-[640px]:h-[78px]">
+      <div className="mx-auto flex h-[96px] max-w-7xl items-center gap-3 px-4 max-[640px]:h-[64px]">
         <Link href="/" className="flex min-w-0 items-center gap-3" aria-label="Quran Light Institute — home">
-          <span className="block h-[82px] w-[82px] shrink-0 rounded-full bg-white p-1 shadow-[0_2px_12px_rgba(0,51,140,0.18)] max-[640px]:h-[58px] max-[640px]:w-[58px]">
+          <span className="block h-[82px] w-[82px] shrink-0 rounded-full bg-white p-1 shadow-[0_2px_12px_rgba(0,51,140,0.18)] max-[640px]:h-[48px] max-[640px]:w-[48px]">
             <Image
               src="/logo.jpg"
               alt="Quran Light Institute logo"
@@ -54,11 +59,11 @@ export default function Header() {
             />
           </span>
           <span className="min-w-0 leading-none">
-            <span className="block font-display text-[27px] font-extrabold tracking-tight max-[640px]:text-[21px]">
+            <span className="block font-display text-[27px] font-extrabold tracking-tight max-[640px]:text-[23px]">
               <span className="text-navy">Quran</span>{" "}
               <span className="text-brandRed">Light</span>
             </span>
-            <span className="mt-1.5 block whitespace-nowrap text-[11.5px] font-medium uppercase tracking-[0.14em] text-muted max-[640px]:text-[9px] max-[640px]:tracking-[0.08em]">
+            <span className="mt-1.5 block whitespace-nowrap text-[11.5px] font-medium uppercase tracking-[0.14em] text-muted max-[640px]:mt-1 max-[640px]:text-[10px] max-[640px]:font-semibold max-[640px]:tracking-[0.09em] max-[640px]:text-ink">
               Institute — Learn Quran Online
             </span>
           </span>
@@ -121,8 +126,8 @@ export default function Header() {
         aria-hidden={!open}
       >
         <nav
-          className={`min-h-0 overflow-hidden border-t border-line bg-cream px-4 py-2 ${
-            open ? "" : "pointer-events-none"
+          className={`min-h-0 overflow-hidden bg-cream px-4 ${
+            open ? "border-t border-line py-2" : "pointer-events-none border-t-0 py-0"
           }`}
           aria-label="Mobile"
         >
