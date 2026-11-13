@@ -342,6 +342,7 @@ button.btn-trial {
    labels as before — only the feel changes. */
 .btn-primary,
 .btn-navy,
+.btn-gold,
 .btn-outline-light,
 .btn-outline-red,
 .btn-outline-navy {
@@ -389,6 +390,22 @@ button.btn-trial {
   box-shadow:
     0 16px 32px rgba(0, 51, 140, 0.32),
     0 4px 10px rgba(0, 51, 140, 0.18);
+}
+/* Gold button (feedback round 17): the reference's Most Popular card
+   has a GOLD "START 3-DAY FREE TRIAL" button (adapted to our 5-day
+   trial). Muted brass #c19a3d, like the reference's gold. */
+.btn-gold {
+  background: #c19a3d;
+  box-shadow:
+    0 10px 22px rgba(193, 154, 61, 0.35),
+    0 2px 6px rgba(193, 154, 61, 0.2);
+}
+.btn-gold:hover {
+  transform: translateY(-2px);
+  background: #a9862f;
+  box-shadow:
+    0 16px 32px rgba(193, 154, 61, 0.38),
+    0 4px 10px rgba(193, 154, 61, 0.22);
 }
 .btn-outline-light {
   border: 2px solid #fff;
@@ -453,6 +470,7 @@ button.btn-trial {
 }
 .btn-primary:active,
 .btn-navy:active,
+.btn-gold:active,
 .btn-outline-light:active,
 .btn-outline-red:active,
 .btn-outline-navy:active {
@@ -460,7 +478,8 @@ button.btn-trial {
 }
 /* Sheen sweep on the solid buttons. */
 .btn-primary::after,
-.btn-navy::after {
+.btn-navy::after,
+.btn-gold::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -470,19 +489,22 @@ button.btn-trial {
   pointer-events: none;
 }
 .btn-primary:hover::after,
-.btn-navy:hover::after {
+.btn-navy:hover::after,
+.btn-gold:hover::after {
   transform: translateX(130%);
 }
 @media (prefers-reduced-motion: reduce) {
   .btn-primary,
   .btn-navy,
+  .btn-gold,
   .btn-outline-light,
   .btn-outline-red,
   .btn-outline-navy {
     transition: none;
   }
   .btn-primary::after,
-  .btn-navy::after {
+  .btn-navy::after,
+  .btn-gold::after {
     display: none;
   }
 }
