@@ -20,6 +20,15 @@ import { Reveal } from "@/components/Reveal";
  * complained about the boxes, not the section; the blush keeps
  * this section distinct from the cream Why Choose Us above it).
  * Same copy, same photos as the mobile-fix round.
+ * Feedback round 12 (13 Nov 2026): the user checked the live site on
+ * his Mac and said everything else is perfect — only the photos: they
+ * sat inset with white space above and below them. Now each photo spans
+ * the FULL HEIGHT of its card — top edge to bottom edge, edge-to-edge
+ * like Minha's premium cards (only a slight space at most). The card
+ * keeps its 18px corners (the photo is clipped to them by the card's
+ * overflow-hidden); the text side keeps its padding and is vertically
+ * centred against the tall photo. Same 4 photos, same copy, same 2×2
+ * grid, same red "01." numbers.
  */
 const STEPS = [
   {
@@ -79,8 +88,14 @@ export default function Steps() {
               delay={(i % 2) as 0 | 1}
               className="h-full"
             >
-              <div className="group flex h-full items-center gap-5 rounded-[18px] bg-white p-5 shadow-card sm:gap-6 sm:p-6">
-                <div className="relative h-[120px] w-[120px] shrink-0 overflow-hidden rounded-[12px] sm:h-[150px] sm:w-[150px]">
+              <div className="group flex h-full items-stretch gap-5 overflow-hidden rounded-[18px] bg-white shadow-card sm:gap-6">
+                {/* Feedback round 12: full-height photo — it spans the
+                    card's full height (top edge to bottom edge). The
+                    wrapper has NO fixed height: flex stretch gives it
+                    the card's height, and the card's overflow-hidden
+                    clips the photo to the 18px corners (top-left and
+                    bottom-left rounded, inner edge square). */}
+                <div className="relative w-[120px] shrink-0 self-stretch overflow-hidden sm:w-[150px]">
                   <Image
                     src={s.src}
                     alt={s.alt}
@@ -89,7 +104,7 @@ export default function Steps() {
                     className="object-cover transition duration-500 group-hover:scale-[1.07]"
                   />
                 </div>
-                <div className="min-w-0">
+                <div className="flex min-w-0 flex-col justify-center py-5 pr-5 sm:py-6 sm:pr-6">
                   <span className="font-display text-[20px] font-bold leading-none text-brandRed">
                     {s.num}.
                   </span>
