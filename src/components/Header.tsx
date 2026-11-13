@@ -11,6 +11,7 @@ const NAV = [
   { label: "Courses", href: "/courses" },
   { label: "Teachers", href: "/teachers" },
   { label: "Pricing", href: "/pricing" },
+  { label: "Fee", href: "/fees" },
   { label: "Admission", href: "/admission" },
   { label: "FAQs", href: "/faqs" },
   { label: "Contact", href: "/contact" },
@@ -28,6 +29,10 @@ const NAV = [
  * Feedback round 7: 8 nav links now (Admission added) — the desktop
  * row needs ≥1280px to fit, so the desktop nav / burger breakpoint
  * moves from lg to xl; below 1280px the mobile menu shows instead.
+ * Feedback round 16: 9 nav links ("Fee" → /fees added after Pricing,
+ * the user's word) — measured at 1280px, the row still fits (see the
+ * round-16 change log); the xl breakpoint is unchanged. The mobile
+ * menu gets "Fee" automatically (same NAV array).
  * Feedback round 14: mobile header compacted (bar 78→64px, logo 58→48px,
  * name 21→23px, tagline 9→10px semibold ink) — and the CLOSED mobile
  * menu no longer leaks a 17px dead strip: its nav padding/border now

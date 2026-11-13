@@ -8,7 +8,7 @@ import CourseCard from "@/components/CourseCard";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import StatsRow from "@/components/StatsRow";
 import Steps from "@/components/Steps";
-import FeeCardsRow from "@/components/FeeCardsRow";
+import FeesSchedule from "@/components/FeesSchedule";
 import VideoCta from "@/components/VideoCta";
 import TestimonialsGrid from "@/components/TestimonialsGrid";
 import FaqList from "@/components/FaqList";
@@ -254,28 +254,24 @@ export default function HomePage() {
               Upgrade Your Skills and Knowledge
             </h2>
             <p className="mt-3 leading-relaxed text-muted">
-              Simple monthly plans built around your weekly schedule. Start with 5 absolutely
-              FREE trial classes — the exact fee for your country is confirmed on WhatsApp
-              before you enrol.
+              Real monthly prices below — choose your region and the number
+              of students, and the prices update automatically. Start with
+              5 absolutely FREE trial classes.
             </p>
           </Reveal>
-          {/* Frequency fee cards in a horizontal-scroll row (round 15,
-              expansion #2): the same 4 cards as /fees — 2 / 3 / 5 / 7
-              days a week — with the session lengths (30 / 45 / 60 min)
-              inside each card. Scroll-snap + drag + arrows; no
-              auto-advance. The region and student controls live on
-              /fees, linked below.
-              Animation (round 15, user 20:38): the row + link sit in
-              ONE section-level Reveal — the whole row fades/rises in
-              as a unit, like the other sections. Card-level Reveals
-              were NOT used inside this track: the testimonials
-              carousel (the pattern) does not wrap its cards either,
-              and per-card transforms would fight the scroll-snap /
-              drag measurements. On /fees the same cards DO have
-              per-card Reveals — safe there, the grid is not a scroll
-              container. */}
+          {/* Fee calculator (round 16, 13 Nov 2026 — the user's firm
+              correction of round 15): the FULL calculator on the home
+              page, like the reference's homepage — currency dropdown
+              + students slider ABOVE the 5 price cards, prices
+              updating live. The round-15 horizontal-scroll row (4
+              frequency cards, "Confirmed on WhatsApp", no prices)
+              is GONE: the cards now show REAL PRICES and STACK on
+              mobile, so every price is visible by scrolling the
+              page. The calculator is the shared FeesSchedule
+              component (same as /fees); only the heading above is
+              the home page's own. */}
+          <FeesSchedule intro={false} />
           <Reveal>
-            <FeeCardsRow />
             <div className="mt-8 text-center">
               <Link
                 href="/fees"

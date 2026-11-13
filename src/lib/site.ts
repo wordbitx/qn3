@@ -22,10 +22,10 @@ export function feeMessageForPlan(planName: string): string {
   return `Assalamu Alaikum! I want the exact monthly fee for the "${planName}" plan at Quran Light Institute.`;
 }
 
-/* Feedback round 15 (13 Nov 2026): the /fees page CTA — a general
-   fee enquiry (no plan name), used by the Fee Schedule page. */
-export const FEE_MESSAGE =
-  "Assalamu Alaikum! I want my exact monthly fee for Quran Light Institute.";
+/* Feedback round 15 (13 Nov 2026): the /fees page CTA — REMOVED in
+   round 16: the fee is now SHOWN on the page, so a general "what is
+   my exact fee" WhatsApp message is obsolete. The /fees CTA now
+   uses TRIAL_MESSAGE (book the trial) instead. */
 
 /* Verified Pexels photos (see ~/workspace/quran-light-real-photos-2026-11-11/README.md
    and ~/workspace/quran-light-qn3-spec/PHOTO-ROUND-2-2026-11-12.md).

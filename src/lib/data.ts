@@ -219,7 +219,7 @@ export const FAQS: Faq[] = [
   /* Feedback round 7 (13 Nov 2026): fee by class duration + admission,
      from the client's own requirements. No rates are stated here — the
      exact fee is confirmed personally on WhatsApp. */
-  { q: "Do the fees differ by class duration?", a: "Yes. The monthly fee depends on the length of each class — 30 minutes, 45 minutes or 1 hour have different fees. Message us on WhatsApp and we confirm your exact monthly fee personally, before you enrol." },
+  { q: "Do the fees differ by class duration?", a: "Yes. The monthly fee depends on the length of each class — 30 minutes, 45 minutes or 1 hour have different fees — and on how many days a week you take classes. The exact monthly prices for 30-minute classes are on the Fee Schedule page. For 45- or 60-minute classes, message us on WhatsApp and we confirm your exact fee before you enrol." },
   { q: "How do I get admission?", a: "Book the 5-day free trial first, then choose your plan on WhatsApp — 30, 45 or 60 minutes per class, on the days that suit you. Once you are satisfied with the trial, your classes start. See the Online Admission page for the full steps." },
 ];
 
@@ -252,87 +252,91 @@ export const PRICING_PLANS: PricingPlan[] = [
   },
 ];
 
-/* Feedback round 15 (13 Nov 2026) — the /fees page (Fee Schedule),
-   modelled on the LAYOUT of equrantutors.com's pricing section only:
-   region/currency selector + number-of-students slider + frequency
-   plan cards + Hifz premium + per-course fees. Their prices, stats
-   and claims are NOT copied. The fee AMOUNTS do not exist yet — the
-   client never sent a rate card — so every fee slot reads
-   "Confirmed on WhatsApp". When the client sends the rates, fill
-   them in HERE (a data change, not a rebuild). */
+/* Feedback round 16 (13 Nov 2026) — REAL PRICES, as on the
+   reference. The user corrected round 15 firmly: the reference
+   (equrantutors.com) shows REAL PRICES on its homepage calculator
+   and he wants the same — "jo price reference website mein likhi
+   hai, wahi price likho". So the fee table now carries the
+   reference's prices, per the user's DIRECT instruction. 1-student
+   bases are browser-verified live reads (USD + PKR from the parent's
+   13 Nov checks; EUR/GBP re-verified 13 Nov 20:53 — EUR €32/44/58/70/38,
+   GBP £28/38/50/60/32, which CONFIRMS the earlier read; the video's
+   £29/39/51/61/34 was a misread). Multi-student values come from
+   the reference's own formula base × students × 0.85 (15% sibling
+   discount), verified against the live calculator (USD 2/3 students,
+   EUR 2, GBP 2, CAD 4 all match exactly). The plans are the
+   REFERENCE'S five — 2/3/4/5 days + Weekend — NOT the client's
+   2/3/5/7: the 7-day frequency is DROPPED (no reference price
+   exists for it; the client would need to supply a 7-day price to
+   bring it back). All plans are 30 minutes per class. */
 
-export type FeeRegion = { id: string; label: string; currency: string; currencyName: string; symbol: string };
+export type FeeRegion = { id: string; label: string; currency: string; currencyName: string; symbol: string; priceSymbol: string };
 /* Browser-verified (parent, 13 Nov 2026): equrantutors.com's dropdown
    is exactly these 5 options, in this order, default USD — USA,
    Canada, Europe, UK, Pakistan. NO Australia. Option text matches
-   the reference: "USD ($ US Dollar) - USA". */
+   the reference: "USD ($ US Dollar) - USA". `symbol` is the option
+   text; `priceSymbol` is what the price shows (CAD shows "C$" in
+   prices, "$" in the option text; PKR shows "Rs. " with a space). */
 export const FEE_REGIONS: FeeRegion[] = [
-  { id: "US", label: "USA", currency: "USD", currencyName: "US Dollar", symbol: "$" },
-  { id: "CA", label: "Canada", currency: "CAD", currencyName: "Canadian Dollar", symbol: "$" },
-  { id: "EU", label: "Europe", currency: "EUR", currencyName: "Euro", symbol: "€" },
-  { id: "UK", label: "UK", currency: "GBP", currencyName: "British Pound", symbol: "£" },
-  { id: "PK", label: "Pakistan", currency: "PKR", currencyName: "Pakistani Rupee", symbol: "Rs." },
+  { id: "US", label: "USA", currency: "USD", currencyName: "US Dollar", symbol: "$", priceSymbol: "$" },
+  { id: "CA", label: "Canada", currency: "CAD", currencyName: "Canadian Dollar", symbol: "$", priceSymbol: "C$" },
+  { id: "EU", label: "Europe", currency: "EUR", currencyName: "Euro", symbol: "€", priceSymbol: "€" },
+  { id: "UK", label: "UK", currency: "GBP", currencyName: "British Pound", symbol: "£", priceSymbol: "£" },
+  { id: "PK", label: "Pakistan", currency: "PKR", currencyName: "Pakistani Rupee", symbol: "Rs.", priceSymbol: "Rs. " },
 ];
 
 export const FEE_STUDENTS = [1, 2, 3, 4];
 
-export type FeeFrequency = { id: string; label: string; classesPerMonth: number; popular?: boolean };
-/* Classes per month = days per week × 4 weeks (plain arithmetic).
-   3 Days / Week is the Most Popular card — the same middle-choice
-   treatment the site already gives the 45-Minutes Hadiya plan. */
+export type FeeFrequency = { id: string; title: string; classesPerMonth: number; minutesEach: number; popular?: boolean };
+/* The REFERENCE'S five plans, as it is — title = plan name + frequency
+   ("Foundation 2 Days", "Regular 3 Days", "Fluent 4 Days",
+   "Daily / Hifz 5 Days", "Weekend Sat & Sun"). Classes per month =
+   days per week × 4 weeks. 3 Days is the Most Popular card (the
+   reference's "Most Popular ⭐"). Every plan is 30 minutes per class.
+   The 5 Days plan IS the Hifz plan — at $75 it is the highest price,
+   which is how "Hifz fee higher" is expressed now (round 15's separate
+   Hifz premium card is removed). */
 export const FEE_FREQUENCIES: FeeFrequency[] = [
-  { id: "2", label: "2 Days / Week", classesPerMonth: 8 },
-  { id: "3", label: "3 Days / Week", classesPerMonth: 12, popular: true },
-  { id: "5", label: "5 Days / Week", classesPerMonth: 20 },
-  { id: "7", label: "7 Days / Week", classesPerMonth: 28 },
+  { id: "2", title: "Foundation 2 Days", classesPerMonth: 8, minutesEach: 30 },
+  { id: "3", title: "Regular 3 Days", classesPerMonth: 12, minutesEach: 30, popular: true },
+  { id: "4", title: "Fluent 4 Days", classesPerMonth: 16, minutesEach: 30 },
+  { id: "5", title: "Daily / Hifz 5 Days", classesPerMonth: 20, minutesEach: 30 },
+  { id: "W", title: "Weekend Sat & Sun", classesPerMonth: 8, minutesEach: 30 },
 ];
 
-export type FeeDuration = { id: string; label: string; minutes: number };
-export const FEE_DURATIONS: FeeDuration[] = [
-  { id: "30", label: "30 Minutes", minutes: 30 },
-  { id: "45", label: "45 Minutes", minutes: 45 },
-  { id: "60", label: "1 Hour", minutes: 60 },
-];
+/* 1-student base rates, per currency — the reference's prices.
+   Order per plan: 2 Days / 3 Days / 4 Days / 5 Days / Weekend.
+   USD: 35/48/62/75/40 · EUR: 32/44/58/70/38 · GBP: 28/38/50/60/32
+   PKR: 9000/12000/15500/18500/7500 · CAD: 48/65/85/102/55. */
+export const FEE_BASE_RATES: Record<string, number> = {
+  "US|2": 35, "US|3": 48, "US|4": 62, "US|5": 75, "US|W": 40,
+  "EU|2": 32, "EU|3": 44, "EU|4": 58, "EU|5": 70, "EU|W": 38,
+  "UK|2": 28, "UK|3": 38, "UK|4": 50, "UK|5": 60, "UK|W": 32,
+  "PK|2": 9000, "PK|3": 12000, "PK|4": 15500, "PK|5": 18500, "PK|W": 7500,
+  "CA|2": 48, "CA|3": 65, "CA|4": 85, "CA|5": 102, "CA|W": 55,
+};
 
-export const FEE_NOT_SET = "Confirmed on WhatsApp";
+/* Sibling discount factor — 0.85 = 15% off when 2+ students learn
+   together. This IS the reference's discount, and it is IN because
+   it is how the reference's prices move with students (the user
+   explicitly wants prices to change with students). Verified live:
+   USD $35 → $60 for 2 students (35 × 2 × 0.85 = 59.5 → 60). */
+export const FEE_SIBLING_DISCOUNT_FACTOR = 0.85;
 
-/* Calculator formula (browser-verified LOGIC from equrantutors.com,
-   amounts NOT copied): their 1→2 student prices move as base ×
-   students minus a 15% sibling discount (e.g. $35 → $60 for 2 Days).
-   Quran Light's table uses the SAME formula structure:
-     monthly fee = base rate (per currency, 1 student) × students
-                   × sibling-discount factor (only when 2+ students
-                   AND the client has confirmed a discount).
-   The base rates are all null (not set) until the client sends her
-   rate card — so every fee slot reads FEE_NOT_SET today. The
-   discount factor is null (OFF/unset): the reference's 15% sibling
-   discount is THEIR claim and is NOT copied. When the client sends
-   her rates (per currency) and confirms or denies a sibling
-   discount, fill FEE_BASE_RATES and FEE_SIBLING_DISCOUNT_FACTOR —
-   a data change, not a rebuild. (This replaces the first draft's
-   FEE_TABLE keyed by region × students × frequency × duration:
-   the verified calculator works from per-currency base rates.) */
-export const FEE_BASE_RATES: Record<string, number | null> = {};
-for (const region of FEE_REGIONS) {
-  for (const freq of FEE_FREQUENCIES) {
-    for (const duration of FEE_DURATIONS) {
-      FEE_BASE_RATES[`${region.id}|${freq.id}|${duration.id}`] = null;
-    }
-  }
-}
-
-/* Sibling discount factor, e.g. 0.85 for a 15% discount. NULL = unset:
-   no discount is shown until the client confirms one. */
-export const FEE_SIBLING_DISCOUNT_FACTOR: number | null = null;
-
-export function feeFor(regionId: string, students: number, frequencyId: string, durationId: string): string {
-  const base = FEE_BASE_RATES[`${regionId}|${frequencyId}|${durationId}`];
-  if (base == null) return FEE_NOT_SET;
+/* Monthly fee = base rate × students × discount factor (2+ students).
+   Returns e.g. "$48/mo", "€54/mo", "£28/mo", "Rs. 12,000/mo",
+   "C$65/mo". Math.round rounds .5 UP — the reference's own rounding
+   for .5 was not observed live, so these five cases are flagged in
+   the round-16 change log: EUR 3-student Hifz 178.5→179, GBP
+   3-student Fluent 127.5→128, CAD 2-student Regular 110.5→111,
+   CAD 2-student Fluent 144.5→145, CAD 2-student Weekend 93.5→94
+   (and USD 2-student Hifz 127.5→128). */
+export function feeFor(regionId: string, students: number, frequencyId: string): string {
+  const base = FEE_BASE_RATES[`${regionId}|${frequencyId}`];
   const region = FEE_REGIONS.find((r) => r.id === regionId) ?? FEE_REGIONS[0];
-  const factor =
-    students >= 2 && FEE_SIBLING_DISCOUNT_FACTOR != null ? FEE_SIBLING_DISCOUNT_FACTOR : 1;
+  const factor = students >= 2 ? FEE_SIBLING_DISCOUNT_FACTOR : 1;
   const amount = Math.round(base * students * factor);
-  return `${region.symbol}${amount.toLocaleString("en-US")}`;
+  return `${region.priceSymbol}${amount.toLocaleString("en-US")}/mo`;
 }
 
 export type SampleReview = { name: string; role: string; course: string; text: string };

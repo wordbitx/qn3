@@ -3,33 +3,38 @@ import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
 import FeesSchedule from "@/components/FeesSchedule";
 import { Reveal } from "@/components/Reveal";
-import { FEE_MESSAGE, whatsappUrl } from "@/lib/site";
+import { TRIAL_MESSAGE, whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Fee Schedule — Quran Light Institute",
   description:
-    "Quran Light Institute — Learn Quran Online with Tajweed. Monthly fee schedule for every course — 2, 3, 5 or 7 days a week, 30, 45 or 60 minutes per class, Hifz premium. 5-day absolutely FREE trial classes.",
+    "Quran Light Institute — Learn Quran Online with Tajweed. Real monthly prices by region — 2, 3, 4, 5 days a week and Weekend plans, from $35/month. 5-day absolutely FREE trial classes.",
   alternates: { canonical: "https://quranlightinstitute.com/fees" },
 };
 
-/* Feedback round 15 (13 Nov 2026): the separate Fee Schedule page
-   the client asked for — each course's fee, 2/3/5/7 days a week,
-   30-minute vs 1-hour classes, Hifz fee higher. The fee AMOUNTS do
-   not exist yet (the client never sent a rate card), so every fee
-   slot reads "Confirmed on WhatsApp" — no numbers are invented. */
+/* Feedback round 16 (13 Nov 2026): the Fee Schedule page, as it is
+   — the SAME calculator as the home page (region dropdown + students
+   slider + 5 price cards with REAL PRICES from the reference's price
+   table, per the user's DIRECT instruction), the reference's Hifz
+   long-session note + trial-guarantee note, the International
+   Payments note, and the final CTA.
+   REMOVED (round 16): the round-15 per-course fee list (it had no
+   prices — the exact thing the user complained about — and the
+   reference has no per-course list), the round-15 separate Hifz
+   premium card (the 5 Days plan IS the Hifz plan at $75, the highest
+   price), and the round-15 "Before You Enrol" notes that said
+   "Confirmed on WhatsApp" — there is no "Confirmed on WhatsApp"
+   anywhere on this page anymore.
+   5-day trial is kept everywhere (NOT the reference's 3-day trial). */
 
 const NOTES = [
   {
-    title: "Confirmed on WhatsApp",
-    text: "Your monthly fee is confirmed personally on WhatsApp — no hidden charges. Fees depend on your plan and country.",
+    title: "Hifz Long Sessions",
+    text: "For dedicated Hifz students requiring 45-minute or 60-minute daily sessions, custom monthly plans are arranged during your trial evaluation.",
   },
   {
-    title: "5 Days Absolutely FREE First",
-    text: "Your first 5 days of classes are absolutely free. No payment is asked before or during the trial.",
-  },
-  {
-    title: "Hifz Sessions, Decided in the Trial",
-    text: "Hifz sessions are 45 or 60 minutes — the right length is decided with your teacher during the free trial.",
+    title: "Trial Guarantee",
+    text: "If after your first trial class you feel the institute isn't the right fit, you will not be charged. No pressure, no obligation.",
   },
 ];
 
@@ -38,7 +43,11 @@ export default function FeesPage() {
     <>
       <PageBanner crumb="Fee Schedule" title="Fee Schedule" />
 
-      <FeesSchedule />
+      <section className="pb-[72px] pt-16 max-[640px]:pb-[52px]">
+        <div className="mx-auto max-w-7xl px-4">
+          <FeesSchedule />
+        </div>
+      </section>
 
       <section className="bg-cream py-[72px] max-[640px]:py-[56px]">
         <div className="mx-auto max-w-7xl px-4">
@@ -50,7 +59,7 @@ export default function FeesPage() {
               </h2>
             </div>
           </Reveal>
-          <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-3">
+          <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-2">
             {NOTES.map((n, i) => (
               <Reveal
                 key={n.title}
@@ -80,11 +89,11 @@ export default function FeesPage() {
               Stripe, Visa, and MasterCard. The billing line is
               adapted to Quran Light's real facts — monthly billing
               after the 5-day free trial (NOT the reference's 3-day
-              trial). Still NOT copied: their prices, their stats /
-              reviews, DBS / COPPA / makeup / 15% / Ijazah / Dean
-              claims, "zero binding contracts", "zero admission or
-              registration fees". The fee AND the payment arrangement
-              stay "confirmed personally on WhatsApp". */}
+              trial). Still NOT copied: their stats / reviews, DBS /
+              COPPA / makeup / Ijazah / Dean claims, "zero binding
+              contracts", "zero admission or registration fees".
+              Round 16: the fee itself is now SHOWN on this page, so
+              only the PAYMENT ARRANGEMENT is confirmed on WhatsApp. */}
           <Reveal>
             <div className="mx-auto mt-6 max-w-4xl rounded-[14px] border border-line bg-white p-7 shadow-[0_3px_12px_rgba(13,27,51,0.05)]">
               <h3 className="font-display text-xl font-bold text-navyInk">
@@ -95,9 +104,8 @@ export default function FeesPage() {
                 worldwide. Choose your region above to see fees in your own
                 currency. Fees are billed monthly after your 5-day absolutely
                 FREE trial. We accept PayPal, direct bank transfer, Stripe,
-                Visa, and MasterCard — your exact monthly fee and your payment
-                arrangement are both confirmed personally on WhatsApp, with no
-                hidden charges.
+                Visa, and MasterCard — your payment arrangement is confirmed
+                personally on WhatsApp, with no hidden charges.
               </p>
             </div>
           </Reveal>
@@ -112,21 +120,21 @@ export default function FeesPage() {
                 Ready to Start?
               </h2>
               <p className="mt-3 leading-relaxed text-muted">
-                Message us on WhatsApp and we confirm your exact monthly fee personally —
-                then book your 5-day absolutely FREE trial.
+                See a plan you like? Book your 5-day absolutely FREE trial —
+                no payment, no obligation.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <a
-                  href={whatsappUrl(FEE_MESSAGE)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary w-full text-center sm:w-auto"
-                >
-                  Confirm Your Fee on WhatsApp
-                </a>
-                <Link href="/admission" className="btn-navy w-full text-center sm:w-auto">
+                <Link href="/admission" className="btn-primary w-full text-center sm:w-auto">
                   Book Your 5-Day FREE Trial
                 </Link>
+                <a
+                  href={whatsappUrl(TRIAL_MESSAGE)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-navy w-full text-center sm:w-auto"
+                >
+                  Chat on WhatsApp
+                </a>
               </div>
             </div>
           </Reveal>

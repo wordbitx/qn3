@@ -8,7 +8,7 @@ import { feeMessageForPlan, whatsappUrl } from "@/lib/site";
 /**
  * Pricing cards (PREVIEW-SPEC §3.9). No numeric prices anywhere — the
  * price line reads "Monthly Fee / Confirmed personally on WhatsApp — no
- * hidden charges". Popular card (3 Days a Week): pale-pink gradient +
+ * hidden charges". Popular card (45 Minutes): pale-pink gradient +
  * red top border + red button + "Popular" badge. Clicking a card body
  * plays a tap bounce; Enter/Space on a focused card focuses its button.
  */
@@ -85,7 +85,10 @@ function PricingCard({ plan }: { plan: (typeof PRICING_PLANS)[number] }) {
       <div className="mt-6 border-t border-dashed border-line pt-5">
         <p className="font-display text-[21px] font-bold text-navyInk">Monthly Fee</p>
         <p className="mt-0.5 text-sm text-muted">
-          Confirmed personally on WhatsApp — no hidden charges
+          Exact monthly prices by days per week — see the{" "}
+          <a href="/fees" className="font-semibold text-brandRed underline">
+            Fee Schedule
+          </a>
         </p>
       </div>
       <a
